@@ -6,19 +6,25 @@
 
   <title>{{ page.title }} | {{ site.title }}</title>
 
-  <!-- Load Hacker theme styles (bundled by GitHub Pages) -->
+  <!-- Load Hacker theme stylesheet -->
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+
+  <!-- Load your custom overrides -->
+  <link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}">
 
   {{ site.head }}
 </head>
 
 <body>
+
+  <!-- Matrix background -->
+  <canvas id="matrix"></canvas>
+  <script src="/assets/js/matrix.js"></script>
+
   <div class="container">
     {{ content }}
   </div>
+
 </body>
-
-<canvas id="matrix"></canvas>
-<script src="/assets/js/matrix.js"></script>
-
 </html>
+
