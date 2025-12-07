@@ -1,31 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
+  <title>
+    {% if page.title %}{{ page.title }} · {% endif %}{{ site.title | default: "jamielab" }}
+  </title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>{{ page.title }} | {{ site.title }}</title>
+  <!-- Base CSS -->
+  <link rel="stylesheet" href="{{ "/assets/css/custom.css" | relative_url }}">
 
-  <!-- Load Hacker theme stylesheet -->
-  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
-
-  <!-- Load your custom overrides -->
-  <link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}">
-
-  {{ site.head }}
+  <!-- Optional: basic favicon -->
+  <link rel="icon" href="{{ "/assets/img/terminal-icon.png" | relative_url }}">
 </head>
+<body class="crt-theme">
 
-<body>
+  <!-- Global overlays -->
+  <div class="noise-overlay"></div>
+  <div class="scanlines-overlay"></div>
 
-  <!-- Matrix background -->
-  <canvas id="matrix"></canvas>
-  <script src="/assets/js/matrix.js"></script>
+  <div class="page-shell">
+    <!-- Sidebar / nav panel -->
+    <aside class="nav-panel">
+      <div class="nav-brand">
+        <div class="nav-brand-title">jamielab<span class="brand-blink">_</span></div>
+        <div class="nav-brand-sub">personal cyber lab</div>
+      </div>
 
-  <div class="container">
-    {{ content }}
+      <nav class="nav-menu">
+        <a class="nav-link" href="{{ "/" | relative_url }}">
+          <span class="nav-prefix">&gt;</span> home
+        </a>
+        <a class="nav-link" href="{{ "/projects/" | relative_url }}">
+          <span class="nav-prefix">&gt;</span> projects
+        </a>
+        <a class="nav-link" href="{{ "/homelab/" | relative_url }}">
+          <span class="nav-prefix">&gt;</span> homelab
+        </a>
+        <a class="nav-link" href="{{ "/notes/" | relative_url }}">
+          <span class="nav-prefix">&gt;</span> notes
+        </a>
+        <a class="nav-link" href="{{ "/about/" | relative_url }}">
+          <span class="nav-prefix">&gt;</span> about
+        </a>
+      </nav>
+
+      <div class="nav-footer">
+        <div class="nav-footer-line">user: jamie</div>
+        <div class="nav-footer-line">access: <span class="accent">granted</span></div>
+      </div>
+
+      <!-- Mobile toggle -->
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        ☰
+      </button>
+    </aside>
+
+    <!-- Main content region -->
+    <main class="main-panel">
+      <header class="top-bar">
+        <div class="top-bar-left">
+          <span class="top-bar-label">jamielab@console</span>
+          <span class="top-bar-separator">::</span>
+          <span class="top-bar-path">
+            /{{ page.path | default: "index" }}
+          </span>
+        </div>
+        <div class="top-bar-right">
+          <span class="top-bar-status-indicator"></span>
+          <span class="top-bar-status-text">online</span>
+          <span class="top-bar-time">
+            {{ site.time | date: "%Y-%m-%d %H:%M" }}
+          </span>
+        </div>
+      </header>
+
+      <section class="content-panel">
+        <div class="terminal-frame">
+          <div class="terminal-header">
+            <span class="dot dot-red"></span>
+            <span class="dot dot-amber"></span>
+            <span class="dot dot-green"></span>
+            <span class="terminal-title">
+              {{ page.title | default: "console" }}
+            </span>
+          </div>
+          <div class="terminal-body">
+            {{ content }}
+          </div>
+        </div>
+      </section>
+
+      <footer class="status-bar">
+        <span>IFCONFIG: homelab up | tailscale active | pihole filtering</span>
+        <span>jamielab.me :: experimental zone</span>
+      </footer>
+    </main>
   </div>
 
+  <!-- Base JS (optional but useful later) -->
+  <script src="{{ "/assets/js/main.js" | relative_url }}"></script>
 </body>
 </html>
+
 
 
