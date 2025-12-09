@@ -483,9 +483,6 @@ th {
   }
 }
 
-<<<<<<< HEAD
-
-=======
 /* Matrix behind everything */
 #matrix,
 canvas#matrix {
@@ -680,4 +677,221 @@ canvas#matrix {
     width: 100%;
   }
 }
->>>>>>> 1ce681173520b299c57b7e6f7bc3cad285534561
+
+/* ========== NOTES WIDGET ========== */
+
+.notes-panel {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  border: 1px solid rgba(0, 255, 102, 0.35);
+  background: linear-gradient(145deg, rgba(0, 12, 5, 0.75), rgba(0, 0, 0, 0.92));
+  box-shadow:
+    0 0 12px rgba(0, 255, 102, 0.24),
+    inset 0 0 10px rgba(0, 0, 0, 0.8);
+  border-radius: 3px;
+}
+
+.note-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  padding: 0.65rem;
+  border: 1px dashed rgba(0, 255, 102, 0.45);
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.note-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.note-field label {
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  color: #ddffe5;
+}
+
+.note-field input,
+.note-field textarea {
+  width: 100%;
+  padding: 0.5rem;
+  font: inherit;
+  color: #4dff88;
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(0, 255, 102, 0.4);
+  border-radius: 2px;
+  outline: none;
+  transition: border-color 0.12s ease-out, box-shadow 0.12s ease-out;
+}
+
+.note-field input:focus,
+.note-field textarea:focus {
+  border-color: rgba(0, 255, 102, 0.8);
+  box-shadow: 0 0 8px rgba(77, 255, 136, 0.4);
+}
+
+.note-field textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.note-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  font-size: 0.85rem;
+}
+
+.note-submit {
+  padding: 0.45rem 0.8rem;
+  border: 1px solid rgba(0, 255, 102, 0.75);
+  background: linear-gradient(120deg, rgba(0, 255, 102, 0.25), rgba(0, 0, 0, 0.85));
+  color: #ddffe5;
+  text-transform: lowercase;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: transform 0.05s ease-out, box-shadow 0.12s ease-out;
+}
+
+.note-submit:hover,
+.note-submit:focus-visible {
+  outline: none;
+  box-shadow: 0 0 10px rgba(77, 255, 136, 0.5);
+  transform: translateY(-1px);
+}
+
+.note-hint {
+  opacity: 0.75;
+  letter-spacing: 0.03em;
+}
+
+.notes-list-shell {
+  border: 1px solid rgba(0, 255, 102, 0.3);
+  background: rgba(0, 0, 0, 0.65);
+  padding: 0.65rem;
+  border-radius: 3px;
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.7);
+}
+
+.notes-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  text-transform: lowercase;
+  letter-spacing: 0.06em;
+  color: #ddffe5;
+}
+
+.notes-list {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.notes-empty {
+  margin-top: 0.25rem;
+  font-size: 0.85rem;
+  opacity: 0.75;
+}
+
+.note-card {
+  border: 1px solid rgba(0, 255, 102, 0.35);
+  background: linear-gradient(140deg, rgba(0, 255, 102, 0.08), rgba(0, 0, 0, 0.9));
+  padding: 0.65rem;
+  border-radius: 3px;
+  box-shadow:
+    0 0 10px rgba(0, 255, 102, 0.2),
+    inset 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+.note-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.note-title {
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #ddffe5;
+}
+
+.note-meta {
+  font-size: 0.78rem;
+  opacity: 0.75;
+}
+
+.note-body {
+  margin: 0.35rem 0 0.5rem;
+  white-space: pre-wrap;
+  line-height: 1.4;
+}
+
+.note-actions-row {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.note-delete {
+  border: 1px solid rgba(255, 77, 77, 0.55);
+  background: rgba(0, 0, 0, 0.7);
+  color: #ffb3b3;
+  padding: 0.3rem 0.55rem;
+  border-radius: 2px;
+  cursor: pointer;
+  text-transform: lowercase;
+  letter-spacing: 0.05em;
+  transition: border-color 0.12s ease-out, box-shadow 0.12s ease-out;
+}
+
+.note-delete:hover,
+.note-delete:focus-visible {
+  outline: none;
+  border-color: rgba(255, 77, 77, 0.9);
+  box-shadow: 0 0 8px rgba(255, 77, 77, 0.4);
+}
+
+@media (max-width: 640px) {
+  .note-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* ========== HOME HERO IMAGE ========== */
+
+.hero-shot {
+  margin-top: 1rem;
+  border: 1px solid rgba(0, 255, 102, 0.35);
+  background: linear-gradient(145deg, rgba(0, 12, 5, 0.8), rgba(0, 0, 0, 0.94));
+  padding: 0.5rem;
+  border-radius: 3px;
+  box-shadow:
+    0 0 12px rgba(0, 255, 102, 0.22),
+    inset 0 0 12px rgba(0, 0, 0, 0.85);
+  max-width: 900px;
+}
+
+.hero-shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid rgba(0, 255, 102, 0.35);
+  border-radius: 2px;
+  box-shadow: 0 0 10px rgba(0, 255, 102, 0.25);
+}
+
+.hero-caption {
+  margin-top: 0.35rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  opacity: 0.78;
+}

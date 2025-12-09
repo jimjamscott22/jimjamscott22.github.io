@@ -3,15 +3,6 @@ layout: default
 title: Home
 ---
 
-<<<<<<< HEAD
-# JamieLab Console
-
-<div id="intro"></div>
-
-Welcome to the lab.  
-Systems online. Homelab operational. Network experiments underway.
-
-=======
 # JamieLab System Console
 
 <div id="intro" data-text="Initializing JamieLab command console..."></div>
@@ -22,4 +13,9 @@ Network tools engaged.
 
 <script src="/assets/js/typewriter.js"></script>
 
->>>>>>> 1ce681173520b299c57b7e6f7bc3cad285534561
+## Featured image
+
+<div class="hero-shot">
+  <img src="{{ "/img/HacktheSleep.JPG" | relative_url }}" alt="Hack the Sleep project snapshot">
+  <div class="hero-caption">Hack the Sleep — captured in the lab feed</div>
+</div>
