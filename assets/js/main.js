@@ -15,3 +15,7 @@
   // - hover glitch on console panels
   // - tiny network-status easter eggs
 })();
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1ce681173520b299c57b7e6f7bc3cad285534561
