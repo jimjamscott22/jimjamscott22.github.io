@@ -44,7 +44,7 @@ A rolling set of builds, tools, and lab experiments. Swap in real screenshots la
 ## Experiments
 <div class="card-grid">
   <article class="card">
-    <div class="placeholder-img" aria-hidden="true">image placeholder</div>
+    <img src="/img/pihole_dash.png" alt="Experimental Pi-hole dashboard screenshot">
     <header class="card-header">
       <h2>Pi-hole + DNS toys</h2>
       <span class="badge status status-active">active</span>
@@ -59,7 +59,7 @@ A rolling set of builds, tools, and lab experiments. Swap in real screenshots la
   </article>
 
   <article class="card">
-    <div class="placeholder-img" aria-hidden="true">image placeholder</div>
+    <img src="img/oswego_server_homepage.png" alt="school server homepage screenshot">
     <header class="card-header">
       <h2>Pi cluster</h2>
       <span class="badge status status-planned">planned</span>
