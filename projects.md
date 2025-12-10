@@ -26,7 +26,7 @@ A rolling set of builds, tools, and lab experiments. Swap in real screenshots la
   </article>
 
   <article class="card">
-    <div class="placeholder-img" aria-hidden="true">image placeholder</div>
+   <img src="/img/VLAN_Diagram.png" alt="image of a VLAN diagram">
     <header class="card-header">
       <h2>Fort Knox LAN</h2>
       <span class="badge status status-building">building</span>
