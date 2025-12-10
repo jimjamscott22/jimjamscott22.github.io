@@ -11,7 +11,7 @@ A rolling set of builds, tools, and lab experiments. Swap in real screenshots la
 ## Active builds
 <div class="card-grid">
   <article class="card">
-    <div class="placeholder-img" aria-hidden="true">image placeholder</div>
+    ![Screenshot of ThreatStream Lite dashboard](D:\Code\Web Dev\jimjamscott22.github.io\img\threat_stream_dash.png)
     <header class="card-header">
       <h2>ThreatStream Lite</h2>
       <span class="badge status status-active">active</span>
