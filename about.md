@@ -31,7 +31,7 @@ Curious, technical, and usually building or breaking something in the homelab.
   </div>
 
   <div class="about-visual">
-    <div class="placeholder-img small" aria-hidden="true">portrait/diagram placeholder</div>
+    <img src="\img\hackerdog.PNG" alt="pic of dog"
     <p class="about-caption">Replace with a headshot, rack photo, or diagram.</p>
   </div>
 </div>
