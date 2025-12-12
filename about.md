@@ -31,8 +31,8 @@ Curious, technical, and usually building or breaking something in the homelab.
   </div>
 
   <div class="about-visual">
-    <img src="\img\hackerdog.PNG" alt="pic of dog"
-	<img src="\img\hackerjamie.PNG alt="pic of website owner"
+    <img src="{{ "/img/hackerdog.PNG" | relative_url }}" alt="Pic of dog" />
+    <img src="{{ "/img/jamiehacker.PNG" | relative_url }}" alt="Pic of website owner" />
     <p class="about-caption">Replace with a headshot, rack photo, or diagram.</p>
   </div>
 </div>
