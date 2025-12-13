@@ -1012,3 +1012,41 @@ canvas#matrix {
   letter-spacing: 0.05em;
   opacity: 0.78;
 }
+
+/* ========== BLOG / POSTS ========== */
+
+.post-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+  margin: 0.75rem 0 1rem;
+}
+
+@media (min-width: 820px) {
+  .post-list {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  }
+}
+
+.post-header {
+  margin-bottom: 0.75rem;
+}
+
+.post-title {
+  margin: 0;
+}
+
+.post-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: 0.45rem;
+}
+
+.post-excerpt {
+  opacity: 0.85;
+}
+
+.post-footer {
+  margin-top: 0.9rem;
+}
