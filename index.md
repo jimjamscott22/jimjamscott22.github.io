@@ -11,11 +11,11 @@ Welcome to the lab. Systems online.
 Homelab status: operational.  
 Network tools engaged.  
 
-<script src="/assets/js/typewriter.js"></script>
+<script defer src="{{ "/assets/js/typewriter.js" | relative_url }}"></script>
 
 ## Featured image
 
 <div class="hero-shot">
-  <img src="{{ "/img/HacktheSleep.JPG" | relative_url }}" alt="Hack the Sleep project snapshot">
+  <img src="{{ "/img/HacktheSleep.JPG" | relative_url }}" alt="Hack the Sleep project snapshot" loading="lazy" decoding="async">
   <div class="hero-caption">Hack the Sleep — captured in the lab feed</div>
 </div>

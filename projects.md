@@ -11,7 +11,7 @@ A rolling set of builds, tools, and lab experiments. Swap in real screenshots la
 ## Active builds
 <div class="card-grid">
   <article class="card">
-    <img src="{{ "/img/threat_stream_dash.png" | relative_url }}" alt="Screenshot of ThreatStream Lite dashboard" />
+    <img src="{{ "/img/threat_stream_dash.png" | relative_url }}" alt="Screenshot of ThreatStream Lite dashboard" loading="lazy" decoding="async" />
     <header class="card-header">
       <h2>ThreatStream Lite</h2>
       <span class="badge status status-active">active</span>
@@ -26,7 +26,7 @@ A rolling set of builds, tools, and lab experiments. Swap in real screenshots la
   </article>
 
   <article class="card">
-    <img src="{{ "/img/VLAN_Diagram.png" | relative_url }}" alt="Image of a VLAN diagram" />
+    <img src="{{ "/img/VLAN_Diagram.png" | relative_url }}" alt="Image of a VLAN diagram" loading="lazy" decoding="async" />
     <header class="card-header">
       <h2>Fort Knox LAN</h2>
       <span class="badge status status-building">building</span>
@@ -44,7 +44,7 @@ A rolling set of builds, tools, and lab experiments. Swap in real screenshots la
 ## Experiments
 <div class="card-grid">
   <article class="card">
-    <img src="{{ "/img/pihole_dash.png" | relative_url }}" alt="Experimental Pi-hole dashboard screenshot" />
+    <img src="{{ "/img/pihole_dash.png" | relative_url }}" alt="Experimental Pi-hole dashboard screenshot" loading="lazy" decoding="async" />
     <header class="card-header">
       <h2>Pi-hole + DNS toys</h2>
       <span class="badge status status-active">active</span>
@@ -59,7 +59,7 @@ A rolling set of builds, tools, and lab experiments. Swap in real screenshots la
   </article>
 
   <article class="card">
-    <img src="{{ "/img/oswego_server_homepage.png" | relative_url }}" alt="School server homepage screenshot" />
+    <img src="{{ "/img/oswego_server_homepage.png" | relative_url }}" alt="School server homepage screenshot" loading="lazy" decoding="async" />
     <header class="card-header">
       <h2>Pi cluster</h2>
       <span class="badge status status-planned">planned</span>

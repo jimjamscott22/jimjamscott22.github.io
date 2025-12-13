@@ -4,6 +4,17 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!el) return;
 
   const text = el.getAttribute("data-text") || "";
+
+  const prefersReducedMotion =
+    typeof window.matchMedia === "function" &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // Respect reduced-motion: show text immediately (no timers).
+  if (prefersReducedMotion) {
+    el.textContent = text;
+    return;
+  }
+
   let i = 0;
 
   function type() {

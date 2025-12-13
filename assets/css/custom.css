@@ -193,6 +193,30 @@ body,
   50%, 100% { opacity: 0; }
 }
 
+/* ========== ACCESSIBILITY / PERFORMANCE: REDUCED MOTION ========== */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  /* Stop constant animation flicker/blinks */
+  .crt-theme {
+    animation: none !important;
+  }
+
+  .brand-blink,
+  #intro::after {
+    animation: none !important;
+  }
+
+  /* Soften heavy overlays */
+  .noise-overlay,
+  .scanlines-overlay {
+    opacity: 0.06;
+  }
+}
+
 .nav-menu {
   display: flex;
   flex-direction: column;
