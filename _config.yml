@@ -1,6 +1,7 @@
 title: "Jamie Lab"
 description: "Experiments. Networks. Homelab. Code."
 markdown: kramdown
+excerpt_separator: "<!--more-->"
 defaults:
   - scope:
       path: "_pages"

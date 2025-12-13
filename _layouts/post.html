@@ -5,14 +5,26 @@ layout: default
 <article class="post">
   <header class="post-header">
     <h1 class="post-title">{{ page.title }}</h1>
+
+    {% assign __post_words = content | strip_html | strip_newlines | replace: "  ", " " | split: " " %}
+    {% assign __post_word_count = __post_words | size %}
+    {% assign __post_reading_mins = __post_word_count | plus: 199 | divided_by: 200 %}
+
     <div class="post-meta">
       <span class="badge tag">{{ page.date | date: "%Y-%m-%d" }}</span>
+      {% if __post_word_count and __post_word_count > 0 %}
+        <span class="badge tag">{{ __post_reading_mins }} min read</span>
+      {% endif %}
       {% if page.tags and page.tags.size > 0 %}
         {% for tag in page.tags %}
           <a class="badge tag" href="{{ "/blog/" | relative_url }}#tag-{{ tag | slugify }}">{{ tag }}</a>
         {% endfor %}
       {% endif %}
     </div>
+
+    {% if page.description %}
+      <p class="post-excerpt">{{ page.description }}</p>
+    {% endif %}
   </header>
 
   <div class="post-body">

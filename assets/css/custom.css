@@ -1050,3 +1050,12 @@ canvas#matrix {
 .post-footer {
   margin-top: 0.9rem;
 }
+
+.post {
+  display: flex;
+  flex-direction: column;
+}
+
+.post-body {
+  margin-top: 0.75rem;
+}
