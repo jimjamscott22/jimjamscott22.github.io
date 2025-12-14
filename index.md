@@ -16,6 +16,6 @@ Network tools engaged.
 ## Featured image
 
 <div class="hero-shot">
-  <img src="{{ "/img/HacktheSleep.JPG" | relative_url }}" alt="Hack the Sleep project snapshot" loading="lazy" decoding="async">
+  <img src="{{ "/img/terminal.JPG" | relative_url }}" alt="terminal generator pic" loading="lazy" decoding="async">
   <div class="hero-caption">Hack the Sleep — captured in the lab feed</div>
 </div>
