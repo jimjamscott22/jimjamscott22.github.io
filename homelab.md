@@ -26,7 +26,7 @@ Notes from the always-on gear and experiments running in the lab. Replace the im
   </article>
 
   <article class="card">
-    <div class="placeholder-img" aria-hidden="true">dashboard placeholder</div>
+    <img src="{{ "/img/network_topology_var.png" | relative_url }}" alt="network diagram" loading="lazy" decoding="async">
     <header class="card-header">
       <h2>Tailscale mesh</h2>
       <span class="badge status status-active">active</span>
