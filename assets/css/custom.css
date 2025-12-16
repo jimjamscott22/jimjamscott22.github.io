@@ -982,6 +982,62 @@ canvas#matrix {
   }
 }
 
+/* ========== PROFILE CARD ========== */
+
+.profile-card {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  max-width: 640px;
+  padding: 0.75rem;
+  border: 1px solid rgba(0, 255, 102, 0.35);
+  background: linear-gradient(145deg, rgba(0, 12, 5, 0.85), rgba(0, 0, 0, 0.94));
+  border-radius: 3px;
+  box-shadow:
+    0 0 14px rgba(0, 255, 102, 0.26),
+    inset 0 0 12px rgba(0, 0, 0, 0.85);
+}
+
+.profile-photo {
+  width: 140px;
+  height: 140px;
+  border-radius: 999px;
+  object-fit: cover;
+  border: 1px solid rgba(0, 255, 102, 0.5);
+  box-shadow: 0 0 12px rgba(0, 255, 102, 0.3);
+  flex-shrink: 0;
+}
+
+.profile-details {
+  flex: 1;
+}
+
+.profile-callout {
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: lowercase;
+  color: #4dff88;
+  margin-bottom: 0.4rem;
+}
+
+@media (max-width: 640px) {
+  .profile-card {
+    flex-direction: column;
+    text-align: center;
+    max-width: 100%;
+  }
+
+  .profile-photo {
+    width: 120px;
+    height: 120px;
+  }
+
+  .profile-details h2 {
+    margin-top: 0.35rem;
+  }
+}
+
 /* ========== HOME HERO IMAGE ========== */
 
 .hero-shot {
