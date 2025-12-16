@@ -12,10 +12,10 @@ Lightweight notes, commands, and runbooks. Swap the placeholder links with real 
 
 | Date       | Topic                       | Type        | Link            |
 | ---------- | --------------------------- | ----------- | --------------- |
-| 2024-11-05 | pfSense rule tuning         | runbook     | [open](#)       |
-| 2024-10-18 | Pi-hole blocklist trims     | quick note  | [open](#)       |
-| 2024-09-27 | Tailscale subnet routing    | how-to      | [open](#)       |
-| 2024-08-14 | Prometheus scrape configs   | checklist   | [open](#)       |
+| 2024-11-05 | pfSense rule tuning         | runbook     | [open](/notes/pfsense-rule-tuning/)       |
+| 2024-10-18 | Pi-hole blocklist trims     | quick note  | [open](/notes/pihole-blocklist-trims/)       |
+| 2024-09-27 | Tailscale subnet routing    | how-to      | [open](/notes/tailscale-subnet-routing/)       |
+| 2024-08-14 | Prometheus scrape configs   | checklist   | [open](/notes/prometheus-scrape-configs/)       |
 
 ## Scratchpad
 
