@@ -2,6 +2,17 @@ title: "Jamie Lab"
 description: "Experiments. Networks. Homelab. Code."
 markdown: kramdown
 excerpt_separator: "<!--more-->"
+
+collections:
+  notes:
+    output: true
+    permalink: /notes/:name/
+  projects:
+    output: true
+    permalink: /projects/:name/
+  pages:
+    output: true
+
 defaults:
   - scope:
       path: "_pages"
@@ -14,4 +25,14 @@ defaults:
     values:
       layout: post
       permalink: "/blog/:year/:month/:day/:title/"
+
+  - scope:
+      type: notes
+    values:
+      layout: default
+
+  - scope:
+      type: projects
+    values:
+      layout: default
 
