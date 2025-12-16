@@ -6,7 +6,7 @@ permalink: /projects/
 
 # Projects
 
-A rolling set of builds, tools, and lab experiments. Swap in real screenshots later using the placeholders.
+A rolling set of builds, tools, and lab experiments. Click the links below each project to view how I built it. Enjoy!
 
 ## Active builds
 <div class="card-grid">
