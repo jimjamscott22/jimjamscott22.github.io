@@ -22,7 +22,7 @@ A rolling set of builds, tools, and lab experiments. Swap in real screenshots la
       <span class="badge tag">sqlite</span>
       <span class="badge tag">rss</span>
     </div>
-    <a class="card-link" href="#">View notes →</a>
+    <a class="card-link" href="/projects/threatstream-lite/">View notes →</a>
   </article>
 
   <article class="card">
@@ -37,7 +37,7 @@ A rolling set of builds, tools, and lab experiments. Swap in real screenshots la
       <span class="badge tag">ansible</span>
       <span class="badge tag">vlans</span>
     </div>
-    <a class="card-link" href="#">Runbook draft →</a>
+    <a class="card-link" href="/projects/fort-knox-lan/">Runbook draft →</a>
   </article>
 </div>
 
@@ -55,7 +55,7 @@ A rolling set of builds, tools, and lab experiments. Swap in real screenshots la
       <span class="badge tag">pihole</span>
       <span class="badge tag">tailscale</span>
     </div>
-    <a class="card-link" href="#">Blocklists & metrics →</a>
+    <a class="card-link" href="/projects/pihole-dns/">Blocklists & metrics →</a>
   </article>
 
   <article class="card">
@@ -70,6 +70,6 @@ A rolling set of builds, tools, and lab experiments. Swap in real screenshots la
       <span class="badge tag">arm</span>
       <span class="badge tag">prometheus</span>
     </div>
-    <a class="card-link" href="#">Design doc →</a>
+    <a class="card-link" href="/projects/pi-cluster/">Design doc →</a>
   </article>
 </div>
