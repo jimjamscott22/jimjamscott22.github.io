@@ -58,18 +58,24 @@ A rolling set of builds, tools, and lab experiments. Swap in real screenshots la
     <a class="card-link" href="/projects/pihole-dns/">Blocklists & metrics →</a>
   </article>
 
-  <article class="card">
-    <img src="{{ "/img/oswego_server_homepage.png" | relative_url }}" alt="School server homepage screenshot" loading="lazy" decoding="async" />
+   <article class="card">
+    <img src="{{ "/img/oswego_server_homepage.png" | relative_url }}" alt="Oswego Raspberry Pi server website homepage" loading="lazy" decoding="async" />
     <header class="card-header">
-      <h2>Pi cluster</h2>
-      <span class="badge status status-planned">planned</span>
+      <h2>Oswego Pi Web</h2>
+      <span class="badge status status-active">active</span>
     </header>
-    <p>Small ARM cluster for k3s experiments, lightweight services, and observability demos.</p>
+    <p>
+      My first deployed website, hosted on a SUNY Oswego Raspberry Pi server.
+      Built to understand real-world hosting, Linux permissions, and serving
+      content outside my local lab.
+    </p>
     <div class="card-meta">
-      <span class="badge tag">k3s</span>
-      <span class="badge tag">arm</span>
-      <span class="badge tag">prometheus</span>
+      <span class="badge tag">html</span>
+      <span class="badge tag">css</span>
+      <span class="badge tag">linux</span>
+      <span class="badge tag">apache</span>
+      <span class="badge tag">raspberry-pi</span>
     </div>
-    <a class="card-link" href="/projects/pi-cluster/">Design doc →</a>
+    <a class="card-link" href="https://www.cs.oswego.edu/~jscott21/coursework/ISC250/index.html" target="_blank">Visit site →</a>
   </article>
-</div>
+
