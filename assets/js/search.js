@@ -89,7 +89,13 @@
     searchResults.innerHTML = '';
     
     results.forEach(item => {
-      const excerpt = item.content.substring(0, 200) + '...';
+      // Truncate at word boundary for better readability
+      let excerpt = item.content.substring(0, 200);
+      const lastSpace = excerpt.lastIndexOf(' ');
+      if (lastSpace > 150) {
+        excerpt = excerpt.substring(0, lastSpace);
+      }
+      excerpt += '...';
       const highlightedTitle = highlightText(item.title, query);
       const highlightedExcerpt = highlightText(excerpt, query);
       

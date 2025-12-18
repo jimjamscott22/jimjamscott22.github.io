@@ -1355,10 +1355,11 @@ canvas#matrix {
 }
 
 .search-result-excerpt mark {
-  background: rgba(255, 255, 102, 0.3);
-  color: #ffff66;
+  background: rgba(255, 255, 102, 0.4);
+  color: #ffff00;
   padding: 0.1rem 0.2rem;
   border-radius: 2px;
+  font-weight: 600;
 }
 
 .search-result-tags {

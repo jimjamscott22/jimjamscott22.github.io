@@ -4,4 +4,4 @@ layout: none
 User-agent: *
 Allow: /
 
-Sitemap: {{ site.url }}/sitemap.xml
+Sitemap: {{ site.url }}{{ site.baseurl }}/sitemap.xml
