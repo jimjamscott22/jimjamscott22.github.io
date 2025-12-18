@@ -1200,3 +1200,348 @@ canvas#matrix {
     max-width: 100%;
   }
 }
+
+/* ========== CODE COPY BUTTON ========== */
+
+.code-block-wrapper {
+  position: relative;
+  margin: 1rem 0;
+}
+
+.code-copy-button {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.7rem;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(0, 255, 102, 0.3);
+  color: #00ff66;
+  font-family: inherit;
+  font-size: 0.8rem;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.code-copy-button:hover {
+  background: rgba(0, 255, 102, 0.15);
+  border-color: rgba(0, 255, 102, 0.5);
+  text-shadow: 0 0 6px rgba(0, 255, 102, 0.6);
+}
+
+.code-copy-button.copied {
+  background: rgba(0, 255, 102, 0.2);
+  border-color: rgba(0, 255, 102, 0.6);
+}
+
+.code-copy-button.copy-error {
+  background: rgba(255, 102, 102, 0.2);
+  border-color: rgba(255, 102, 102, 0.6);
+  color: #ff6666;
+}
+
+.code-copy-button .copy-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.code-copy-button .copy-text {
+  font-size: 0.75rem;
+}
+
+@media (max-width: 640px) {
+  .code-copy-button {
+    padding: 0.3rem 0.5rem;
+    font-size: 0.7rem;
+  }
+  
+  .code-copy-button .copy-icon {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+/* ========== SEARCH FUNCTIONALITY ========== */
+
+.search-container {
+  margin: 2rem 0;
+}
+
+.search-box {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(0, 255, 102, 0.3);
+  border-radius: 4px;
+  color: #b6f5c3;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: rgba(0, 255, 102, 0.6);
+  box-shadow: 0 0 8px rgba(0, 255, 102, 0.3);
+}
+
+.search-input::placeholder {
+  color: rgba(182, 245, 195, 0.5);
+}
+
+.search-count {
+  display: block;
+  margin-bottom: 1rem;
+  color: rgba(182, 245, 195, 0.7);
+  font-size: 0.9rem;
+}
+
+.search-results {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.search-result-item {
+  padding: 1.5rem;
+  background: rgba(0, 255, 102, 0.05);
+  border: 1px solid rgba(0, 255, 102, 0.2);
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.search-result-item:hover {
+  background: rgba(0, 255, 102, 0.08);
+  border-color: rgba(0, 255, 102, 0.3);
+}
+
+.search-result-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.search-result-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.search-result-header h3 a {
+  color: #00ff66;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.search-result-header h3 a:hover {
+  text-shadow: 0 0 8px rgba(0, 255, 102, 0.6);
+}
+
+.search-result-excerpt {
+  margin: 0.75rem 0;
+  color: rgba(182, 245, 195, 0.85);
+  line-height: 1.6;
+}
+
+.search-result-excerpt mark {
+  background: rgba(255, 255, 102, 0.3);
+  color: #ffff66;
+  padding: 0.1rem 0.2rem;
+  border-radius: 2px;
+}
+
+.search-result-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.search-empty {
+  padding: 2rem;
+  text-align: center;
+  background: rgba(0, 255, 102, 0.05);
+  border: 1px solid rgba(0, 255, 102, 0.2);
+  border-radius: 4px;
+}
+
+.search-empty p {
+  margin: 0.5rem 0;
+}
+
+.search-hint {
+  color: rgba(182, 245, 195, 0.6);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 640px) {
+  .search-result-header {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+/* ========== BACK TO TOP BUTTON ========== */
+
+.back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(0, 255, 102, 0.3);
+  color: #00ff66;
+  border-radius: 4px;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 100;
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.back-to-top:hover {
+  background: rgba(0, 255, 102, 0.15);
+  border-color: rgba(0, 255, 102, 0.5);
+  text-shadow: 0 0 8px rgba(0, 255, 102, 0.6);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 640px) {
+  .back-to-top {
+    bottom: 1rem;
+    right: 1rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1.2rem;
+  }
+}
+
+/* ========== RSS FEED LINK ========== */
+
+.rss-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 153, 0, 0.1);
+  border: 1px solid rgba(255, 153, 0, 0.3);
+  color: #ff9900;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+  margin: 1rem 0;
+}
+
+.rss-link:hover {
+  background: rgba(255, 153, 0, 0.2);
+  border-color: rgba(255, 153, 0, 0.5);
+  text-shadow: 0 0 6px rgba(255, 153, 0, 0.6);
+}
+
+.rss-icon {
+  width: 16px;
+  height: 16px;
+}
+
+/* ========== SOCIAL LINKS ========== */
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: rgba(0, 255, 102, 0.1);
+  border: 1px solid rgba(0, 255, 102, 0.3);
+  color: #00ff66;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.social-link:hover {
+  background: rgba(0, 255, 102, 0.2);
+  border-color: rgba(0, 255, 102, 0.5);
+  text-shadow: 0 0 8px rgba(0, 255, 102, 0.6);
+  transform: translateY(-2px);
+}
+
+.social-link svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* ========== PRINT STYLES ========== */
+
+@media print {
+  .noise-overlay,
+  .scanlines-overlay,
+  .nav-panel,
+  .top-bar,
+  .status-bar,
+  .back-to-top,
+  .code-copy-button,
+  .nav-toggle {
+    display: none !important;
+  }
+
+  body {
+    background: white;
+    color: black;
+    font-family: Georgia, serif;
+  }
+
+  .terminal-frame {
+    border: 1px solid #ddd;
+    box-shadow: none;
+  }
+
+  .terminal-header {
+    display: none;
+  }
+
+  .terminal-body {
+    padding: 1rem;
+  }
+
+  a {
+    color: #000;
+    text-decoration: underline;
+  }
+
+  pre,
+  code {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    page-break-inside: avoid;
+  }
+}

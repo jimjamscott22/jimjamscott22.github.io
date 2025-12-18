@@ -8,7 +8,48 @@ permalink: /blog/
 
 Short informational posts, lab notes, and writeups.
 
+<div class="blog-actions">
+  <a href="{{ "/feed.xml" | relative_url }}" class="rss-link">
+    <svg class="rss-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+      <circle cx="6.18" cy="17.82" r="2.18"/>
+      <path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/>
+    </svg>
+    Subscribe via RSS
+  </a>
+</div>
+
 {% if site.posts and site.posts.size > 0 %}
+
+## Search posts
+
+<div id="search-container" class="search-container">
+  <div class="search-box">
+    <input 
+      type="text" 
+      id="search-input" 
+      class="search-input" 
+      placeholder="Search posts by title, content, or tags..."
+      aria-label="Search blog posts">
+  </div>
+  <div id="search-count" class="search-count"></div>
+  <div id="search-results" class="search-results"></div>
+</div>
+
+<script>
+  // Embed search data in the page
+  window.searchData = [
+    {% for post in site.posts %}
+    {
+      title: {{ post.title | jsonify }},
+      url: {{ post.url | relative_url | jsonify }},
+      date: {{ post.date | date: "%Y-%m-%d" | jsonify }},
+      content: {{ post.content | strip_html | strip_newlines | jsonify }},
+      tags: {{ post.tags | jsonify }}
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ];
+</script>
+<script defer src="{{ "/assets/js/search.js" | relative_url }}"></script>
 
 ## Browse by tag
 
