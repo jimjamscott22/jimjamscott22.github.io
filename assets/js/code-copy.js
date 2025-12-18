@@ -78,6 +78,8 @@
     textarea.select();
 
     try {
+      // Using deprecated execCommand for legacy browser support only
+      // Modern browsers should use the clipboard API above
       const successful = document.execCommand('copy');
       if (successful) {
         showCopySuccess(button);

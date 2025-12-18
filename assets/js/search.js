@@ -21,10 +21,22 @@
     return text.toLowerCase().trim();
   }
 
+  function escapeRegex(str) {
+    return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  }
+
+  function escapeHtml(str) {
+    const div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+  }
+
   function highlightText(text, query) {
-    if (!query) return text;
-    const regex = new RegExp(`(${query})`, 'gi');
-    return text.replace(regex, '<mark>$1</mark>');
+    if (!query) return escapeHtml(text);
+    const escapedQuery = escapeRegex(query);
+    const regex = new RegExp(`(${escapedQuery})`, 'gi');
+    const escapedText = escapeHtml(text);
+    return escapedText.replace(regex, '<mark>$1</mark>');
   }
 
   function performSearch(query) {
@@ -56,35 +68,71 @@
     }
 
     if (results.length === 0) {
-      searchResults.innerHTML = `
-        <div class="search-empty">
-          <p>No matches for "<strong>${query}</strong>"</p>
-          <p class="search-hint">Try different keywords or check your spelling.</p>
-        </div>
-      `;
+      const emptyDiv = document.createElement('div');
+      emptyDiv.className = 'search-empty';
+      
+      const p1 = document.createElement('p');
+      p1.innerHTML = 'No matches for "<strong></strong>"';
+      p1.querySelector('strong').textContent = query;
+      
+      const p2 = document.createElement('p');
+      p2.className = 'search-hint';
+      p2.textContent = 'Try different keywords or check your spelling.';
+      
+      emptyDiv.appendChild(p1);
+      emptyDiv.appendChild(p2);
+      searchResults.innerHTML = '';
+      searchResults.appendChild(emptyDiv);
       return;
     }
 
-    searchResults.innerHTML = results.map(item => {
+    searchResults.innerHTML = '';
+    
+    results.forEach(item => {
       const excerpt = item.content.substring(0, 200) + '...';
       const highlightedTitle = highlightText(item.title, query);
       const highlightedExcerpt = highlightText(excerpt, query);
       
-      return `
-        <article class="search-result-item">
-          <header class="search-result-header">
-            <h3><a href="${item.url}">${highlightedTitle}</a></h3>
-            <span class="badge tag">${item.date}</span>
-          </header>
-          <p class="search-result-excerpt">${highlightedExcerpt}</p>
-          ${item.tags && item.tags.length > 0 ? `
-            <div class="search-result-tags">
-              ${item.tags.map(tag => `<span class="badge tag">${tag}</span>`).join('')}
-            </div>
-          ` : ''}
-        </article>
-      `;
-    }).join('');
+      const article = document.createElement('article');
+      article.className = 'search-result-item';
+      
+      const header = document.createElement('header');
+      header.className = 'search-result-header';
+      
+      const h3 = document.createElement('h3');
+      const link = document.createElement('a');
+      link.href = item.url;
+      link.innerHTML = highlightedTitle;
+      h3.appendChild(link);
+      
+      const dateBadge = document.createElement('span');
+      dateBadge.className = 'badge tag';
+      dateBadge.textContent = item.date;
+      
+      header.appendChild(h3);
+      header.appendChild(dateBadge);
+      
+      const excerptP = document.createElement('p');
+      excerptP.className = 'search-result-excerpt';
+      excerptP.innerHTML = highlightedExcerpt;
+      
+      article.appendChild(header);
+      article.appendChild(excerptP);
+      
+      if (item.tags && item.tags.length > 0) {
+        const tagsDiv = document.createElement('div');
+        tagsDiv.className = 'search-result-tags';
+        item.tags.forEach(tag => {
+          const tagSpan = document.createElement('span');
+          tagSpan.className = 'badge tag';
+          tagSpan.textContent = tag;
+          tagsDiv.appendChild(tagSpan);
+        });
+        article.appendChild(tagsDiv);
+      }
+      
+      searchResults.appendChild(article);
+    });
   }
 
   // Debounce search to avoid too many searches while typing
