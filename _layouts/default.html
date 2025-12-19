@@ -1,17 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  {% assign cache_bust = site.github.build_revision %}
+  {% if cache_bust == nil or cache_bust == "" %}
+    {% assign cache_bust = site.time | date: "%s" %}
+  {% endif %}
+
   <meta charset="utf-8">
   <title>
     {% if page.title %}{{ page.title }} · {% endif %}{{ site.title | default: "jamielab" }}
   </title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <!-- Cache hints for HTML (best-effort; headers are controlled by host/CDN) -->
+  <meta http-equiv="Cache-Control" content="no-store, max-age=0">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+
   <!-- Base CSS -->
-  <link rel="stylesheet" href="{{ "/assets/css/custom.css" | relative_url }}">
+  <link rel="stylesheet" href="{{ "/assets/css/custom.css" | relative_url }}?v={{ cache_bust }}">
 
   <!-- Optional: basic favicon -->
-  <link rel="icon" href="{{ "/assets/img/terminal-icon.png" | relative_url }}">
+  <link rel="icon" type="image/svg+xml" href="{{ "/assets/img/terminal-icon.svg" | relative_url }}?v={{ cache_bust }}">
 </head>
 <body class="crt-theme">
 
@@ -102,7 +112,7 @@
   </div>
 
   <!-- Base JS (optional but useful later) -->
-  <script src="{{ "/assets/js/main.js" | relative_url }}"></script>
+  <script src="{{ "/assets/js/main.js" | relative_url }}?v={{ cache_bust }}"></script>
 </body>
 </html>
 
