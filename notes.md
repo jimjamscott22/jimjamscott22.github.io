@@ -6,16 +6,21 @@ permalink: /notes/
 
 # Notes
 
+{% assign cache_bust = site.github.build_revision %}
+{% if cache_bust == nil or cache_bust == "" %}
+{% assign cache_bust = site.time | date: "%s" %}
+{% endif %}
+
 Lightweight notes, commands, and runbooks. Swap the placeholder links with real pages or gists later.
 
 ## Recent entries
 
-| Date       | Topic                       | Type        | Link            |
-| ---------- | --------------------------- | ----------- | --------------- |
-| 2024-11-05 | pfSense rule tuning         | runbook     | [open](/notes/pfsense-rule-tuning/)       |
-| 2024-10-18 | Pi-hole blocklist trims     | quick note  | [open](/notes/pihole-blocklist-trims/)       |
-| 2024-09-27 | Tailscale subnet routing    | how-to      | [open](/notes/tailscale-subnet-routing/)       |
-| 2024-08-14 | Prometheus scrape configs   | checklist   | [open](/notes/prometheus-scrape-configs/)       |
+| Date       | Topic                     | Type       | Link                                      |
+| ---------- | ------------------------- | ---------- | ----------------------------------------- |
+| 2024-11-05 | pfSense rule tuning       | runbook    | [open](/notes/pfsense-rule-tuning/)       |
+| 2024-10-18 | Pi-hole blocklist trims   | quick note | [open](/notes/pihole-blocklist-trims/)    |
+| 2024-09-27 | Tailscale subnet routing  | how-to     | [open](/notes/tailscale-subnet-routing/)  |
+| 2024-08-14 | Prometheus scrape configs | checklist  | [open](/notes/prometheus-scrape-configs/) |
 
 ## Scratchpad
 
@@ -51,4 +56,4 @@ Lightweight notes, commands, and runbooks. Swap the placeholder links with real 
   </div>
 </div>
 
-<script src="{{ "/assets/js/notes.js" | relative_url }}"></script>
+<script src="{{ "/assets/js/notes.js" | relative_url }}?v={{ cache_bust }}"></script>
