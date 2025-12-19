@@ -24,10 +24,45 @@ Lightweight notes, commands, and runbooks. Swap the placeholder links with real 
 
 ## Scratchpad
 
-- Command snippets to stage here.
-- Paste in diagrams or screenshots using the placeholders on other pages.
-- Convert any of these into a dedicated page when they grow.
+  <!-- Mermaid.js for diagrams -->
+  flowchart TD
+    %% ===== IDEA & INTENT =====
+    A[Boot Sequence<br/>💡 Idea Spark] --> B[Intent Definition<br/>What am I building?]
+    B --> C[Problem Statement<br/>Real pain, not vibes]
 
+    %% ===== LAB PLANNING =====
+    C --> D[Scope the Lab<br/>MVP or it didn't happen]
+    D --> E[System Sketch<br/>Boxes & arrows first]
+    D --> F[Threat Awareness<br/>Assume misuse exists]
+
+    %% ===== ARCHITECTURE =====
+    E --> G[Stack Selection<br/>Tools I actually trust]
+    G --> H[Repo + Structure<br/>Order before code]
+    H --> I[Local Environment<br/>Reproducible dev setup]
+
+    %% ===== BUILD PHASE =====
+    I --> J[Core Functionality<br/>One feature that works]
+    J --> K[Break & Test<br/>Inputs fight back]
+
+    K --> L{Lab Stable?}
+    L -- No --> J
+    L -- Yes --> M[UX Pass<br/>Make it human]
+
+    %% ===== HARDENING =====
+    M --> N[Performance Pass<br/>Latency matters]
+    N --> O[Security Pass<br/>Validate, sanitize, isolate]
+
+    %% ===== DEPLOYMENT =====
+    O --> P[Staging Deploy<br/>Safe proving ground]
+    P --> Q[Observability Layer<br/>Logs · Metrics · Signals]
+
+    %% ===== RELEASE =====
+    Q --> R[Production Release<br/>Ship calmly]
+    R --> S[Feedback Intake<br/>Users are data]
+
+    %% ===== ITERATION LOOP =====
+    S --> T[Refinement Cycle<br/>Fix · Improve · Extend]
+    T --> D
 ## Interactive notes
 
 <div class="notes-panel" id="notes-app">
