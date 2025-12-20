@@ -6,22 +6,59 @@ permalink: /notes/
 
 # Notes
 
+{% assign cache_bust = site.github.build_revision %}
+{% if cache_bust == nil or cache_bust == "" %}
+{% assign cache_bust = site.time | date: "%s" %}
+{% endif %}
+
 Lightweight notes, commands, and runbooks. Swap the placeholder links with real pages or gists later.
 
 ## Recent entries
 
-| Date       | Topic                       | Type        | Link            |
-| ---------- | --------------------------- | ----------- | --------------- |
-| 2024-11-05 | pfSense rule tuning         | runbook     | [open](/notes/pfsense-rule-tuning/)       |
-| 2024-10-18 | Pi-hole blocklist trims     | quick note  | [open](/notes/pihole-blocklist-trims/)       |
-| 2024-09-27 | Tailscale subnet routing    | how-to      | [open](/notes/tailscale-subnet-routing/)       |
-| 2024-08-14 | Prometheus scrape configs   | checklist   | [open](/notes/prometheus-scrape-configs/)       |
+| Date       | Topic                     | Type       | Link                                      |
+| ---------- | ------------------------- | ---------- | ----------------------------------------- |
+| 2024-11-05 | pfSense rule tuning       | runbook    | [open](/notes/pfsense-rule-tuning/)       |
+| 2024-10-18 | Pi-hole blocklist trims   | quick note | [open](/notes/pihole-blocklist-trims/)    |
+| 2024-09-27 | Tailscale subnet routing  | how-to     | [open](/notes/tailscale-subnet-routing/)  |
+| 2024-08-14 | Prometheus scrape configs | checklist  | [open](/notes/prometheus-scrape-configs/) |
 
 ## Scratchpad
 
-- Command snippets to stage here.
-- Paste in diagrams or screenshots using the placeholders on other pages.
-- Convert any of these into a dedicated page when they grow.
+Working space for rough thinking, fast sketches, and ideas that haven’t earned their own page yet.
+
+---
+
+### Diagrams
+
+<div class="mermaid">
+
+flowchart TD
+    A[💡 Idea Spark] --> B[Scope the Lab]
+    B --> C[System Sketch]
+    C --> D[Build MVP]
+    D --> E[Test & Break]
+    E --> F[Harden & Observe]
+    F --> B
+
+</div>
+
+Low-friction visual thinking. If it survives iteration, it graduates to a project page.
+
+---
+
+### Commands
+
+- `ip a && ip r` — quick sanity check on network state  
+- `journalctl -u service --since "10 min ago"` — recent service logs  
+- `git status && git diff` — reality check before committing
+
+---
+
+### Ideas
+
+- Convert recurring diagrams into reusable templates  
+- Add a “threat-awareness” branch to app design flows  
+- Tie Scratchpad diagrams directly to project changelogs
 
 ## Interactive notes
 
@@ -51,4 +88,4 @@ Lightweight notes, commands, and runbooks. Swap the placeholder links with real 
   </div>
 </div>
 
-<script src="{{ "/assets/js/notes.js" | relative_url }}"></script>
+<script src="{{ "/assets/js/notes.js" | relative_url }}?v={{ cache_bust }}"></script>

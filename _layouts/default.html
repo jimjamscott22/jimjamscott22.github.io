@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  {% assign cache_bust = site.github.build_revision %}
+  {% if cache_bust == nil or cache_bust == "" %}
+    {% assign cache_bust = site.time | date: "%s" %}
+  {% endif %}
+
   <meta charset="utf-8">
   <title>
     {% if page.title %}{{ page.title }} · {% endif %}{{ site.title | default: "jamielab" }}
@@ -20,14 +25,19 @@
   <meta name="twitter:title" content="{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}">
   <meta name="twitter:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
 
+  <!-- Cache hints for HTML (best-effort; headers are controlled by host/CDN) -->
+  <meta http-equiv="Cache-Control" content="no-store, max-age=0">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+
   <!-- Base CSS -->
-  <link rel="stylesheet" href="{{ "/assets/css/custom.css" | relative_url }}">
+  <link rel="stylesheet" href="{{ "/assets/css/custom.css" | relative_url }}?v={{ cache_bust }}">
 
   <!-- RSS Feed -->
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }} RSS Feed" href="{{ "/feed.xml" | relative_url }}">
 
   <!-- Optional: basic favicon -->
-  <link rel="icon" href="{{ "/assets/img/terminal-icon.png" | relative_url }}">
+  <link rel="icon" type="image/svg+xml" href="{{ "/assets/img/terminal-icon.svg" | relative_url }}?v={{ cache_bust }}">
 </head>
 <body class="crt-theme">
 
@@ -129,6 +139,8 @@
   <script src="{{ "/assets/js/main.js" | relative_url }}"></script>
   <script src="{{ "/assets/js/code-copy.js" | relative_url }}"></script>
   <script src="{{ "/assets/js/back-to-top.js" | relative_url }}"></script>
+  <script src="{{ "/assets/js/main.js" | relative_url }}?v={{ cache_bust }}"></script>
+
 </body>
 </html>
 
