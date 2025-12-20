@@ -1,0 +1,67 @@
+---
+layout: none
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Homepage -->
+  <url>
+    <loc>{{ site.url }}{{ site.baseurl }}/</loc>
+    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Static pages -->
+  {% for page in site.pages %}
+    {% unless page.url contains '/assets/' or page.url contains '/404' %}
+    <url>
+      <loc>{{ page.url | prepend: site.baseurl | prepend: site.url }}</loc>
+      {% if page.date %}
+        <lastmod>{{ page.date | date_to_xmlschema }}</lastmod>
+      {% else %}
+        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+      {% endif %}
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+    </url>
+    {% endunless %}
+  {% endfor %}
+
+  <!-- Blog posts -->
+  {% for post in site.posts %}
+    <url>
+      <loc>{{ post.url | prepend: site.baseurl | prepend: site.url }}</loc>
+      <lastmod>{{ post.date | date_to_xmlschema }}</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
+    </url>
+  {% endfor %}
+
+  <!-- Projects -->
+  {% for project in site.projects %}
+    <url>
+      <loc>{{ project.url | prepend: site.baseurl | prepend: site.url }}</loc>
+      {% if project.date %}
+        <lastmod>{{ project.date | date_to_xmlschema }}</lastmod>
+      {% else %}
+        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+      {% endif %}
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
+    </url>
+  {% endfor %}
+
+  <!-- Notes -->
+  {% for note in site.notes %}
+    <url>
+      <loc>{{ note.url | prepend: site.baseurl | prepend: site.url }}</loc>
+      {% if note.date %}
+        <lastmod>{{ note.date | date_to_xmlschema }}</lastmod>
+      {% else %}
+        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+      {% endif %}
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+    </url>
+  {% endfor %}
+</urlset>
