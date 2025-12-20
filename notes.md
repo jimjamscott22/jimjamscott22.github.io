@@ -24,45 +24,42 @@ Lightweight notes, commands, and runbooks. Swap the placeholder links with real 
 
 ## Scratchpad
 
-  <!-- Mermaid.js for diagrams -->
-  flowchart TD
-    %% ===== IDEA & INTENT =====
-    A[Boot Sequence<br/>💡 Idea Spark] --> B[Intent Definition<br/>What am I building?]
-    B --> C[Problem Statement<br/>Real pain, not vibes]
+Working space for rough thinking, fast sketches, and ideas that haven’t earned their own page yet.
 
-    %% ===== LAB PLANNING =====
-    C --> D[Scope the Lab<br/>MVP or it didn't happen]
-    D --> E[System Sketch<br/>Boxes & arrows first]
-    D --> F[Threat Awareness<br/>Assume misuse exists]
+---
 
-    %% ===== ARCHITECTURE =====
-    E --> G[Stack Selection<br/>Tools I actually trust]
-    G --> H[Repo + Structure<br/>Order before code]
-    H --> I[Local Environment<br/>Reproducible dev setup]
+### Diagrams
 
-    %% ===== BUILD PHASE =====
-    I --> J[Core Functionality<br/>One feature that works]
-    J --> K[Break & Test<br/>Inputs fight back]
+<div class="mermaid">
 
-    K --> L{Lab Stable?}
-    L -- No --> J
-    L -- Yes --> M[UX Pass<br/>Make it human]
+flowchart TD
+    A[💡 Idea Spark] --> B[Scope the Lab]
+    B --> C[System Sketch]
+    C --> D[Build MVP]
+    D --> E[Test & Break]
+    E --> F[Harden & Observe]
+    F --> B
 
-    %% ===== HARDENING =====
-    M --> N[Performance Pass<br/>Latency matters]
-    N --> O[Security Pass<br/>Validate, sanitize, isolate]
+</div>
 
-    %% ===== DEPLOYMENT =====
-    O --> P[Staging Deploy<br/>Safe proving ground]
-    P --> Q[Observability Layer<br/>Logs · Metrics · Signals]
+Low-friction visual thinking. If it survives iteration, it graduates to a project page.
 
-    %% ===== RELEASE =====
-    Q --> R[Production Release<br/>Ship calmly]
-    R --> S[Feedback Intake<br/>Users are data]
+---
 
-    %% ===== ITERATION LOOP =====
-    S --> T[Refinement Cycle<br/>Fix · Improve · Extend]
-    T --> D
+### Commands
+
+- `ip a && ip r` — quick sanity check on network state  
+- `journalctl -u service --since "10 min ago"` — recent service logs  
+- `git status && git diff` — reality check before committing
+
+---
+
+### Ideas
+
+- Convert recurring diagrams into reusable templates  
+- Add a “threat-awareness” branch to app design flows  
+- Tie Scratchpad diagrams directly to project changelogs
+
 ## Interactive notes
 
 <div class="notes-panel" id="notes-app">
