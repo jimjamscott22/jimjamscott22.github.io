@@ -52,7 +52,7 @@ Curious, technical, and usually building or breaking something in the homelab.
   <div class="about-visual">
     <img src="{{ "/img/hackerdog.PNG" | relative_url }}" alt="Pic of dog" loading="lazy" decoding="async" />
     <p class="about-caption">The site owner's Hacker dog Dozer</p> 
-	<img src="{{ "/img/jamiehacker.PNG" | relative_url }}" alt="Pic of website owner" loading="lazy" decoding="async" />
+	<img src="{{ "/img/cyberme.JPG" | relative_url }}" alt="Pic of website owner" loading="lazy" decoding="async" />
     <p class="about-caption">The site owner</p>
   </div>
 </div>

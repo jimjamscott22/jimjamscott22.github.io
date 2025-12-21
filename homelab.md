@@ -44,7 +44,7 @@ Notes from the always-on gear and experiments running in the lab. Replace the im
 ## Monitoring and services
 <div class="card-grid">
   <article class="card">
-    <div class="placeholder-img" aria-hidden="true">grafana placeholder</div>
+   <img src="{{ "/img/monitoring.JPG" | relative_url }}?v={{ cache_bust }}"
     <header class="card-header">
       <h2>Observability stack</h2>
       <span class="badge status status-building">building</span>
