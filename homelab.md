@@ -44,7 +44,7 @@ Notes from the always-on gear and experiments running in the lab. Replace the im
 ## Monitoring and services
 <div class="card-grid">
   <article class="card">
-   <img src="{{ "/img/monitoring.JPG" | relative_url }}?v={{ cache_bust }}"
+   <img src="{{ "/img/monitoring.JPG" | relative_url }}" alt="Monitoring Diagram" loading="lazy" decoding="async">
     <header class="card-header">
       <h2>Observability stack</h2>
       <span class="badge status status-building">building</span>
