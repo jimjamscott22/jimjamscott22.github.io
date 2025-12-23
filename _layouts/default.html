@@ -141,6 +141,32 @@
   <script src="{{ "/assets/js/back-to-top.js" | relative_url }}"></script>
   <script src="{{ "/assets/js/main.js" | relative_url }}?v={{ cache_bust }}"></script>
 
+  <!-- Mermaid.js for diagram rendering -->
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ 
+      startOnLoad: true,
+      theme: 'dark',
+      themeVariables: {
+        primaryColor: '#00ff00',
+        primaryTextColor: '#00ff00',
+        primaryBorderColor: '#00ff00',
+        lineColor: '#00ff00',
+        secondaryColor: '#003300',
+        tertiaryColor: '#001a00',
+        background: '#000000',
+        mainBkg: '#000000',
+        secondBkg: '#001a00',
+        textColor: '#00ff00',
+        fontSize: '16px',
+        nodeBorder: '#00ff00',
+        clusterBkg: '#001a00',
+        clusterBorder: '#00ff00',
+        edgeLabelBackground: '#000000'
+      }
+    });
+  </script>
+
 </body>
 </html>
 
