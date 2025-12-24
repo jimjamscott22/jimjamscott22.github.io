@@ -579,7 +579,7 @@ canvas#matrix {
     z-index: 0 !important;
     opacity: 0.14 !important; /* soften background */
     pointer-events: none !important;
-}/*
+}
 .page-shell,
 .nav-panel,
 .main-panel,
@@ -590,7 +590,7 @@ canvas#matrix {
     position: relative;
     z-index: 10;
 }
-*/
+
 /* Force readable neon green text */
 .terminal-body,
 .terminal-body * {
