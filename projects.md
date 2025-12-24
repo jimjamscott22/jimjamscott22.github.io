@@ -26,7 +26,7 @@ A rolling set of builds, tools, and lab experiments. Click the links below each 
   </article>
 
   <article class="card">
-    <img src="{{ "/img/VLAN_Diagram.png" | relative_url }}" alt="Image of a VLAN diagram" loading="lazy" decoding="async" />
+    <img src="{{ "/img/fort_knox_lan.png" | relative_url }}" alt="Image of a VLAN diagram" loading="lazy" decoding="async" />
     <header class="card-header">
       <h2>Fort Knox LAN</h2>
       <span class="badge status status-building">building</span>

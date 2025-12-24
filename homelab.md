@@ -59,7 +59,7 @@ Notes from the always-on gear and experiments running in the lab. Replace the im
   </article>
 
   <article class="card">
-    <div class="placeholder-img" aria-hidden="true">service placeholder</div>
+    <img src="{{" /img/fortinet.jpeg" | relative_url }}" alt="Monitoring Diagram" loading="lazy" 
     <header class="card-header">
       <h2>Services VM</h2>
       <span class="badge status status-planned">planned</span>
