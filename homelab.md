@@ -48,7 +48,7 @@ I think I turned tinkering into a dream!"
 ## Monitoring and services
 <div class="card-grid">
   <article class="card">
-   <img src="{{" /img/monitoring.JPG" | relative_url }}" alt="Monitoring Diagram" loading="lazy" decoding="async">
+   <img src="{{ "/img/monitoring.JPG" | relative_url }}" alt="Monitoring Diagram" loading="lazy" decoding="async">
     <header class="card-header">
       <h2>Observability stack</h2>
       <span class="badge status status-building">building</span>
@@ -63,7 +63,7 @@ I think I turned tinkering into a dream!"
   </article>
 
   <article class="card">
-    <img src="{{" /img/fortinet.jpeg" | relative_url }}" alt="Fortinet diagram" loading="lazy" decoding="async">
+    <img src="{{ "/img/fortinet.jpeg" | relative_url }}" alt="Fortinet diagram" loading="lazy" decoding="async">
     <header class="card-header">
       <h2>Services VM</h2>
       <span class="badge status status-planned">planned</span>
