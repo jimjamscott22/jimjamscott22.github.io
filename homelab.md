@@ -6,7 +6,11 @@ permalink: /homelab/
 
 # Homelab
 
-Notes from the always-on gear and experiments running in the lab. Replace the image placeholders with rack shots or dashboards when ready.
+"I built labs where bright LEDs gleam,
+My Fort-Knox-LAN locked down every stream;
+From Pi‑holes to Tailscale,
+my plans did not fail—
+I think I turned tinkering into a dream!"
 
 ## Core services
 <div class="card-grid">
@@ -59,7 +63,7 @@ Notes from the always-on gear and experiments running in the lab. Replace the im
   </article>
 
   <article class="card">
-    <img src="{{" /img/fortinet.jpeg" | relative_url }}" alt="Monitoring Diagram" loading="lazy" 
+    <img src="{{" /img/fortinet.jpeg" | relative_url }}" alt="Fortinet diagram" loading="lazy" decoding="async">
     <header class="card-header">
       <h2>Services VM</h2>
       <span class="badge status status-planned">planned</span>
