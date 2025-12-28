@@ -15,7 +15,7 @@ I think I turned tinkering into a dream!"
 ## Core services
 <div class="card-grid">
   <article class="card">
-    <div class="placeholder-img" aria-hidden="true">rack photo placeholder</div>
+    <img src="{{ "/img/services.png" | relative_url }}" alt="web dash of running services" loading="lazy" decoding="async">
     <header class="card-header">
       <h2>Edge + VLANs</h2>
       <span class="badge status status-active">active</span>
