@@ -38,3 +38,13 @@ Network tools engaged.
   <img src="{{ "/img/guy_at_pc.png" | relative_url }}?v={{ cache_bust }}" alt="guy at a computer" loading="lazy" decoding="async">
   <div class="hero-caption">The Lonely Hacker</div>
 </div>
+
+<div class="hero-shot hero-shot--secondary">
+  <img src="{{ "/img/mini_me.JPG" | relative_url }}?v={{ cache_bust }}"
+       alt="Desk figurine of Jamie seated at workstation"
+       loading="lazy"
+       decoding="async">
+  <div class="hero-caption">
+    Physical avatar :: desk-side operator
+  </div>
+</div>
