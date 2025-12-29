@@ -39,6 +39,21 @@ A rolling set of builds, tools, and lab experiments. Click the links below each 
     </div>
     <a class="card-link" href="/projects/fort-knox-lan/">Runbook draft →</a>
   </article>
+
+  <article class="card">
+    <img src="{{ "/img/byopm_schematic.webp" | relative_url }}" alt="VaultWarden password manager schematic" loading="lazy" decoding="async" />
+    <header class="card-header">
+      <h2>VaultWarden BYOPM</h2>
+      <span class="badge status status-building">building</span>
+    </header>
+    <p>Self-hosted password manager with Docker, Unbound DNS, and automated backups—bringing your own password management home.</p>
+    <div class="card-meta">
+      <span class="badge tag">docker</span>
+      <span class="badge tag">vaultwarden</span>
+      <span class="badge tag">security</span>
+    </div>
+    <a class="card-link" href="/notes/vaultwarden-compose-template/">Setup guide →</a>
+  </article>
 </div>
 
 ## Experiments
