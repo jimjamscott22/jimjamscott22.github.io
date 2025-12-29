@@ -115,7 +115,7 @@ body,
 /* Subtle flicker */
 
 .crt-theme {
-  animation: crt-flicker 9s infinite;
+  animation: crt-flicker 15s infinite;
 }
 
 @keyframes crt-flicker {
@@ -568,34 +568,9 @@ th {
   }
 }
 
-/* Matrix behind everything */
-#matrix,
-canvas#matrix {
-    position: fixed !important;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0 !important;
-    opacity: 0.14 !important; /* soften background */
-    pointer-events: none !important;
-}
-.page-shell,
-.nav-panel,
-.main-panel,
-.terminal-frame,
-.terminal-body,
-.top-bar,
-.status-bar {
-    position: relative;
-    z-index: 10;
-}
-
-/* Force readable neon green text */
-.terminal-body,
-.terminal-body * {
-    color: #4dff88 !important;
-    text-shadow: 0 0 6px rgba(0,255,102,0.6);
+.terminal-body {
+  color: #4dff88;
+  text-shadow: 0 0 6px rgba(0,255,102,0.6);
 }
 
 #intro {
@@ -1068,6 +1043,22 @@ canvas#matrix {
   letter-spacing: 0.05em;
   opacity: 0.78;
 }
+
+.hero-shot--secondary {
+  max-width: 520px;
+  opacity: 0.9;
+}
+
+.hero-shot--secondary img {
+  box-shadow: 0 0 18px rgba(0, 255, 100, 0.12);
+}
+
+.hero-shot--secondary .hero-caption {
+  font-size: 0.75rem;
+  color: #7affb0;
+  opacity: 0.75;
+}
+
 
 /* ========== BLOG / POSTS ========== */
 
