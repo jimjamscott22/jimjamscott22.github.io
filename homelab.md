@@ -13,11 +13,12 @@ my plans did not fail—
 I think I turned tinkering into a dream!"
 
 ## Core services
+<!-- markdownlint-disable MD033 -->
 <div class="card-grid">
   <article class="card">
     <img src="{{ "/img/services.png" | relative_url }}" alt="web dash of running services" loading="lazy" decoding="async">
     <header class="card-header">
-      <h2>Edge + VLANs</h2>
+      <h2>Dashboard + VLANs</h2>
       <span class="badge status status-active">active</span>
     </header>
     <p>pfSense gateway with segmented VLANs for trusted, lab, guests, and IoT; DHCP/DNS split per zone.</p>
@@ -44,6 +45,7 @@ I think I turned tinkering into a dream!"
     <a class="card-link" href="#">ACL plan →</a>
   </article>
 </div>
+<!-- markdownlint-enable MD033 -->
 
 ## Monitoring and services
 <div class="card-grid">
@@ -65,15 +67,16 @@ I think I turned tinkering into a dream!"
   <article class="card">
     <img src="{{ "/img/fortinet.jpeg" | relative_url }}" alt="Fortinet diagram" loading="lazy" decoding="async">
     <header class="card-header">
-      <h2>Services VM</h2>
-      <span class="badge status status-planned">planned</span>
+      <h2>VaultWarden-Services VM</h2>
+      <span class="badge status status-building">building</span>
     </header>
-    <p>Container host for Pi-hole, Unbound, and a small git/CI runner; all IaC-driven.</p>
+    <p>Docker Container host for VaultWarden, Unbound, and a small git/CI runner; all IaC-driven.</p>
     <div class="card-meta">
       <span class="badge tag">docker</span>
-      <span class="badge tag">iac</span>
+      <span class="badge tag">VaultWarden</span>
       <span class="badge tag">dns</span>
     </div>
-    <a class="card-link" href="#">Compose file →</a>
+    <a class="card-link" href="{{ "/notes/vaultwarden-compose-template/" | relative_url }}">Compose template →</a>
+
   </article>
 </div>
