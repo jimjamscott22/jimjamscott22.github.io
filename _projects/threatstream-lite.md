@@ -19,6 +19,7 @@ Lightweight intel aggregator pulling feeds into a local DB with quick search and
 
 ### Features
 <!-- Document key features -->
+!["Image of thing"]({{ "img/threat_stream_dash.png" | relative_url }})
 
 ### Challenges & Solutions
 <!-- Track problems you've solved -->

@@ -52,7 +52,7 @@ A rolling set of builds, tools, and lab experiments. Click the links below each 
       <span class="badge tag">vaultwarden</span>
       <span class="badge tag">security</span>
     </div>
-    <a class="card-link" href="/notes/vaultwarden-compose-template/">Setup guide →</a>
+    <a class="card-link" href="/projects/vaultwarden-byopm/">Project details →</a>
   </article>
 </div>
 
