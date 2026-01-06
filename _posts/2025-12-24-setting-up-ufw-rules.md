@@ -7,6 +7,8 @@ description: "A quick guide on hardening a new Linux VM with UFW."
 
 When spinning up a new VM in the lab, one of the first things I do is set up a basic firewall. `ufw` (Uncomplicated Firewall) is perfect for this.
 
+Locking down ingress early reduces the blast radius if a service is misconfigured or exposed during setup. It also forces you to be intentional about what gets opened.
+
 ## The "Safe" Sequence
 
 Always allow SSH before enabling the firewall to avoid locking yourself out!
@@ -25,13 +27,43 @@ sudo ufw allow 443/tcp
 sudo ufw enable
 ```
 
+## Common mistakes
+
+- Enabling UFW before allowing SSH (or your actual SSH port)
+- Forgetting to open a non-default SSH port
+- Allowing a web port but missing the protocol (e.g., `80` vs `80/tcp`)
+
+## Allowing a single IP
+
+```bash
+sudo ufw allow from x.x.x.x to any port 22
+```
+
+## Rate limiting SSH
+
+```bash
+sudo ufw limit ssh
+```
+
 ## Check status
 
 ```bash
 sudo ufw status numbered
 ```
 
+## Disable or rollback
+
+```bash
+sudo ufw disable
+sudo ufw reset
+```
+
 Quick, easy, and essential for a secure lab environment.
+
+## Next steps
+
+- [Fail2ban and rate limiting notes]({{ "/projects/vaultwarden-byopm/" | relative_url }})
+- [Reverse proxy hardening notes]({{ "/notes/vaultwarden-compose-template/" | relative_url }})
 
 <div style="display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; align-items:center;">
   <figure style="margin:0;">
