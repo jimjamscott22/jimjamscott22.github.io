@@ -1,6 +1,6 @@
 ---
-title: "Setting up SSH on a Linux Server"
-date: 2025-12-24 01:45:00 -0500
+title: "Setting up Nginx on a Linux Server"
+date: 2026-01-07 01:45:00 -0500
 tags: [homelab, security, linux]
 description: "A quick guide on setting up a reverse proxy 'Nginx' up and running securely."
 ---
