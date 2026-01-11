@@ -57,12 +57,9 @@ A rolling set of builds, tools, and lab experiments. Click the links below each 
   </article>
 
   <article class="card">
-    <picture>
-      <source srcset="{{ "/img/chatarchive_screenshot.webp" | relative_url }}" type="image/webp">
-      <source srcset="{{ "/img/chatarchive_screenshot.png" | relative_url }}" type="image/png">
-      <source srcset="{{ "/img/chatarchive_screenshot.jpg" | relative_url }}" type="image/jpeg">
-      <img src="{{ "/img/chatarchive_screenshot.svg" | relative_url }}" alt="Screenshot for ChatArchive" loading="lazy" decoding="async" />
-    </picture>
+   <picture>
+    <source srcset="{{ "/img/chatarchive_screenshot.png" | relative_url }}" type="image/png" alt="pic" loading="lazy" decoding="async">
+   </picture>
     <header class="card-header">
       <h2>ChatArchive</h2>
       <span class="badge status status-building">building</span>
@@ -77,12 +74,9 @@ A rolling set of builds, tools, and lab experiments. Click the links below each 
   </article>
 
   <article class="card">
-    <picture>
-      <source srcset="{{ "/img/pytyping_screenshot.webp" | relative_url }}" type="image/webp">
-      <source srcset="{{ "/img/pytyping_screenshot.png" | relative_url }}" type="image/png">
-      <source srcset="{{ "/img/pytyping_screenshot.jpg" | relative_url }}" type="image/jpeg">
-      <img src="{{ "/img/pytyping_screenshot.svg" | relative_url }}" alt="Screenshot for PyTyping" loading="lazy" decoding="async" />
-    </picture>
+   <picture>
+   <source srcset="{{ "/img/pytyping_screenshot.png" | relative_url }}" type="image/png" alt="PyTyping app screenshot" loading="lazy" decoding="async" >
+   </picture>
     <header class="card-header">
       <h2>PyTyping</h2>
       <span class="badge status status-active">active</span>
