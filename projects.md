@@ -9,6 +9,7 @@ permalink: /projects/
 A rolling set of builds, tools, and lab experiments. Click the links below each project to view how I built it. Enjoy!
 
 ## Active builds
+
 <div class="card-grid">
   <article class="card">
     <img src="{{ "/img/threat_stream_dash.png" | relative_url }}" alt="Screenshot of ThreatStream Lite dashboard" loading="lazy" decoding="async" />
@@ -54,9 +55,50 @@ A rolling set of builds, tools, and lab experiments. Click the links below each 
     </div>
     <a class="card-link" href="/projects/vaultwarden-byopm/">Project details →</a>
   </article>
+
+  <article class="card">
+    <picture>
+      <source srcset="{{ "/img/chatarchive_screenshot.webp" | relative_url }}" type="image/webp">
+      <source srcset="{{ "/img/chatarchive_screenshot.png" | relative_url }}" type="image/png">
+      <source srcset="{{ "/img/chatarchive_screenshot.jpg" | relative_url }}" type="image/jpeg">
+      <img src="{{ "/img/chatarchive_screenshot.svg" | relative_url }}" alt="Screenshot for ChatArchive" loading="lazy" decoding="async" />
+    </picture>
+    <header class="card-header">
+      <h2>ChatArchive</h2>
+      <span class="badge status status-building">building</span>
+    </header>
+    <p>Self-hosted chat archive for importing ChatGPT exports into local SQLite with a React UI and fast search planned.</p>
+    <div class="card-meta">
+      <span class="badge tag">fastapi</span>
+      <span class="badge tag">react</span>
+      <span class="badge tag">sqlite</span>
+    </div>
+    <a class="card-link" href="/projects/chatarchive/">Project details →</a>
+  </article>
+
+  <article class="card">
+    <picture>
+      <source srcset="{{ "/img/pytyping_screenshot.webp" | relative_url }}" type="image/webp">
+      <source srcset="{{ "/img/pytyping_screenshot.png" | relative_url }}" type="image/png">
+      <source srcset="{{ "/img/pytyping_screenshot.jpg" | relative_url }}" type="image/jpeg">
+      <img src="{{ "/img/pytyping_screenshot.svg" | relative_url }}" alt="Screenshot for PyTyping" loading="lazy" decoding="async" />
+    </picture>
+    <header class="card-header">
+      <h2>PyTyping</h2>
+      <span class="badge status status-active">active</span>
+    </header>
+    <p>Lightweight local typing trainer built in Python/PyQt with real-time accuracy + speed feedback and session tracking.</p>
+    <div class="card-meta">
+      <span class="badge tag">python</span>
+      <span class="badge tag">pyqt</span>
+      <span class="badge tag">desktop</span>
+    </div>
+    <a class="card-link" href="/projects/pytyping/">Project details →</a>
+  </article>
 </div>
 
 ## Experiments
+
 <div class="card-grid">
   <article class="card">
     <img src="{{ "/img/pihole_dash.png" | relative_url }}" alt="Experimental Pi-hole dashboard screenshot" loading="lazy" decoding="async" />
@@ -93,4 +135,6 @@ A rolling set of builds, tools, and lab experiments. Click the links below each 
     </div>
     <a class="card-link" href="https://www.cs.oswego.edu/~jscott21/coursework/ISC250/index.html" target="_blank">Visit site →</a>
   </article>
+
+</div>
 
