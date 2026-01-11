@@ -4,6 +4,7 @@ url: "https://jamielab.me"
 baseurl: ""
 markdown: kramdown
 excerpt_separator: "<!--more-->"
+future: true
 
 collections:
   notes:

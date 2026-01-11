@@ -1,6 +1,6 @@
 ---
 title: "Setting up a new dev device"
-date: 2026-01-08 09:00:00 -0500
+date: 2026-01-10 09:00:00 -0500
 tags: [linux, dev, workflow]
 description: "A practical checklist for getting a new machine ready for coding."
 ---
