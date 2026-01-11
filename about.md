@@ -13,7 +13,7 @@ I am currently finishing my BA of Information Science at University at SUNY Oswe
   <div class="about-copy">
     <p>I like building all different types of software projects, which can be displayed on the "Projects" page. I also enjoy practical security, network tinkering, and lightweight automation. This site is the public scratchpad for what is running, what broke, and what might get deployed next.</p>
 
-    <h2><em>Stack & tools<em></h2>
+    <h2><em>Stack & tools</em></h2>
     <ul>
       <li>pfSense, VLANs, WireGuard/Tailscale</li>
       <li>Linux, Docker, k3s, IaC in Ansible/Terraform lite</li>
