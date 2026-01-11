@@ -6,13 +6,14 @@ permalink: /about/
 
 # About Jamie
 
-Curious, technical, and usually building or breaking something in the homelab.
+Curious, technical, and usually building or breaking something in the homelab. I also love dogs and plants!
+I am currently finishing my BA of Information Science at University at SUNY Oswego, in Oswego, NY.
 
 <div class="about-grid">
   <div class="about-copy">
-    <p>I like practical security, network tinkering, and lightweight automation. This site is the public scratchpad for what is running, what broke, and what might get deployed next.</p>
+    <p>I like building all different types of software projects, which can be displayed on the "Projects" page. I also enjoy practical security, network tinkering, and lightweight automation. This site is the public scratchpad for what is running, what broke, and what might get deployed next.</p>
 
-    <h2>Stack & tools</h2>
+    <h2><em>Stack & tools<em></h2>
     <ul>
       <li>pfSense, VLANs, WireGuard/Tailscale</li>
       <li>Linux, Docker, k3s, IaC in Ansible/Terraform lite</li>
@@ -28,25 +29,26 @@ Curious, technical, and usually building or breaking something in the homelab.
 
     <h2>Contact</h2>
     <p>Have a question or want to connect? Send me a message:</p>
-    
+
     <form action="https://formspree.io/f/xqarrdda" method="POST" class="contact-form">
       <div class="form-group">
         <label for="name">Name</label>
         <input type="text" id="name" name="name" required>
       </div>
-      
+
       <div class="form-group">
         <label for="email">Email</label>
         <input type="email" id="email" name="email" required>
       </div>
-      
+
       <div class="form-group">
         <label for="message">Message</label>
         <textarea id="message" name="message" rows="5" required></textarea>
       </div>
-      
+
       <button type="submit">Send Message</button>
     </form>
+
   </div>
 
   <div class="about-visual">
