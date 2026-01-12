@@ -1107,6 +1107,32 @@ th {
   margin-top: 0.75rem;
 }
 
+/* ========== COMMENTS SECTION ========== */
+
+.comments-section {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(0, 255, 102, 0.3);
+}
+
+.comments-title {
+  color: #0f0;
+  text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+}
+
+/* Giscus theme overrides */
+.giscus {
+  color-scheme: dark;
+}
+
+.giscus-frame {
+  border: 1px solid rgba(0, 255, 102, 0.2);
+  border-radius: 4px;
+  background: rgba(0, 12, 5, 0.3);
+}
+
 /* ========== CONTACT FORM ========== */
 
 .contact-form {

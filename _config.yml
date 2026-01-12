@@ -39,3 +39,17 @@ defaults:
     values:
       layout: default
 
+# Giscus Comments Configuration
+giscus:
+  enabled: true
+  repo: "jimjamscott22/jimjamscott22.github.io"  # Your GitHub repo in format: username/repo
+  repo_id: ""  # You'll need to get this from giscus.app
+  category: "Comments"  # GitHub Discussion category name
+  category_id: ""  # You'll need to get this from giscus.app
+  mapping: "pathname"  # Maps comments to specific posts
+  reactions_enabled: true
+  emit_metadata: false
+  input_position: "bottom"
+  theme: "dark"  # Fits your CRT theme
+  lang: "en"
+

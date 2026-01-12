@@ -125,6 +125,17 @@ This document outlines all the features available on the JamieLab website.
   - Form validation
   - Direct submission to email
 
+### Comments System
+- **Location**: Blog posts
+- **Description**: GitHub Discussions-powered comments via Giscus
+- **Features**:
+  - GitHub authentication required
+  - Reactions and threading support
+  - Dark theme matching site aesthetic
+  - Automatic discussion creation per post
+  - Markdown support in comments
+  - Moderation via GitHub Discussions
+
 ## Design & Theme
 
 ### CRT Terminal Theme (Existing)
@@ -170,8 +181,7 @@ Consider adding these features in the future:
 3. **Reading Progress Bar**: Visual indicator for blog post progress
 4. **Related Posts**: Show similar content at bottom of posts
 5. **Table of Contents**: Auto-generated TOC for long posts
-6. **Comments System**: Giscus or similar for blog comments
-7. **Analytics**: Privacy-friendly analytics integration
+6. **Analytics**: Privacy-friendly analytics integration
 8. **Performance Monitoring**: Core Web Vitals tracking
 9. **Newsletter Signup**: Email subscription option
 10. **Portfolio Gallery**: Dedicated image gallery for projects
