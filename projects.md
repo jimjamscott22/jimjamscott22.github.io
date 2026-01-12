@@ -57,9 +57,7 @@ A rolling set of builds, tools, and lab experiments. Click the links below each 
   </article>
 
   <article class="card">
-   <picture>
-    <source srcset="{{ "/img/chatarchive_screenshot.png" | relative_url }}" type="image/png" alt="pic" loading="lazy" decoding="async">
-   </picture>
+   <img src="{{ "/img/chatarchive_screenshot.png" | relative_url }}" alt="Screenshot" loading="lazy" decoding="async" />
     <header class="card-header">
       <h2>ChatArchive</h2>
       <span class="badge status status-building">building</span>
@@ -74,9 +72,7 @@ A rolling set of builds, tools, and lab experiments. Click the links below each 
   </article>
 
   <article class="card">
-   <picture>
-   <source srcset="{{ "/img/pytyping_screenshot.png" | relative_url }}" type="image/png" alt="PyTyping app screenshot" loading="lazy" decoding="async" >
-   </picture>
+   <img src="{{ "/img/pytyping_screenshot.png" | relative_url }}" alt="Screenshot" loading="lazy" decoding="async" />
     <header class="card-header">
       <h2>PyTyping</h2>
       <span class="badge status status-active">active</span>
