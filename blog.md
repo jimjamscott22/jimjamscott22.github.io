@@ -8,6 +8,15 @@ permalink: /blog/
 
 Short informational posts, lab notes, and writeups.
 
+</div>
+
+  <div class="about-visual">
+    <img src="{{ "/img/cool-retro-term.png" | relative_url }}"
+         alt="Retro Terminal icon"
+         loading="lazy" decoding="async" />
+  </div>
+</div>
+
 <div class="blog-actions">
   <a href="{{ "/feed.xml" | relative_url }}" class="rss-link">
     <svg class="rss-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
