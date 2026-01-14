@@ -25,7 +25,6 @@ Lightweight intel aggregator pulling feeds into a local DB with quick search and
        loading="lazy"
        decoding="async">
 </div>
-})
 
 ### Challenges & Solutions
 <!-- Track problems you've solved -->

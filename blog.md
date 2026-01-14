@@ -8,13 +8,10 @@ permalink: /blog/
 
 Short informational posts, lab notes, and writeups.
 
-</div>
-
-  <div class="about-visual">
-    <img src="{{ "/img/cool-retro-term.png" | relative_url }}"
-         alt="Retro Terminal icon"
-         loading="lazy" decoding="async" />
-  </div>
+<div class="about-visual">
+  <img src="{{ "/img/cool-retro-term.png" | relative_url }}"
+       alt="Retro Terminal icon"
+       loading="lazy" decoding="async" />
 </div>
 
 <div class="blog-actions">
