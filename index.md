@@ -35,7 +35,7 @@ Network tools engaged.
 ## Featured image
 
 <div class="hero-shot">
-  <img src="{{ img\minimalist_workstation.png | relative_url }}?v={{ cache_bust }}" alt="guy at a computer" loading="lazy" decoding="async">
+  <img src="{{ "/img/minimalist_workstation.png" | relative_url }}?v={{ cache_bust }}" alt="guy at a computer" loading="lazy" decoding="async">
   <div class="hero-caption">The Lonely Hacker</div>
 </div>
 
