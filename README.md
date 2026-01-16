@@ -33,5 +33,4 @@ bundle exec jekyll build
 See [FEATURES.md](FEATURES.md) for detailed feature documentation.
 
 ## License
-
-Content and code are personal works of Jamie Scott.
+MIT License
