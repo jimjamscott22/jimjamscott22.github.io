@@ -517,8 +517,7 @@ textarea {
 
 /* Button styling for forms */
 button[type="submit"],
-.note-submit,
-.contact-form button {
+.note-submit {
   padding: 0.5rem 1rem;
   font-family: inherit;
   font-size: 0.9rem;
