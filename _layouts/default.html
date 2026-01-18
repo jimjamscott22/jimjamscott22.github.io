@@ -82,6 +82,15 @@
         </a>
       </nav>
 
+      <div class="theme-switcher">
+        <label class="theme-label" for="theme-select">Theme</label>
+        <select class="theme-select" id="theme-select" data-theme-select>
+          <option value="cyber" data-theme-href="{{ "/assets/css/theme-cyber-lab.css" | relative_url }}?v={{ cache_bust }}">Cyber Lab</option>
+          <option value="matrix" data-theme-href="{{ "/assets/css/theme-enhanced-matrix.css" | relative_url }}?v={{ cache_bust }}">Enhanced Matrix</option>
+          <option value="neon" data-theme-href="{{ "/assets/css/theme-neon-terminal.css" | relative_url }}?v={{ cache_bust }}">Neon Terminal</option>
+        </select>
+      </div>
+
       <div class="nav-footer">
         <div class="nav-footer-line">user: jamie</div>
         <div class="nav-footer-line">access: <span class="accent">granted</span></div>
