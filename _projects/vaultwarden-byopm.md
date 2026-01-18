@@ -11,7 +11,10 @@ permalink: /projects/vaultwarden-byopm/
 
 Self-hosted password manager built on VaultWarden (Bitwarden-compatible server), running in Docker with Unbound DNS for secure recursive lookups and automated backup systems. Moving password management in-house to maintain full control over credentials while keeping the convenience of modern password management tools.
 
-!["VaultWarden BYOPM Schematic"]({{ "/img/byopm_schematic.webp" | relative_url }})
+<figure class="content-image content-image--wide">
+  <img src="{{ "/img/byopm_schematic.webp" | relative_url }}" alt="VaultWarden BYOPM architecture schematic" loading="lazy" decoding="async" />
+  <figcaption>System architecture diagram</figcaption>
+</figure>
 
 ## Architecture
 
@@ -65,11 +68,6 @@ For the sanitized Docker Compose template and detailed configuration, see:
 ## Lessons Learned
 
 <!-- What you learned building this -->
-<div style="display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; align-items:center;">
-  <figure style="margin:0;">
-    <img src="{{ "img/byopm_schematic.webp" | relative_url }}" alt="ufw diagram" style="width:100%; height:auto;" />
-    <figcaption style="opacity:.8; font-size:.9em; margin-top:.3rem;">SSH overview</figcaption>
-  </figure>
 
 ## Next Steps
 

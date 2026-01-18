@@ -200,14 +200,14 @@ Recovery time is measured in minutes.
 
 ---
 
-<div style="display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; align-items:center;">
-  <figure style="margin:0;">
-    <img src="{{ "/img/nas_part2.png" | relative_url }}" alt="SSH diagram" style="width:100%; height:auto;" />
-    <figcaption style="opacity:.8; font-size:.9em; margin-top:.3rem;">SSH overview</figcaption>
+<div class="image-gallery">
+  <figure>
+    <img src="{{ "/img/nas_part2.png" | relative_url }}" alt="NAS backup diagram" loading="lazy" decoding="async" />
+    <figcaption>Backup architecture overview</figcaption>
   </figure>
-  <figure style="margin:0;">
-    <img src="{{ "/img/Find-Failed-SSH-Logins.png" | relative_url }}" alt="Failed SSH logins" style="width:100%; height:auto;" />
-    <figcaption style="opacity:.8; font-size:.9em; margin-top:.3rem;">Finding failed logins</figcaption>
+  <figure>
+    <img src="{{ "/img/Find-Failed-SSH-Logins.png" | relative_url }}" alt="Failed SSH logins monitoring" loading="lazy" decoding="async" />
+    <figcaption>Finding failed logins</figcaption>
   </figure>
 </div>
 

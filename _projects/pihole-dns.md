@@ -12,21 +12,23 @@ permalink: /projects/pihole-dns/
 ## Overview
 DNS sinkhole tests, DoH/DoT trials, and dashboard tweaks for home clients and lab guests.
 
-## Screenshot
+## Screenshots
 
-<div>
-<picture>
-  <source srcset="{{ "/img/blockliststats.png" | relative_url }}" type="image/png" alt="PyTyping app screenshot" loading="lazy" decoding="async" >
-</picture>
+<div class="image-gallery">
+  <figure>
+    <img src="{{ "/img/blockliststats.png" | relative_url }}" alt="Blocklist statistics" loading="lazy" decoding="async" />
+    <figcaption>Blocklist statistics</figcaption>
+  </figure>
+  <figure>
+    <img src="{{ "/img/piholepic.PNG" | relative_url }}" alt="Pi-hole metrics dashboard" loading="lazy" decoding="async" />
+    <figcaption>Pi-hole metrics</figcaption>
+  </figure>
+</div>
 
-<picture>
-  <source srcset="{{ "/img/piholepic.PNG" | relative_url }}" type="image/png" alt="image of pihole metrics" loading="lazy" decoding="async" >
-</picture>
-
-<picture>
-  <source srcset="{{ "/img/piholepic2.jpeg" | relative_url }}" type="image/png" alt="image of dns metrics" loading="lazy" decoding="async" >
-</picture>
-<div>
+<figure class="content-image">
+  <img src="{{ "/img/piholepic2.jpeg" | relative_url }}" alt="DNS query metrics" loading="lazy" decoding="async" />
+  <figcaption>DNS query metrics over time</figcaption>
+</figure>
 
 ## Notes
 
