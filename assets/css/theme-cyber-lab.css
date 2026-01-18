@@ -44,6 +44,11 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 /* Custom scrollbar */
 
 body::-webkit-scrollbar {
@@ -278,6 +283,41 @@ h1, h2, h3, h4,
 
 .nav-link:active {
   transform: translateX(0);
+}
+
+.theme-switcher {
+  margin-top: 0.6rem;
+  padding: 0.4rem 0.35rem;
+  border: 1px dashed var(--border-color);
+  border-radius: 2px;
+  background-color: rgba(0, 0, 0, 0.35);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.theme-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.theme-select {
+  font-family: inherit;
+  font-size: 0.75rem;
+  color: var(--text-primary);
+  background-color: rgba(0, 0, 0, 0.7);
+  border: 1px solid var(--border-color);
+  border-radius: 2px;
+  padding: 0.35rem 0.4rem;
+  cursor: pointer;
+}
+
+.theme-select:focus-visible {
+  outline: none;
+  border-color: var(--border-bright);
+  box-shadow: 0 0 8px var(--shadow-color);
 }
 
 .nav-footer {
