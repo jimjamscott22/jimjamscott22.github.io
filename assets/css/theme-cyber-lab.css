@@ -87,25 +87,16 @@ html {
   pointer-events: none;
   position: fixed;
   inset: 0;
-  opacity: 0.03;
+  opacity: 0.02;
   mix-blend-mode: soft-light;
   z-index: 1;
-  will-change: opacity;
-  transform: translateZ(0);
   background-image:
     repeating-linear-gradient(
       0deg,
-      rgba(255, 255, 255, 0.09) 0,
-      rgba(255, 255, 255, 0.09) 1px,
+      rgba(255, 255, 255, 0.06) 0,
+      rgba(255, 255, 255, 0.06) 1px,
       transparent 1px,
       transparent 2px
-    ),
-    repeating-linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 0.04) 0,
-      rgba(255, 255, 255, 0.04) 1px,
-      transparent 1px,
-      transparent 3px
     );
 }
 
@@ -114,28 +105,25 @@ html {
   position: fixed;
   inset: 0;
   z-index: 2;
-  opacity: 0.04;
-  will-change: opacity;
-  transform: translateZ(0);
+  opacity: 0.03;
   background-image: repeating-linear-gradient(
     to bottom,
-    rgba(0, 0, 0, 0.5),
-    rgba(0, 0, 0, 0.5) 1px,
+    rgba(0, 0, 0, 0.4),
+    rgba(0, 0, 0, 0.4) 1px,
     transparent 1px,
     transparent 3px
   );
 }
 
 .crt-theme {
-  animation: crt-flicker 18s infinite;
-  will-change: opacity;
+  animation: crt-flicker 20s infinite;
 }
 
 @keyframes crt-flicker {
   0% { opacity: 1; }
-  48% { opacity: 0.99; }
-  50% { opacity: 0.98; }
-  52% { opacity: 1; }
+  49% { opacity: 1; }
+  50% { opacity: 0.99; }
+  51% { opacity: 1; }
   100% { opacity: 1; }
 }
 
@@ -143,12 +131,9 @@ html {
   color: var(--accent-cyan);
 }
 
-/* Selective text shadows for performance */
-h1, h2, h3, h4,
-.nav-brand-title,
-.accent,
-.top-bar-label {
-  text-shadow: 0 0 5px rgba(0, 229, 255, 0.35);
+/* Selective text shadows for performance - only on headings */
+h1, h2, h3, h4 {
+  text-shadow: 0 0 5px rgba(0, 229, 255, 0.25);
 }
 
 /* ========== PAGE LAYOUT ========== */
@@ -225,6 +210,7 @@ h1, h2, h3, h4,
   .brand-blink,
   #intro::after {
     animation: none !important;
+    opacity: 1;
   }
 
   .noise-overlay,
@@ -233,10 +219,7 @@ h1, h2, h3, h4,
   }
   
   /* Remove shadows on reduced motion */
-  h1, h2, h3, h4,
-  .nav-brand-title,
-  .accent,
-  .top-bar-label {
+  h1, h2, h3, h4 {
     text-shadow: none !important;
   }
 }
@@ -276,9 +259,6 @@ h1, h2, h3, h4,
   background-color: rgba(0, 229, 255, 0.12);
   border-color: var(--border-bright);
   transform: translateX(1px);
-  text-shadow:
-    0 0 8px var(--accent-cyan),
-    0 0 18px rgba(0, 229, 255, 0.4);
 }
 
 .nav-link:active {
@@ -507,6 +487,65 @@ h1, h2, h3, h4,
 
 /* ========== TYPOGRAPHY & CONTENT STYLES ========== */
 
+/* Form inputs and textareas - cyber theme styling */
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 0.5rem;
+  font-family: inherit;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  background-color: rgba(5, 10, 14, 0.8);
+  border: 1px solid var(--border-color);
+  border-radius: 2px;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+  border-color: var(--border-bright);
+  box-shadow: 0 0 8px var(--shadow-color);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* Button styling for forms */
+button[type="submit"],
+.note-submit,
+.contact-form button {
+  padding: 0.5rem 1rem;
+  font-family: inherit;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  background: linear-gradient(135deg, rgba(0, 229, 255, 0.15), rgba(0, 0, 0, 0.9));
+  border: 1px solid var(--border-bright);
+  border-radius: 2px;
+  cursor: pointer;
+  text-transform: lowercase;
+  letter-spacing: 0.06em;
+  transition: transform 0.1s ease, box-shadow 0.15s ease;
+}
+
+button[type="submit"]:hover,
+button[type="submit"]:focus-visible,
+.note-submit:hover,
+.note-submit:focus-visible {
+  outline: none;
+  box-shadow: 0 0 12px var(--shadow-color);
+  transform: translateY(-1px);
+}
+
+button[type="submit"]:active,
+.note-submit:active {
+  transform: translateY(0);
+}
+
 h1, h2, h3, h4 {
   margin-top: 0;
   color: var(--accent-cyan);
@@ -538,7 +577,6 @@ a {
 
 a:hover {
   text-decoration: underline;
-  text-shadow: 0 0 8px var(--accent-cyan);
   color: #33f0ff;
 }
 
