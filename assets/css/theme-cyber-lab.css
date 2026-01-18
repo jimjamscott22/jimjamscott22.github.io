@@ -529,7 +529,7 @@ th {
 }
 
 .project-image {
-  max-width: 100%;
+  max-width: 800px;
   margin: 2rem auto;
   padding: 0 1rem;
 }
