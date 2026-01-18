@@ -25,10 +25,10 @@ I've created **three theme variants** for your cyber-lab aesthetic! Each maintai
 ## 🔧 How to Switch Themes
 
 ### Quick Switch Method:
-Open `_layouts/default.html` and change **line 34** from:
+Open `_layouts/default.html` and change the theme stylesheet link from:
 
 ```html
-<link rel="stylesheet" href="{{ "/assets/css/custom.css" | relative_url }}?v={{ cache_bust }}">
+<link rel="stylesheet" href="{{ "/assets/css/theme-cyber-lab.css" | relative_url }}?v={{ cache_bust }}">
 ```
 
 To one of these:
@@ -44,6 +44,14 @@ To one of these:
 <link rel="stylesheet" href="{{ "/assets/css/theme-neon-terminal.css" | relative_url }}?v={{ cache_bust }}">
 ```
 
+**Important:** Leave the shared image stylesheet enabled:
+
+```html
+<link rel="stylesheet" href="{{ "/assets/css/images.css" | relative_url }}?v={{ cache_bust }}">
+```
+
+This keeps image presentation consistent even when swapping themes.
+
 ### Local Preview:
 The Jekyll server is running! Visit:
 **http://localhost:4000**
@@ -52,7 +60,8 @@ Changes will auto-reload when you save files!
 
 ## 📝 Notes
 
-- Each theme includes all the base styles from your original `custom.css`
+- The themes control the overall color + chrome styling
+- Image presentation is kept consistent via `assets/css/images.css`
 - I've only implemented the core color system and main components
 - Your original `custom.css` is untouched as backup
 - The themes use CSS custom properties (variables) for easy tweaking
