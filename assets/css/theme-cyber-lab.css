@@ -210,7 +210,7 @@ h1, h2, h3, h4 {
   .brand-blink,
   #intro::after {
     animation: none !important;
-    opacity: 1;
+    opacity: 1; /* Ensure cursors remain visible when animations are disabled */
   }
 
   .noise-overlay,
