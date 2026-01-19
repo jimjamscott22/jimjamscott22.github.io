@@ -65,13 +65,13 @@ Quick, easy, and essential for a secure lab environment.
 - [Fail2ban and rate limiting notes]({{ "/projects/vaultwarden-byopm/" | relative_url }})
 - [Reverse proxy hardening notes]({{ "/notes/vaultwarden-compose-template/" | relative_url }})
 
-<div style="display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; align-items:center;">
-  <figure style="margin:0;">
-    <img src="{{ "img/ufw.png" | relative_url }}" alt="ufw diagram" style="width:100%; height:auto;" />
-    <figcaption style="opacity:.8; font-size:.9em; margin-top:.3rem;">UFW overview</figcaption>
+<div class="image-gallery">
+  <figure>
+    <img src="{{ "img/ufw.png" | relative_url }}" alt="ufw diagram" loading="lazy" decoding="async" />
+    <figcaption>UFW overview</figcaption>
   </figure>
-  <figure style="margin:0;">
-    <img src="{{ "img/tunneledHTTPSZoom.svg" | relative_url }}" alt="Failed SSH logins" style="width:100%; height:auto;" />
-    <figcaption style="opacity:.8; font-size:.9em; margin-top:.3rem;">Hardening your Services</figcaption>
+  <figure>
+    <img src="{{ "img/tunneledHTTPSZoom.svg" | relative_url }}" alt="HTTPS tunnel diagram" loading="lazy" decoding="async" />
+    <figcaption>Hardening your Services</figcaption>
   </figure>
 </div>
