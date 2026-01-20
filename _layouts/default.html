@@ -34,7 +34,9 @@
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
 
-  <!-- Base CSS -->
+  <!-- Base CSS (structure + layout) -->
+  <link rel="stylesheet" href="{{ '/assets/css/base.css' | relative_url }}?v={{ cache_bust }}">
+  <!-- Theme CSS (colors + variables) -->
   <link rel="stylesheet" href="{{ '/assets/css/theme-cyber-lab.css' | relative_url }}?v={{ cache_bust }}">
   <!-- Shared image styling (keeps images consistent across themes) -->
   <link rel="stylesheet" href="{{ '/assets/css/images.css' | relative_url }}?v={{ cache_bust }}">
