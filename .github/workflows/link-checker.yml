@@ -20,10 +20,7 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.1'
-          bundler-cache: true  # Automatically caches gems based on Gemfile.lock
-      
-      - name: Install dependencies
-        run: bundle install
+          bundler-cache: true  # Automatically caches gems based on Gemfile.lock and installs dependencies
       
       - name: Build Jekyll site
         run: bundle exec jekyll build
@@ -38,6 +35,5 @@ jobs:
           htmlproofer ./_site \
             --disable-external \
             --allow-hash-href \
-            --ignore-urls "/^http:\/\/127.0.0.1/,/^http:\/\/0.0.0.0/,/^http:\/\/localhost/" \
-            --swap-urls "^https?\:\/\/jamielab\.me:" \
+            --ignore-urls "/^http:\/\/127.0.0.1/,/^http:\/\/0.0.0.0/,/^http:\/\/localhost/,/^http:\/\/pi.hole/" \
             --ignore-files "/assets\/vendor/"
