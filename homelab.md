@@ -6,11 +6,10 @@ permalink: /homelab/
 
 # Homelab
 
-"I built labs where bright LEDs gleam,
-My Fort-Knox-LAN locked down every stream;
-From Pi‑holes to Tailscale,
-my plans did not fail—
-I think I turned tinkering into a dream!"
+"I forged labs where LEDs cast their glow,
+My Fort\-Knox LAN kept every flow;
+From Pi\-holes to Tailscale's stream,
+tinkering at last became a dream!"
 
 ## Core services
 <!-- markdownlint-disable MD033 -->
@@ -18,10 +17,10 @@ I think I turned tinkering into a dream!"
   <article class="card">
     <img src="{{ "/img/services.png" | relative_url }}" alt="web dash of running services" loading="lazy" decoding="async">
     <header class="card-header">
-      <h2>Dashboard + VLANs</h2>
+      <h2>Dashboards</h2>
       <span class="badge status status-active">active</span>
     </header>
-    <p>pfSense gateway with segmented VLANs for trusted, lab, guests, and IoT; DHCP/DNS split per zone.</p>
+    <p>Centralized network dashboards provide real\-time status, traffic insights, and alerts for homelab devices and segments.</p>
     <div class="card-meta">
       <span class="badge tag">pfsense</span>
       <span class="badge tag">vlans</span>
@@ -36,7 +35,7 @@ I think I turned tinkering into a dream!"
       <h2>Tailscale mesh</h2>
       <span class="badge status status-active">active</span>
     </header>
-    <p>Exit node, subnet router, and a few devices on the tailnet for remote admin and quick jumps.</p>
+    <p>Exit node, subnet router, and a few devices on the Tailnet for remote admin and quick access to files on my home network.</p>
     <div class="card-meta">
       <span class="badge tag">tailscale</span>
       <span class="badge tag">wireguard</span>
@@ -70,13 +69,12 @@ I think I turned tinkering into a dream!"
       <h2>VaultWarden-Services VM</h2>
       <span class="badge status status-building">building</span>
     </header>
-    <p>Docker Container host for VaultWarden, Unbound, and a small git/CI runner; all IaC-driven.</p>
+    <p>Primary Docker host for VaultWarden (self-hosted password manager), with Unbound and a lightweight git/CI runner; all managed via IaC.</p>
     <div class="card-meta">
       <span class="badge tag">docker</span>
       <span class="badge tag">VaultWarden</span>
       <span class="badge tag">dns</span>
     </div>
     <a class="card-link" href="{{ "/notes/vaultwarden-compose-template/" | relative_url }}">Compose template →</a>
-
   </article>
 </div>
