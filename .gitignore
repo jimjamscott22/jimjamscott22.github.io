@@ -20,3 +20,5 @@ Thumbs.db
 *.swp
 *.swo
 *~
+.idea/dbnavigator.xml
+.idea/inspectionProfiles/Project_Default.xml
