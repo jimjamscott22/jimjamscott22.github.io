@@ -33,8 +33,22 @@ This means changes to layout, structure, or components automatically apply to al
 
 ## How to Switch Themes
 
-### Quick Switch Method:
-Open `_layouts/default.html` and change the theme stylesheet link from:
+### Interactive Theme Switcher (Recommended!)
+The site now has a working **interactive theme switcher**! 
+
+1. Open the navigation panel (sidebar)
+2. Find the "Theme" dropdown selector
+3. Choose your preferred theme:
+   - **Cyber Lab** (cyan/green - default)
+   - **Enhanced Matrix** (classic green terminal)
+   - **Neon Terminal** (purple/cyan cyberpunk)
+4. Theme changes instantly (no page reload!)
+5. Your preference is saved automatically (localStorage)
+
+The theme switcher works on every page and persists across sessions.
+
+### Manual Switch Method (for development):
+Alternatively, you can change the default theme by editing `_layouts/default.html` and changing the theme stylesheet link from:
 
 ```html
 <link rel="stylesheet" href="{{ "/assets/css/theme-cyber-lab.css" | relative_url }}?v={{ cache_bust }}">
@@ -53,14 +67,16 @@ To one of these:
 <link rel="stylesheet" href="{{ "/assets/css/theme-neon-terminal.css" | relative_url }}?v={{ cache_bust }}">
 ```
 
-**Important:** Both files must be loaded:
+**Important:** Both files must be loaded, and the theme link needs the `id="theme-stylesheet"` attribute:
 - `base.css` - Always required (contains all structure)
-- `theme-*.css` - Choose one theme file
+- `theme-*.css` - Choose one theme file (must have id="theme-stylesheet")
 
 ```html
 <link rel="stylesheet" href="{{ "/assets/css/base.css" | relative_url }}?v={{ cache_bust }}">
-<link rel="stylesheet" href="{{ "/assets/css/theme-cyber-lab.css" | relative_url }}?v={{ cache_bust }}">
+<link id="theme-stylesheet" rel="stylesheet" href="{{ "/assets/css/theme-cyber-lab.css" | relative_url }}?v={{ cache_bust }}">
 ```
+
+The `id="theme-stylesheet"` is required for the interactive theme switcher to work.
 
 Also keep the shared image stylesheet enabled:
 
