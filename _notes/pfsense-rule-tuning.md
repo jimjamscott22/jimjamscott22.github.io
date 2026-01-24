@@ -3,6 +3,8 @@ layout: default
 title: pfSense Rule Tuning
 date: 2024-11-05
 type: runbook
+category: networking
+tags: [firewall, pfsense, security]
 permalink: /notes/pfsense-rule-tuning/
 ---
 

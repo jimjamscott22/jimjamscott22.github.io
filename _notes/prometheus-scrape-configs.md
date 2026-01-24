@@ -3,6 +3,8 @@ layout: default
 title: Prometheus Scrape Configs
 date: 2024-08-14
 type: checklist
+category: homelab
+tags: [monitoring, prometheus]
 permalink: /notes/prometheus-scrape-configs/
 ---
 

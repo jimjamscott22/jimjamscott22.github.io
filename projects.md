@@ -8,6 +8,42 @@ permalink: /projects/
 
 A rolling set of builds, tools, and lab experiments. Click the links below each project to view how I built it. Enjoy!
 
+## Status Dashboard
+
+<div class="project-dashboard">
+  {% for project in site.projects %}
+    <div class="dashboard-card">
+      <div class="dashboard-card-header">
+        <h3><a href="{{ project.url | relative_url }}">{{ project.title }}</a></h3>
+      </div>
+      <div class="dashboard-status-row">
+        {% if project.health %}
+          <span class="health-indicator health-{{ project.health }}">●</span>
+          <span class="dashboard-health">{{ project.health }}</span>
+        {% endif %}
+        {% if project.status %}
+          <span class="badge status-{{ project.status }}">{{ project.status }}</span>
+        {% endif %}
+        {% if project.uptime_pct %}
+          <span class="dashboard-uptime">↑ {{ project.uptime_pct }}%</span>
+        {% endif %}
+      </div>
+      {% if project.tech_stack %}
+        <div class="dashboard-tech">
+          {% for tech in project.tech_stack %}
+            <span class="tech-tag">{{ tech }}</span>
+          {% endfor %}
+        </div>
+      {% endif %}
+      {% if project.last_updated %}
+        <div class="dashboard-updated">Updated: {{ project.last_updated }}</div>
+      {% endif %}
+    </div>
+  {% endfor %}
+</div>
+
+---
+
 ## Active builds
 
 <div class="card-grid">

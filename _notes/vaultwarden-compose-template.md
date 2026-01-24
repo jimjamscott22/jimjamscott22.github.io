@@ -2,7 +2,9 @@
 layout: default
 title: VaultWarden Services Compose Template
 date: 2025-12-28
-type: reference
+type: quick-note
+category: homelab
+tags: [docker, security, vaultwarden]
 permalink: /notes/vaultwarden-compose-template/
 ---
 

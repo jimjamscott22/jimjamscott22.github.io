@@ -2,6 +2,12 @@
 layout: default
 title: ChatArchive
 permalink: /projects/chatarchive/
+status: building
+health: healthy
+last_updated: 2025-12-15
+tech_stack: [fastapi, react, sqlite, llm]
+milestone_date: 2025-11-01
+milestone_text: "Started ChatArchive conversation management app"
 ---
 
 **Status:** Building  
