@@ -1947,6 +1947,291 @@ th {
   }
 }
 
+/* ========== TOOLS PAGE ========== */
+
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.tool-card {
+  background: rgba(0, 229, 255, 0.03);
+  border: 1px solid rgba(0, 229, 255, 0.2);
+  border-radius: 8px;
+  padding: 1.25rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.tool-card:hover {
+  border-color: rgba(0, 229, 255, 0.4);
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.1);
+}
+
+.tool-card h2 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.25rem;
+  color: #00e5ff;
+}
+
+.tool-card > p {
+  color: #9de3f5;
+  font-size: 0.9rem;
+  margin: 0 0 1rem 0;
+}
+
+.tool-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.control-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.control-row label {
+  color: #9de3f5;
+  font-size: 0.85rem;
+}
+
+.control-row input[type="range"] {
+  width: 100%;
+  accent-color: #00e5ff;
+  background: transparent;
+}
+
+.checkbox-group {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+}
+
+.checkbox-group label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.checkbox-group input[type="checkbox"] {
+  accent-color: #00e5ff;
+  width: 16px;
+  height: 16px;
+}
+
+.output-box {
+  display: flex;
+  gap: 0.5rem;
+  align-items: stretch;
+}
+
+.output-box input[type="text"],
+.output-box textarea {
+  flex: 1;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(0, 229, 255, 0.3);
+  border-radius: 4px;
+  padding: 0.5rem 0.75rem;
+  color: #00ff88;
+  font-family: inherit;
+  font-size: 0.95rem;
+}
+
+.output-box input[type="text"]:focus,
+.output-box textarea:focus {
+  outline: none;
+  border-color: #00e5ff;
+  box-shadow: 0 0 8px rgba(0, 229, 255, 0.3);
+}
+
+.tool-btn {
+  background: rgba(0, 229, 255, 0.1);
+  border: 1px solid rgba(0, 229, 255, 0.4);
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  color: #00e5ff;
+  font-family: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.tool-btn:hover {
+  background: rgba(0, 229, 255, 0.2);
+  border-color: #00e5ff;
+  box-shadow: 0 0 10px rgba(0, 229, 255, 0.3);
+}
+
+.tool-btn.primary {
+  background: rgba(0, 255, 136, 0.15);
+  border-color: rgba(0, 255, 136, 0.5);
+  color: #00ff88;
+}
+
+.tool-btn.primary:hover {
+  background: rgba(0, 255, 136, 0.25);
+  border-color: #00ff88;
+  box-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
+}
+
+.tool-btn.copy-btn {
+  white-space: nowrap;
+  min-width: 60px;
+}
+
+.tool-btn.copy-btn.copied {
+  background: rgba(0, 255, 136, 0.2);
+  border-color: #00ff88;
+  color: #00ff88;
+}
+
+.tool-btn.small {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.8rem;
+  min-width: 50px;
+}
+
+.button-row {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.pw-strength {
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+  min-height: 1.2em;
+}
+
+/* ASCII Art output */
+.ascii-output-container {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.ascii-pre {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(0, 229, 255, 0.3);
+  border-radius: 4px;
+  padding: 1rem;
+  color: #00ff88;
+  font-size: 0.6rem;
+  line-height: 1.1;
+  overflow-x: auto;
+  white-space: pre;
+  margin: 0;
+  min-height: 80px;
+}
+
+.ascii-output-container .copy-btn {
+  align-self: flex-end;
+  margin-top: 0.5rem;
+}
+
+/* Hash Generator */
+.hash-results {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.hash-row {
+  display: grid;
+  grid-template-columns: 70px 1fr auto;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.hash-label {
+  color: #9de3f5;
+  font-size: 0.85rem;
+}
+
+.hash-row input {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(0, 229, 255, 0.2);
+  border-radius: 4px;
+  padding: 0.35rem 0.5rem;
+  color: #00ff88;
+  font-family: inherit;
+  font-size: 0.75rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Encoder textarea styling */
+#encoder-input,
+#encoder-output {
+  resize: vertical;
+  min-height: 60px;
+}
+
+#encoder-mode,
+#ascii-font {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(0, 229, 255, 0.3);
+  border-radius: 4px;
+  padding: 0.5rem;
+  color: #c5f5ff;
+  font-family: inherit;
+  font-size: 0.9rem;
+}
+
+#encoder-mode:focus,
+#ascii-font:focus {
+  outline: none;
+  border-color: #00e5ff;
+}
+
+#encoder-mode option,
+#ascii-font option {
+  background: #0a1218;
+  color: #c5f5ff;
+}
+
+#ascii-input {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(0, 229, 255, 0.3);
+  border-radius: 4px;
+  padding: 0.5rem 0.75rem;
+  color: #c5f5ff;
+  font-family: inherit;
+  font-size: 0.95rem;
+}
+
+#ascii-input:focus {
+  outline: none;
+  border-color: #00e5ff;
+  box-shadow: 0 0 8px rgba(0, 229, 255, 0.3);
+}
+
+@media (max-width: 600px) {
+  .tools-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .checkbox-group {
+    grid-template-columns: 1fr;
+  }
+
+  .hash-row {
+    grid-template-columns: 60px 1fr;
+  }
+
+  .hash-row .tool-btn {
+    display: none;
+  }
+
+  .ascii-pre {
+    font-size: 0.5rem;
+  }
+}
+
 /* ========== PRINT STYLES ========== */
 
 @media print {
