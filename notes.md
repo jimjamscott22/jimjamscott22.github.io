@@ -4,29 +4,80 @@ title: Notes
 permalink: /notes/
 ---
 
-# Notes
+# Knowledge Base
 
 {% assign cache_bust = site.github.build_revision %}
 {% if cache_bust == nil or cache_bust == "" %}
 {% assign cache_bust = site.time | date: "%s" %}
 {% endif %}
 
-Lightweight notes, commands, and runbooks. Swap the placeholder links with real pages or gists later.
+Searchable knowledge base of runbooks, how-tos, and technical notes. For project-specific documentation, see [Projects](/projects/).
 
-## Recent entries
+<div class="wiki-controls">
+  <div class="search-container">
+    <input type="text" id="wiki-search" class="search-input" placeholder="Search knowledge base...">
+  </div>
 
-| Date       | Topic                     | Type       | Link                                      |
-| ---------- | ------------------------- | ---------- | ----------------------------------------- |
-| 2024-11-05 | pfSense rule tuning       | runbook    | [open](/notes/pfsense-rule-tuning/)       |
-| 2024-10-18 | Pi-hole blocklist trims   | quick note | [open](/notes/pihole-blocklist-trims/)    |
-| 2024-09-27 | Tailscale subnet routing  | how-to     | [open](/notes/tailscale-subnet-routing/)  |
-| 2024-08-14 | Prometheus scrape configs | checklist  | [open](/notes/prometheus-scrape-configs/) |
+  <div class="wiki-filters">
+    <div class="filter-group">
+      <label>Category:</label>
+      <button class="wiki-filter-btn active" data-category="all">All</button>
+      <button class="wiki-filter-btn" data-category="networking">Networking</button>
+      <button class="wiki-filter-btn" data-category="homelab">Homelab</button>
+      <button class="wiki-filter-btn" data-category="development">Development</button>
+      <button class="wiki-filter-btn" data-category="security">Security</button>
+    </div>
+    <div class="filter-group">
+      <label>Type:</label>
+      <button class="wiki-filter-btn active" data-type="all">All</button>
+      <button class="wiki-filter-btn" data-type="runbook">Runbook</button>
+      <button class="wiki-filter-btn" data-type="how-to">How-To</button>
+      <button class="wiki-filter-btn" data-type="quick-note">Quick Note</button>
+      <button class="wiki-filter-btn" data-type="checklist">Checklist</button>
+    </div>
+  </div>
+
+  <div id="wiki-count" class="search-count"></div>
+</div>
+
+<div class="wiki-grid" id="wiki-grid">
+  {% for note in site.notes %}
+    <div class="wiki-card card"
+         data-category="{{ note.category | default: 'uncategorized' }}"
+         data-type="{{ note.type }}"
+         data-title="{{ note.title | downcase }}"
+         data-tags="{{ note.tags | join: ',' | downcase }}">
+      <div class="card-header">
+        <h3><a href="{{ note.url | relative_url }}">{{ note.title }}</a></h3>
+        <div class="wiki-meta">
+          <span class="badge">{{ note.type }}</span>
+          {% if note.category %}
+            <span class="badge tag">{{ note.category }}</span>
+          {% endif %}
+        </div>
+      </div>
+      {% if note.date %}
+        <div class="wiki-date">{{ note.date | date: "%Y-%m-%d" }}</div>
+      {% endif %}
+      {% if note.tags %}
+        <div class="wiki-tags">
+          {% for tag in note.tags %}
+            <span class="badge tag">{{ tag }}</span>
+          {% endfor %}
+        </div>
+      {% endif %}
+      {% if note.excerpt %}
+        <p class="wiki-excerpt">{{ note.excerpt | strip_html | truncate: 150 }}</p>
+      {% endif %}
+    </div>
+  {% endfor %}
+</div>
+
+---
 
 ## Scratchpad
 
-Working space for rough thinking, fast sketches, and ideas that haven’t earned their own page yet.
-
----
+Working space for rough thinking, fast sketches, and ideas that haven't earned their own page yet.
 
 ### Diagrams
 
@@ -48,16 +99,16 @@ Low-friction visual thinking. If it survives iteration, it graduates to a projec
 
 ### Commands
 
-- `ip a && ip r` — quick sanity check on network state  
-- `journalctl -u service --since "10 min ago"` — recent service logs  
+- `ip a && ip r` — quick sanity check on network state
+- `journalctl -u service --since "10 min ago"` — recent service logs
 - `git status && git diff` — reality check before committing
 
 ---
 
 ### Ideas
 
-- Convert recurring diagrams into reusable templates  
-- Add a “threat-awareness” branch to app design flows  
+- Convert recurring diagrams into reusable templates
+- Add a "threat-awareness" branch to app design flows
 - Tie Scratchpad diagrams directly to project changelogs
 
 ## Interactive notes
@@ -88,4 +139,20 @@ Low-friction visual thinking. If it survives iteration, it graduates to a projec
   </div>
 </div>
 
+<script>
+  window.wikiData = [
+    {% for note in site.notes %}
+    {
+      title: {{ note.title | jsonify }},
+      url: {{ note.url | relative_url | jsonify }},
+      date: {{ note.date | date: "%Y-%m-%d" | jsonify }},
+      type: {{ note.type | jsonify }},
+      category: {{ note.category | default: "uncategorized" | jsonify }},
+      tags: {{ note.tags | default: "[]" | jsonify }},
+      content: {{ note.content | strip_html | jsonify }}
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ];
+</script>
+<script src="{{ "/assets/js/wiki.js" | relative_url }}?v={{ cache_bust }}"></script>
 <script src="{{ "/assets/js/notes.js" | relative_url }}?v={{ cache_bust }}"></script>

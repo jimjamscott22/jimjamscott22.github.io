@@ -2,6 +2,12 @@
 layout: default
 title: ThreatStream Lite
 permalink: /projects/threatstream-lite/
+status: active
+health: healthy
+last_updated: 2026-01-15
+tech_stack: [python, sqlite, rss, flask]
+milestone_date: 2024-09-15
+milestone_text: "Launched ThreatStream Lite threat intel aggregator"
 ---
 
 # ThreatStream Lite

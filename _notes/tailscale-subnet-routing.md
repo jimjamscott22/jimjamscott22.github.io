@@ -3,6 +3,8 @@ layout: default
 title: Tailscale Subnet Routing
 date: 2024-09-27
 type: how-to
+category: networking
+tags: [vpn, tailscale]
 permalink: /notes/tailscale-subnet-routing/
 ---
 

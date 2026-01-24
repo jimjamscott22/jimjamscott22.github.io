@@ -2,6 +2,10 @@
 layout: default
 title: Pi cluster
 permalink: /projects/pi-cluster/
+status: planned
+health: healthy
+last_updated: 2025-11-15
+tech_stack: [k3s, arm, prometheus, raspberry-pi]
 ---
 
 # Pi cluster

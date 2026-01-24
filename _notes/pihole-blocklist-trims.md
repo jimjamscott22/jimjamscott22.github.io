@@ -2,7 +2,9 @@
 layout: default
 title: Pi-hole Blocklist Trims
 date: 2024-10-18
-type: quick note
+type: quick-note
+category: homelab
+tags: [dns, pihole, security]
 permalink: /notes/pihole-blocklist-trims/
 ---
 
