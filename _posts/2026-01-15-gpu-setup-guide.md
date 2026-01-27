@@ -1,3 +1,10 @@
+---
+title: "Setting up a new GPU"
+date: 2025-12-24 01:30:00 -0500
+tags: [homelab, security, linux]
+description: "A quick guide on installing a new GPU."
+---
+
 # Level Up Your Game: A Step-by-Step Guide to Installing a New Graphics Card
 
 That glorious new graphics card has arrived – congratulations! You’re about to experience a serious boost in gaming performance and visuals. But before you dive headfirst into your favorite titles, you need to get that card installed correctly. This guide breaks down the entire process, from preparation to troubleshooting, so you can maximize your gaming experience.

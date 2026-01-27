@@ -1,3 +1,10 @@
+---
+title: "Setting up a Flutter App"
+date: 2026-01-10 09:00:00 -0500
+tags: [linux, dev, workflow]
+description: "A practical guide for setting up Flutter"
+---
+
 # Blog Post Outline: Technology: "Building Your First Mobile App with Flutter"
 
 **Blog Post Outline: "Building Your First Mobile App with Flutter"**
