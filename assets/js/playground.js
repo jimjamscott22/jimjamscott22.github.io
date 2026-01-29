@@ -300,7 +300,7 @@ print("Squares:", list(squares_gen))`
         document.head.appendChild(script);
       });
 
-      state.pyodide = await loadPyodide({
+      state.pyodide = await window.loadPyodide({
         indexURL: 'https://cdn.jsdelivr.net/pyodide/v0.24.1/full/'
       });
 
