@@ -71,6 +71,96 @@ Write and execute code directly in your browser. JavaScript runs in a sandboxed 
 </div>
 </div>
 
+<div class="playground-resources">
+<div class="resources-header">
+<h3>Coding Resources</h3>
+<p>Explore these curated learning platforms and documentation sites</p>
+</div>
+
+<div class="resources-grid">
+<div class="resource-category">
+<div class="category-header">
+<span class="category-icon">📚</span>
+<h4>Official Docs</h4>
+</div>
+<ul class="resource-list">
+<li>
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noopener noreferrer" class="resource-link">
+<span class="resource-name">MDN Web Docs</span>
+<span class="resource-desc">Comprehensive JavaScript reference and guides</span>
+</a>
+</li>
+<li>
+<a href="https://docs.python.org/3/" target="_blank" rel="noopener noreferrer" class="resource-link">
+<span class="resource-name">Python.org</span>
+<span class="resource-desc">Official Python documentation and tutorials</span>
+</a>
+</li>
+<li>
+<a href="https://www.w3schools.com/" target="_blank" rel="noopener noreferrer" class="resource-link">
+<span class="resource-name">W3Schools</span>
+<span class="resource-desc">Web development tutorials and references</span>
+</a>
+</li>
+</ul>
+</div>
+
+<div class="resource-category">
+<div class="category-header">
+<span class="category-icon">🎓</span>
+<h4>Learning Platforms</h4>
+</div>
+<ul class="resource-list">
+<li>
+<a href="https://www.freecodecamp.org/" target="_blank" rel="noopener noreferrer" class="resource-link">
+<span class="resource-name">freeCodeCamp</span>
+<span class="resource-desc">Free coding bootcamp with certifications</span>
+</a>
+</li>
+<li>
+<a href="https://www.codecademy.com/" target="_blank" rel="noopener noreferrer" class="resource-link">
+<span class="resource-name">Codecademy</span>
+<span class="resource-desc">Interactive coding courses and projects</span>
+</a>
+</li>
+<li>
+<a href="https://www.theodinproject.com/" target="_blank" rel="noopener noreferrer" class="resource-link">
+<span class="resource-name">The Odin Project</span>
+<span class="resource-desc">Full-stack web development curriculum</span>
+</a>
+</li>
+</ul>
+</div>
+
+<div class="resource-category">
+<div class="category-header">
+<span class="category-icon">⚔️</span>
+<h4>Code Challenges</h4>
+</div>
+<ul class="resource-list">
+<li>
+<a href="https://leetcode.com/" target="_blank" rel="noopener noreferrer" class="resource-link">
+<span class="resource-name">LeetCode</span>
+<span class="resource-desc">Algorithm and data structure challenges</span>
+</a>
+</li>
+<li>
+<a href="https://www.hackerrank.com/" target="_blank" rel="noopener noreferrer" class="resource-link">
+<span class="resource-name">HackerRank</span>
+<span class="resource-desc">Coding challenges and competitions</span>
+</a>
+</li>
+<li>
+<a href="https://www.codewars.com/" target="_blank" rel="noopener noreferrer" class="resource-link">
+<span class="resource-name">Codewars</span>
+<span class="resource-desc">Practice coding through kata challenges</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
 </div>
 
 <script src="{{ '/assets/js/playground.js' | relative_url }}"></script>
