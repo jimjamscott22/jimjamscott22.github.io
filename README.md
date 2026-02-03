@@ -11,7 +11,8 @@ A Jekyll-based personal website showcasing homelab experiments, security project
 - 🔍 Client-side search across content
 - 📋 One-click code copying
 - 📱 Mobile-responsive design
-- 🎨 Retro CRT terminal theme
+- 🎨 **5 customizable themes** including Soft Matrix (easy on the eyes)
+- 🌓 **Dark/Light mode toggle** with preference persistence
 - 🔗 SEO optimized with sitemap and Open Graph tags
 - ♿ Accessibility features and print-friendly layouts
 
@@ -30,7 +31,10 @@ bundle exec jekyll build
 
 ## Documentation
 
-See [FEATURES.md](FEATURES.md) for detailed feature documentation.
+- [FEATURES.md](FEATURES.md) - Detailed feature documentation
+- [THEMES.md](THEMES.md) - Theme customization guide and color palettes
+- [THEME_GUIDE.md](THEME_GUIDE.md) - Original theme development guide
 
 ## License
+
 MIT License

@@ -101,8 +101,17 @@
         <select class="theme-select" id="theme-select" data-theme-select>
           <option value="cyber" data-theme-href="{{ "/assets/css/theme-cyber-lab.css" | relative_url }}?v={{ cache_bust }}">Cyber Lab</option>
           <option value="matrix" data-theme-href="{{ "/assets/css/theme-enhanced-matrix.css" | relative_url }}?v={{ cache_bust }}">Enhanced Matrix</option>
+          <option value="soft-matrix" data-theme-href="{{ "/assets/css/theme-soft-matrix.css" | relative_url }}?v={{ cache_bust }}">Soft Matrix</option>
           <option value="neon" data-theme-href="{{ "/assets/css/theme-neon-terminal.css" | relative_url }}?v={{ cache_bust }}">Neon Terminal</option>
+          <option value="light" data-theme-href="{{ "/assets/css/theme-light-terminal.css" | relative_url }}?v={{ cache_bust }}">Light Terminal</option>
         </select>
+      </div>
+
+      <div class="mode-toggle-container">
+        <button class="mode-toggle-btn" id="mode-toggle" aria-label="Toggle dark/light mode">
+          <span class="mode-icon" id="mode-icon">☀️</span>
+          <span class="mode-text" id="mode-text">Light Mode</span>
+        </button>
       </div>
 
       <div class="nav-footer">

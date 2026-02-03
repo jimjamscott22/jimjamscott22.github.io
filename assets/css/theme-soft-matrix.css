@@ -1,0 +1,40 @@
+/* ========== THEME: SOFT MATRIX ========== */
+/* Gentle, muted greens for comfortable extended viewing */
+/* All structural CSS is in base.css */
+
+:root {
+  /* Core colors - softer, warmer greens */
+  --bg-primary: #0d110d;
+  --bg-secondary: #151a15;
+  --text-primary: #c5d9c0;
+  --text-secondary: #a8c4a0;
+  --accent-bright: #6fb86f;
+  --accent-glow: #8fcc8f;
+  
+  /* Component colors - reduced intensity */
+  --border-color: rgba(111, 184, 111, 0.35);
+  --border-bright: rgba(111, 184, 111, 0.65);
+  --glow-color: rgba(143, 204, 143, 0.4);
+  --shadow-color: rgba(111, 184, 111, 0.25);
+}
+
+/* Theme-specific background gradient */
+.crt-theme {
+  background:
+    radial-gradient(circle at top left, rgba(111, 184, 111, 0.06), transparent 60%),
+    radial-gradient(circle at bottom right, rgba(143, 204, 143, 0.08), var(--bg-primary) 75%);
+}
+
+/* Softer text glow for reduced eye strain */
+body,
+.terminal-frame,
+.nav-panel,
+.top-bar,
+.status-bar {
+  text-shadow: 0 0 2px var(--glow-color);
+}
+
+/* Gentler accent glow */
+.accent {
+  text-shadow: 0 0 4px var(--glow-color);
+}

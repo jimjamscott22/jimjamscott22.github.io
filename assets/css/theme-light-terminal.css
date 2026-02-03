@@ -1,0 +1,131 @@
+/* ========== THEME: LIGHT TERMINAL ========== */
+/* Clean light mode with subtle green accents */
+/* All structural CSS is in base.css */
+
+:root {
+  /* Core colors - light mode palette */
+  --bg-primary: #f5f7f5;
+  --bg-secondary: #e8ede8;
+  --text-primary: #2d3a2d;
+  --text-secondary: #3d523d;
+  --accent-bright: #2d7a2d;
+  --accent-glow: #3d8a3d;
+  
+  /* Component colors */
+  --border-color: rgba(45, 122, 45, 0.3);
+  --border-bright: rgba(45, 122, 45, 0.6);
+  --glow-color: rgba(61, 138, 61, 0.25);
+  --shadow-color: rgba(45, 122, 45, 0.15);
+}
+
+/* Theme-specific background gradient */
+.crt-theme {
+  background:
+    radial-gradient(circle at top left, rgba(45, 122, 45, 0.03), transparent 60%),
+    radial-gradient(circle at bottom right, rgba(61, 138, 61, 0.04), var(--bg-primary) 75%);
+}
+
+/* Override body background for light mode */
+body {
+  background-color: var(--bg-primary);
+}
+
+/* Reduce text glow in light mode */
+body,
+.terminal-frame,
+.nav-panel,
+.top-bar,
+.status-bar {
+  text-shadow: none;
+}
+
+/* Subtle accent highlight */
+.accent {
+  color: var(--accent-bright);
+  text-shadow: none;
+}
+
+/* Adjust overlays for light mode */
+.noise-overlay {
+  opacity: 0.03;
+  mix-blend-mode: overlay;
+}
+
+.scanlines-overlay {
+  opacity: 0.05;
+}
+
+/* Light mode scrollbar */
+body::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+body::-webkit-scrollbar-thumb {
+  background: var(--accent-bright);
+}
+
+html {
+  scrollbar-color: var(--accent-bright) rgba(255, 255, 255, 0.8);
+}
+
+/* Terminal adjustments for light mode */
+.terminal-frame {
+  background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.5), rgba(245, 247, 245, 0.95));
+  box-shadow:
+    0 0 20px rgba(45, 122, 45, 0.15),
+    inset 0 0 12px rgba(255, 255, 255, 0.3);
+}
+
+.terminal-body {
+  color: var(--text-primary);
+}
+
+/* Light mode input fields */
+.note-field input,
+.note-field textarea,
+.form-group input,
+.form-group textarea,
+#code-editor,
+#cli-terminal-input {
+  background: rgba(255, 255, 255, 0.8);
+  color: var(--text-primary);
+}
+
+/* Search input for light mode */
+.search-input {
+  background: rgba(255, 255, 255, 0.7);
+  color: var(--text-primary);
+}
+
+.search-input::placeholder {
+  color: rgba(45, 122, 45, 0.5);
+}
+
+/* Code blocks in light mode */
+pre {
+  background-color: rgba(232, 237, 232, 0.8);
+  border-color: var(--border-color);
+}
+
+/* Adjust card backgrounds */
+.card,
+.note-card,
+.profile-card,
+.hero-shot,
+.notes-panel,
+.contact-form {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.9), var(--bg-secondary));
+}
+
+/* Terminal dots - keep original colors for visual contrast */
+.dot-red {
+  background: #ff4d4f;
+}
+
+.dot-amber {
+  background: #ffc53d;
+}
+
+.dot-green {
+  background: #52c41a;
+}
