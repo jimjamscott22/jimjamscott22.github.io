@@ -13,6 +13,9 @@ collections:
   projects:
     output: true
     permalink: /projects/:name/
+  info:
+    output: true
+    permalink: /info/:name/
   pages:
     output: true
 
@@ -36,6 +39,11 @@ defaults:
 
   - scope:
       type: projects
+    values:
+      layout: default
+
+  - scope:
+      type: info
     values:
       layout: default
 
