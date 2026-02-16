@@ -1,0 +1,62 @@
+# .github/workflows/create-project.yml
+# Alternative to serverless function: Use GitHub Actions directly
+# 
+# This workflow receives a repository_dispatch event from your admin page
+# and creates the project file directly in the repo.
+#
+# To use this approach:
+# 1. Copy this file to .github/workflows/create-project.yml
+# 2. Update your admin JS to send to GitHub dispatch endpoint instead
+# 3. Set ADMIN_TOKEN as a repository secret
+
+name: Create Project
+
+on:
+  repository_dispatch:
+    types: [create-project]
+
+jobs:
+  create-project:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Verify admin token
+        run: |
+          if [ "${{ github.event.client_payload.admin_token }}" != "${{ secrets.ADMIN_TOKEN }}" ]; then
+            echo "Unauthorized: Invalid admin token"
+            exit 1
+          fi
+
+      - name: Create project file
+        run: |
+          mkdir -p _projects
+          echo "${{ github.event.client_payload.content }}" > "_projects/${{ github.event.client_payload.slug }}.md"
+
+      - name: Commit and push
+        run: |
+          git config user.name "Project Admin Bot"
+          git config user.email "admin@jamielab.me"
+          git add "_projects/${{ github.event.client_payload.slug }}.md"
+          git commit -m "Add new project: ${{ github.event.client_payload.slug }}"
+          git push
+
+# To trigger this from your admin page:
+# 
+# const response = await fetch('https://api.github.com/repos/jimjamscott22/jimjamscott22.github.io/dispatches', {
+#   method: 'POST',
+#   headers: {
+#     'Authorization': `token ${githubToken}`,
+#     'Accept': 'application/vnd.github.v3+json',
+#     'Content-Type': 'application/json',
+#   },
+#   body: JSON.stringify({
+#     event_type: 'create-project',
+#     client_payload: {
+#       slug: slug,
+#       content: markdownContent,
+#       admin_token: adminToken,
+#     },
+#   }),
+# });

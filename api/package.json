@@ -1,0 +1,7 @@
+{
+  "name": "project-admin-api",
+  "version": "1.0.0",
+  "description": "Serverless API for project admin",
+  "type": "module",
+  "dependencies": {}
+}

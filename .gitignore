@@ -1,24 +1,23 @@
-# Jekyll build outputs
 _site/
 .sass-cache/
 .jekyll-cache/
 .jekyll-metadata
-
-# Bundler
 .bundle/
 vendor/
+Gemfile.lock
 
-# Ruby version managers
-.ruby-version
+# Local env vars
+.env
+.env.local
+.vercel
 
-# OS files
-.DS_Store
-Thumbs.db
-
-# IDE
+# Editor
 .vscode/
+.idea/
 *.swp
 *.swo
 *~
-.idea/dbnavigator.xml
-.idea/inspectionProfiles/Project_Default.xml
+
+# OS
+.DS_Store
+Thumbs.db

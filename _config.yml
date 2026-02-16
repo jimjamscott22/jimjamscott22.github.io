@@ -2,6 +2,7 @@ title: "Jamie Lab"
 description: "Experiments. Networks. Homelab. Code."
 url: "https://jamielab.me"
 baseurl: ""
+project_admin_api_url: ""
 markdown: kramdown
 excerpt_separator: "<!--more-->"
 future: true
