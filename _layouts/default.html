@@ -80,7 +80,6 @@
     "url": "{{ page.url | absolute_url }}",
     {% if page.layout == 'post' %}
     "datePublished": "{{ page.date | date_to_xmlschema }}",
-    "dateModified": "{{ page.date | date_to_xmlschema }}",
     "author": {
       "@type": "Person",
       "name": "Jamie"
