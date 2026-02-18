@@ -64,4 +64,18 @@ layout: none
       <priority>0.6</priority>
     </url>
   {% endfor %}
+
+  <!-- Info pages -->
+  {% for info in site.info %}
+    <url>
+      <loc>{{ info.url | prepend: site.baseurl | prepend: site.url }}</loc>
+      {% if info.date %}
+        <lastmod>{{ info.date | date_to_xmlschema }}</lastmod>
+      {% else %}
+        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+      {% endif %}
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+    </url>
+  {% endfor %}
 </urlset>

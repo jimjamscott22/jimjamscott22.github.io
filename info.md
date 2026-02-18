@@ -2,6 +2,7 @@
 layout: default
 title: Info
 permalink: /info/
+description: "In-depth technical information on various topics including Java ADTs, the OSI model, networking concepts, and more."
 ---
 
 # Info

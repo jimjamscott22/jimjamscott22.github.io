@@ -2,6 +2,7 @@
 layout: default
 title: About
 permalink: /about/
+description: "Learn about Jamie, a cybersecurity enthusiast and homelab operator studying Information Science at SUNY Oswego."
 ---
 
 # About Jamie

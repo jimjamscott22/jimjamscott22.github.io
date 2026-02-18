@@ -2,6 +2,7 @@
 layout: default
 title: Timeline
 permalink: /timeline/
+description: "A chronological view of projects, blog posts, and technical milestones in the jamielab journey."
 ---
 
 # Timeline

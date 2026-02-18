@@ -14,6 +14,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description"
     content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+  
+  <!-- Theme color for browser UI -->
+  <meta name="theme-color" content="#000000">
+  
+  {% if page.layout == 'post' %}
+  <!-- Author meta tag for blog posts -->
+  <meta name="author" content="Jamie">
+  {% endif %}
 
   <!-- Open Graph meta tags for social sharing -->
   <meta property="og:title" content="{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}">
@@ -22,12 +33,23 @@
   <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
   <meta property="og:url" content="{{ page.url | absolute_url }}">
   <meta property="og:site_name" content="{{ site.title }}">
+  <meta property="og:locale" content="en_US">
+  {% if page.image %}
+  <meta property="og:image" content="{{ page.image | absolute_url }}">
+  {% else %}
+  <meta property="og:image" content="{{ "/img/my_profile.webp" | absolute_url }}">
+  {% endif %}
 
   <!-- Twitter Card meta tags -->
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}">
   <meta name="twitter:description"
     content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+  {% if page.image %}
+  <meta name="twitter:image" content="{{ page.image | absolute_url }}">
+  {% else %}
+  <meta name="twitter:image" content="{{ "/img/my_profile.webp" | absolute_url }}">
+  {% endif %}
 
   <!-- Cache hints for HTML (best-effort; headers are controlled by host/CDN) -->
   <meta http-equiv="Cache-Control" content="no-store, max-age=0">
@@ -47,6 +69,54 @@
 
   <!-- Optional: basic favicon -->
   <link rel="icon" type="image/svg+xml" href="{{ '/assets/img/terminal-icon.svg' | relative_url }}?v={{ cache_bust }}">
+  
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "{% if page.layout == 'post' %}BlogPosting{% else %}WebPage{% endif %}",
+    "headline": "{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}",
+    "description": "{% if page.description %}{{ page.description | escape }}{% else %}{{ site.description | escape }}{% endif %}",
+    "url": "{{ page.url | absolute_url }}",
+    {% if page.layout == 'post' %}
+    "datePublished": "{{ page.date | date_to_xmlschema }}",
+    "dateModified": "{{ page.date | date_to_xmlschema }}",
+    "author": {
+      "@type": "Person",
+      "name": "Jamie"
+    },
+    {% if page.tags %}
+    "keywords": "{{ page.tags | join: ', ' }}",
+    {% endif %}
+    {% endif %}
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "{{ page.url | absolute_url }}"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Jamie",
+      "url": "{{ site.url }}"
+    }
+  }
+  </script>
+  
+  {% if page.url == "/" or page.url == "/index.html" %}
+  <!-- Website structured data for homepage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "{{ site.title }}",
+    "description": "{{ site.description }}",
+    "url": "{{ site.url }}",
+    "author": {
+      "@type": "Person",
+      "name": "Jamie"
+    }
+  }
+  </script>
+  {% endif %}
 </head>
 
 <body class="crt-theme">
@@ -57,13 +127,13 @@
 
   <div class="page-shell">
     <!-- Sidebar / nav panel -->
-    <aside class="nav-panel">
+    <aside class="nav-panel" role="navigation" aria-label="Main navigation">
       <div class="nav-brand">
         <div class="nav-brand-title">jamielab<span class="brand-blink">_</span></div>
         <div class="nav-brand-sub">personal cyber lab</div>
       </div>
 
-      <nav class="nav-menu">
+      <nav class="nav-menu" aria-label="Primary navigation">
         <a class="nav-link" href="{{ '/' | relative_url }}">
           <span class="nav-prefix">&gt;</span> home
         </a>
@@ -139,8 +209,8 @@
     </aside>
 
     <!-- Main content region -->
-    <main class="main-panel">
-      <header class="top-bar">
+    <main class="main-panel" role="main" id="main-content">
+      <header class="top-bar" role="banner">
         <div class="top-bar-left">
           <span class="top-bar-label">jamielab@console</span>
           <span class="top-bar-separator">::</span>
@@ -173,7 +243,7 @@
         </div>
       </section>
 
-      <footer class="status-bar">
+      <footer class="status-bar" role="contentinfo">
         <span>IFCONFIG: homelab up | tailscale active | pihole filtering</span>
         <span>jamielab.me :: experimental zone</span>
       </footer>
@@ -181,10 +251,9 @@
   </div>
 
   <!-- Base JS (optional but useful later) -->
-  <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
-  <script src="{{ '/assets/js/code-copy.js' | relative_url }}"></script>
-  <script src="{{ '/assets/js/back-to-top.js' | relative_url }}"></script>
-  <script src="{{ '/assets/js/main.js' | relative_url }}?v={{ cache_bust }}"></script>
+  <script defer src="{{ '/assets/js/main.js' | relative_url }}?v={{ cache_bust }}"></script>
+  <script defer src="{{ '/assets/js/code-copy.js' | relative_url }}"></script>
+  <script defer src="{{ '/assets/js/back-to-top.js' | relative_url }}"></script>
 
   <!-- Theme switcher JS (deferred to run after DOM is parsed) -->
   <script defer src="{{ '/assets/js/theme-switcher.js' | relative_url }}?v={{ cache_bust }}"></script>
