@@ -2,6 +2,7 @@
 layout: default
 title: Blog
 permalink: /blog/
+description: "Short informational posts, lab notes, and technical writeups covering homelab, security, networking, and various tech experiments."
 ---
 
 # Blog

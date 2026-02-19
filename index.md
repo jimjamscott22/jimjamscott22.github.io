@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Home
+description: "JamieLab - Experiments, networks, homelab, and code. A personal cyber lab exploring security, networking, and software development."
 ---
 
 # JamieLab System Console

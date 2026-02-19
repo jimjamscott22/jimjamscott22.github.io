@@ -2,32 +2,35 @@
 layout: default
 ---
 
-<article class="post">
+<article class="post" itemscope itemtype="https://schema.org/BlogPosting">
   <header class="post-header">
-    <h1 class="post-title">{{ page.title }}</h1>
+    <h1 class="post-title" itemprop="headline">{{ page.title }}</h1>
 
     {% assign __post_words = content | strip_html | strip_newlines | replace: "  ", " " | split: " " %}
     {% assign __post_word_count = __post_words | size %}
     {% assign __post_reading_mins = __post_word_count | plus: 199 | divided_by: 200 %}
 
     <div class="post-meta">
-      <span class="badge tag">{{ page.date | date: "%Y-%m-%d" }}</span>
+      <span class="badge tag"><time itemprop="datePublished" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y-%m-%d" }}</time></span>
       {% if __post_word_count and __post_word_count > 0 %}
         <span class="badge tag">{{ __post_reading_mins }} min read</span>
       {% endif %}
       {% if page.tags and page.tags.size > 0 %}
         {% for tag in page.tags %}
-          <a class="badge tag" href="{{ "/blog/" | relative_url }}#tag-{{ tag | slugify }}">{{ tag }}</a>
+          <a class="badge tag" href="{{ "/blog/" | relative_url }}#tag-{{ tag | slugify }}" itemprop="keywords">{{ tag }}</a>
         {% endfor %}
       {% endif %}
     </div>
 
     {% if page.description %}
-      <p class="post-excerpt">{{ page.description }}</p>
+      <p class="post-excerpt" itemprop="description">{{ page.description }}</p>
     {% endif %}
+    
+    <!-- Hidden author info for SEO -->
+    <meta itemprop="author" content="Jamie">
   </header>
 
-  <div class="post-body">
+  <div class="post-body" itemprop="articleBody">
     {{ content }}
   </div>
 

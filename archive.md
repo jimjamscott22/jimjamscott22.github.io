@@ -2,6 +2,7 @@
 layout: default
 title: Archive
 permalink: /archive/
+description: "Complete chronological archive of all blog posts, notes, and updates from jamielab."
 ---
 
 # Archive

@@ -2,6 +2,7 @@
 layout: default
 title: Tools
 permalink: /tools/
+description: "Interactive browser-based utilities including text converters, encoders, and other useful tools for developers and security professionals."
 ---
 
 # Tools

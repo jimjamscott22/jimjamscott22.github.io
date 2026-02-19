@@ -2,6 +2,7 @@
 layout: default
 title: Projects
 permalink: /projects/
+description: "A collection of builds, tools, and lab experiments including ThreatStream Lite, Fort Knox LAN, VaultWarden, and more homelab projects."
 ---
 
 # Projects
@@ -99,7 +100,7 @@ A rolling set of builds, tools, and lab experiments. Click the links below each 
   </article>
 
   <article class="card">
-   <img src="{{ "/img/chatarchive_screenshot.png" | relative_url }}" alt="Screenshot" loading="lazy" decoding="async" />
+   <img src="{{ "/img/chatarchive_screenshot.png" | relative_url }}" alt="ChatArchive application screenshot showing chat interface" loading="lazy" decoding="async" />
     <header class="card-header">
       <h2>ChatArchive</h2>
       <span class="badge status status-building">building</span>
@@ -114,7 +115,7 @@ A rolling set of builds, tools, and lab experiments. Click the links below each 
   </article>
 
   <article class="card">
-   <img src="{{ "/img/pytyping_screenshot.png" | relative_url }}" alt="Screenshot" loading="lazy" decoding="async" />
+   <img src="{{ "/img/pytyping_screenshot.png" | relative_url }}" alt="PyTyping application screenshot showing typing speed trainer interface" loading="lazy" decoding="async" />
     <header class="card-header">
       <h2>PyTyping</h2>
       <span class="badge status status-active">active</span>

@@ -2,6 +2,7 @@
 layout: default
 title: Homelab
 permalink: /homelab/
+description: "Overview of core homelab services including Pi-hole DNS, Tailscale VPN, network infrastructure, and various self-hosted applications."
 ---
 
 # Homelab
