@@ -300,11 +300,10 @@ body,
   scrollbar-color: rgba(0, 255, 102, 0.4) rgba(0, 0, 0, 0.4);
 }
 
-/* Mobile nav toggle (shown on small screens) */
+/* Nav toggle button */
 
 .nav-toggle {
-  display: none;
-  margin-top: 0.5rem;
+  display: inline-flex;
   padding: 0.25rem 0.4rem;
   font-size: 0.8rem;
   background: transparent;
@@ -312,6 +311,7 @@ body,
   border: 1px solid rgba(0, 255, 102, 0.6);
   border-radius: 2px;
   cursor: pointer;
+  align-self: flex-end;
 }
 
 /* ========== MAIN PANEL ========== */
@@ -551,11 +551,6 @@ th {
     width: 100%;
     max-height: none;
     flex-direction: column;
-  }
-
-  .nav-toggle {
-    display: inline-flex;
-    align-self: flex-end;
   }
 
   .nav-panel.nav-collapsed .nav-menu {
