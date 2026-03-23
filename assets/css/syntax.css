@@ -1,0 +1,119 @@
+/* ========== ROUGE SYNTAX HIGHLIGHTING ========== */
+/* Token colours use the cyber palette. */
+/* .highlight is the wrapper div Rouge generates around every code block. */
+
+.highlight {
+  background: rgba(0, 8, 3, 0.95);
+  border-radius: 3px;
+  overflow-x: auto;
+  margin: 1rem 0;
+}
+
+.highlight pre {
+  margin: 0;
+  padding: 1rem 1.25rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Courier New", monospace;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  background: transparent;
+  border: none;
+  border-left: 3px solid var(--accent-bright);
+  border-radius: 0 3px 3px 0;
+  overflow-x: auto;
+}
+
+/* Default token colour */
+.highlight .highlight {
+  color: #9de8b8;
+}
+
+/* Comments — dimmed italic */
+.highlight .c,
+.highlight .cm,
+.highlight .c1,
+.highlight .ch,
+.highlight .cs,
+.highlight .cp {
+  color: rgba(100, 200, 130, 0.45);
+  font-style: italic;
+}
+
+/* Keywords — cyan */
+.highlight .k,
+.highlight .kd,
+.highlight .kn,
+.highlight .kr,
+.highlight .kt,
+.highlight .kp,
+.highlight .kc {
+  color: #00e5ff;
+  font-weight: 500;
+}
+
+/* Strings — orange */
+.highlight .s,
+.highlight .s1,
+.highlight .s2,
+.highlight .si,
+.highlight .sb,
+.highlight .sc,
+.highlight .sd,
+.highlight .se,
+.highlight .sh,
+.highlight .sx {
+  color: #ff9966;
+}
+
+/* Numbers — soft purple */
+.highlight .m,
+.highlight .mi,
+.highlight .mf,
+.highlight .mh,
+.highlight .mo,
+.highlight .il {
+  color: #bd93f9;
+}
+
+/* Functions, method names, built-in names — bright green */
+.highlight .nf,
+.highlight .nc,
+.highlight .nb,
+.highlight .nd {
+  color: #4dff88;
+}
+
+/* Operators and punctuation — amber */
+.highlight .o,
+.highlight .ow {
+  color: #ffc53d;
+}
+
+/* Named constants, class attributes — amber */
+.highlight .na,
+.highlight .no {
+  color: #ffc53d;
+}
+
+/* Variables, generic identifiers — soft green */
+.highlight .n,
+.highlight .nx,
+.highlight .nv,
+.highlight .nl {
+  color: #9de8b8;
+}
+
+/* Generic output / prompts (e.g. shell $ prompt) */
+.highlight .gp {
+  color: #4dff88;
+  font-weight: 600;
+  user-select: none;
+}
+
+/* Generic emphasis, strong */
+.highlight .ge { font-style: italic; }
+.highlight .gs { font-weight: bold; }
+
+/* Errors */
+.highlight .err {
+  color: #ff6b6b;
+}
