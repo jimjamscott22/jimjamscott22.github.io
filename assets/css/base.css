@@ -72,7 +72,7 @@ body,
 .nav-panel,
 .top-bar,
 .status-bar {
-  text-shadow: 0 0 4px var(--glow-color);
+  /* text-shadow removed: reading-first approach — glow on UI chrome only */
 }
 
 /* Noise overlay */
@@ -81,7 +81,7 @@ body,
   pointer-events: none;
   position: fixed;
   inset: 0;
-  opacity: 0.08;
+  opacity: 0.04;
   mix-blend-mode: soft-light;
   z-index: 1;
   background-image:
@@ -108,7 +108,7 @@ body,
   position: fixed;
   inset: 0;
   z-index: 2;
-  opacity: 0.13;
+  opacity: 0.02;
   background-image: repeating-linear-gradient(
     to bottom,
     rgba(0, 0, 0, 0.65),
@@ -424,7 +424,7 @@ body,
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.75rem;
 }
 
 /* Top bar */
@@ -545,10 +545,9 @@ body,
 
 .terminal-body {
   flex: 1;
-  padding: 0.75rem;
+  padding: 1.25rem;
   font-size: 0.9rem;
   color: var(--accent-bright);
-  text-shadow: 0 0 6px var(--glow-color);
 }
 
 /* Status bar */
@@ -569,21 +568,50 @@ body,
 
 h1, h2, h3, h4 {
   margin-top: 0;
+  margin-bottom: 0.65rem;
   color: var(--text-secondary);
   text-transform: lowercase;
   letter-spacing: 0.08em;
 }
 
-h1 {
-  font-size: 1.25rem;
+h1 { font-size: 1.35rem; }
+h2 { font-size: 1.15rem; }
+h3 { font-size: 1.05rem; }
+
+/* Push h2/h3 away from preceding content when they follow a sibling */
+* + h2,
+* + h3 {
+  margin-top: 1.5rem;
 }
 
-h2 {
-  font-size: 1.05rem;
+/* ========== PROSE CONTENT TYPOGRAPHY ========== */
+
+.terminal-body p,
+.terminal-body li,
+.terminal-body blockquote {
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-size: 1rem;
+  line-height: 1.75;
 }
 
-h3 {
-  font-size: 0.98rem;
+.terminal-body p {
+  margin: 0.75rem 0;
+}
+
+.terminal-body ul,
+.terminal-body ol {
+  padding-left: 1.5rem;
+}
+
+.terminal-body li + li {
+  margin-top: 0.3rem;
+}
+
+.terminal-body blockquote {
+  margin: 0.75rem 0;
+  padding-left: 0.5rem;
+  border-left: 3px solid var(--accent-bright);
+  opacity: 0.9;
 }
 
 p {
@@ -606,10 +634,17 @@ code, pre {
 
 pre {
   background-color: rgba(0, 0, 0, 0.8);
-  border: 1px solid var(--border-color);
-  padding: 0.5rem;
-  border-radius: 3px;
+  border: none;
+  border-left: 3px solid var(--accent-bright);
+  border-radius: 0 3px 3px 0;
+  padding: 1rem 1.25rem;
+  line-height: 1.6;
+  font-size: 0.92rem;
   overflow-x: auto;
+}
+
+pre code {
+  font-size: inherit;  /* inherit 0.92rem from pre, not 0.88rem from code,pre */
 }
 
 /* Simple table styling for project lists etc */
@@ -666,7 +701,7 @@ th {
 
 @media (max-width: 600px) {
   .terminal-body {
-    padding: 0.6rem;
+    padding: 0.85rem;
   }
 
   .top-bar {
@@ -707,7 +742,7 @@ th {
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 0.75rem;
+  gap: 1rem;
   margin: 0.75rem 0 1rem;
 }
 
@@ -717,12 +752,20 @@ th {
   box-shadow:
     0 0 12px var(--shadow-color),
     inset 0 0 12px rgba(0, 0, 0, 0.85);
-  padding: 0.75rem;
+  padding: 1rem;
   border-radius: 3px;
   display: flex;
   flex-direction: column;
   gap: 0.45rem;
   min-height: 100%;
+}
+
+.card p,
+.card-body p,
+.card-excerpt {
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-size: 1rem;
+  line-height: 1.75;
 }
 
 .card img {
@@ -1211,7 +1254,7 @@ th {
 }
 
 .post-body {
-  margin-top: 0.75rem;
+  margin-top: 1.25rem;
 }
 
 /* ========== COMMENTS SECTION ========== */

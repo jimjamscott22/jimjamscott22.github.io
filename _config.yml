@@ -4,6 +4,13 @@ url: "https://jamielab.me"
 baseurl: ""
 project_admin_api_url: ""
 markdown: kramdown
+highlighter: rouge
+
+kramdown:
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    block:
+      line_numbers: false
 excerpt_separator: "<!--more-->"
 future: true
 
