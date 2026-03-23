@@ -72,7 +72,7 @@ body,
 .nav-panel,
 .top-bar,
 .status-bar {
-  text-shadow: 0 0 4px var(--glow-color);
+  /* text-shadow removed: reading-first approach — glow on UI chrome only */
 }
 
 /* Noise overlay */
@@ -81,7 +81,7 @@ body,
   pointer-events: none;
   position: fixed;
   inset: 0;
-  opacity: 0.08;
+  opacity: 0.04;
   mix-blend-mode: soft-light;
   z-index: 1;
   background-image:
@@ -108,7 +108,7 @@ body,
   position: fixed;
   inset: 0;
   z-index: 2;
-  opacity: 0.13;
+  opacity: 0.02;
   background-image: repeating-linear-gradient(
     to bottom,
     rgba(0, 0, 0, 0.65),
@@ -548,7 +548,6 @@ body,
   padding: 0.75rem;
   font-size: 0.9rem;
   color: var(--accent-bright);
-  text-shadow: 0 0 6px var(--glow-color);
 }
 
 /* Status bar */
