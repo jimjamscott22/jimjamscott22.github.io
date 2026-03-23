@@ -49,6 +49,7 @@ The existing CSS split is preserved: `base.css` owns structure/layout/typography
 - h3: `0.98rem` → `1.05rem`
 - Add `margin-bottom: 0.65rem` on all headings
 - Letter-spacing and `text-transform: lowercase` unchanged
+- h2 and h3 that follow other content get `margin-top: 1.5rem` via the lobotomised owl selector: `* + h2, * + h3 { margin-top: 1.5rem; }` — this applies whenever h2/h3 is preceded by any sibling element (p, li, blockquote, pre, hr, div, etc.)
 
 **UI chrome** (nav links, badges, timestamps, status bar, footer):
 - Stays monospace, stays at existing small sizes (`0.7–0.85rem`)
@@ -71,8 +72,8 @@ The existing CSS split is preserved: `base.css` owns structure/layout/typography
 - `box-shadow` on panel borders and frames — structural, unchanged
 
 **Scanlines & noise:**
-- `.scanlines-overlay` opacity: `0.13` → `0.02`
-- `.noise-overlay` opacity: `0.08–0.12` → `0.04`
+- `.scanlines-overlay` opacity: set to exactly `0.02` in every file where it appears (base.css and any theme overrides)
+- `.noise-overlay` opacity: set to exactly `0.04` in every file where it appears (base.css and any theme overrides) — do not reduce proportionally; use the fixed target value regardless of the current per-file value
 - CRT flicker animation: left in place, imperceptible at these overlay opacities
 
 ---
@@ -106,8 +107,8 @@ kramdown:
 - Font size: `0.88rem` → `0.92rem`
 - Line-height: add `1.6`
 - Padding: `0.5rem` → `1rem 1.25rem`
-- Border: replace all-side border with left accent only — `border-left: 3px solid var(--accent-bright)`, other sides removed
-- `.highlight` wrapper (Rouge's generated div): inherits dark background and border-radius from `pre`
+- Border: replace all-side border with left accent only — `border-left: 3px solid var(--accent-bright)`, other three sides set to `none`. `var(--accent-bright)` is the existing theme variable (e.g. `#00ff88` in cyber-lab, illustrative only — the variable reference is authoritative) — no new colour token introduced.
+- `.highlight` wrapper (Rouge's generated div): always uses a fixed dark background (`rgba(0,8,3,0.95)`) regardless of the active theme, including the light terminal theme. Dark code blocks on a light page is intentional — it gives code a visually distinct surface and matches common developer tooling conventions. The `.highlight` block is not transparent and does not inherit from `--bg-primary`.
 
 **`_layouts/default.html`:** One additional `<link rel="stylesheet">` for `syntax.css`, loaded after `base.css`.
 
@@ -119,18 +120,18 @@ kramdown:
 - Padding: `0.75rem` → `1.25rem`
 
 **Paragraphs & lists:**
-- Paragraph margin: `0.45rem` → `0.75rem` top/bottom
+- Paragraph margin: `0.45rem` → `0.75rem` top/bottom (consistent with Section 1 — same value, listed here for spacing context)
 - List items: add `0.3rem` gap between items
-- Blockquote: `0.5rem` left padding + left accent border
+- Blockquote: `0.5rem` left padding + `border-left: 3px solid var(--accent-bright)` (same token as code blocks)
 
 **Headings:**
-- `margin-top: 1.5rem` on h2 and h3 when following body content
-- `margin-bottom: 0.65rem` on all headings
+- h2/h3 following any sibling: `* + h2, * + h3 { margin-top: 1.5rem; }` (see Section 1 for selector rationale)
+- All headings: `margin-bottom: 0.65rem` (see Section 1)
 
 **Cards:**
 - Card padding: `0.75rem` → `1rem`
 - Card grid gap: `0.75rem` → `1rem`
-- Card body text: receives same proportional font as `.terminal-body` prose
+- Card body text (`.card p`, `.card-body p`, `.card-excerpt`): apply identical rules to Section 1 body prose — `font-family: system-ui, -apple-system, 'Segoe UI', sans-serif`, `font-size: 1rem`, `line-height: 1.75`
 
 **Main panel:**
 - Gap between top-bar / content / status-bar: `0.5rem` → `0.75rem`
@@ -148,10 +149,11 @@ kramdown:
 ## Error Handling & Edge Cases
 
 - **Themes other than cyber-lab:** Each `theme-*.css` file has its own `text-shadow` overrides on body/frame selectors. All must have the body/frame text-shadow removed to match the reading-first approach. The `base.css` removal handles the structural override; per-theme files need individual cleanup.
+- **`_config.yml` merge safety:** Before adding the Rouge/kramdown block, check the existing `_config.yml` for any existing `highlighter`, `markdown`, or `kramdown:` keys to avoid duplicate keys or conflicting values. Merge carefully — do not add a second `kramdown:` block; extend the existing one if present. Verify the site still builds locally (`bundle exec jekyll serve`) before pushing to GitHub Pages.
 - **Rouge not available on GitHub Pages:** Rouge is a supported highlighter on GitHub Pages and requires no additional gem installation. The `highlighter: rouge` setting is sufficient.
 - **Fenced code blocks without language hint:** Rouge falls back to plain text tokenisation — the default `#9de8b8` text colour applies. No breakage.
 - **Inline `code` spans:** Not processed by Rouge. Will retain existing styling (monospace, accent colour from theme). No change needed.
-- **Light terminal theme:** The light theme uses a light background — the syntax token colours chosen (cyan, orange, amber, soft purple) have enough contrast against light backgrounds to remain legible without a separate light-mode syntax sheet. Verify visually after implementation.
+- **Light terminal theme:** The `.highlight` block uses a fixed dark background (`rgba(0,8,3,0.95)`) on all themes including the light theme, so syntax token colours always render against a dark surface. No separate light-mode syntax sheet is needed.
 
 ---
 
