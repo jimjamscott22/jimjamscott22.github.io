@@ -66,7 +66,7 @@ body,
 .nav-panel,
 .top-bar,
 .status-bar {
-  text-shadow: 0 0 4px rgba(0, 255, 102, 0.45);
+  /* text-shadow removed: reading-first approach */
 }
 
 /* Noise overlay */
