@@ -568,21 +568,50 @@ body,
 
 h1, h2, h3, h4 {
   margin-top: 0;
+  margin-bottom: 0.65rem;
   color: var(--text-secondary);
   text-transform: lowercase;
   letter-spacing: 0.08em;
 }
 
-h1 {
-  font-size: 1.25rem;
+h1 { font-size: 1.35rem; }
+h2 { font-size: 1.15rem; }
+h3 { font-size: 1.05rem; }
+
+/* Push h2/h3 away from preceding content when they follow a sibling */
+* + h2,
+* + h3 {
+  margin-top: 1.5rem;
 }
 
-h2 {
-  font-size: 1.05rem;
+/* ========== PROSE CONTENT TYPOGRAPHY ========== */
+
+.terminal-body p,
+.terminal-body li,
+.terminal-body blockquote {
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-size: 1rem;
+  line-height: 1.75;
 }
 
-h3 {
-  font-size: 0.98rem;
+.terminal-body p {
+  margin: 0.75rem 0;
+}
+
+.terminal-body ul,
+.terminal-body ol {
+  padding-left: 1.5rem;
+}
+
+.terminal-body li + li {
+  margin-top: 0.3rem;
+}
+
+.terminal-body blockquote {
+  margin: 0.75rem 0;
+  padding-left: 0.5rem;
+  border-left: 3px solid var(--accent-bright);
+  opacity: 0.9;
 }
 
 p {
@@ -722,6 +751,14 @@ th {
   flex-direction: column;
   gap: 0.45rem;
   min-height: 100%;
+}
+
+.card p,
+.card-body p,
+.card-excerpt {
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-size: 1rem;
+  line-height: 1.75;
 }
 
 .card img {
