@@ -634,10 +634,17 @@ code, pre {
 
 pre {
   background-color: rgba(0, 0, 0, 0.8);
-  border: 1px solid var(--border-color);
-  padding: 0.5rem;
-  border-radius: 3px;
+  border: none;
+  border-left: 3px solid var(--accent-bright);
+  border-radius: 0 3px 3px 0;
+  padding: 1rem 1.25rem;
+  line-height: 1.6;
+  font-size: 0.92rem;
   overflow-x: auto;
+}
+
+pre code {
+  font-size: inherit;  /* inherit 0.92rem from pre, not 0.88rem from code,pre */
 }
 
 /* Simple table styling for project lists etc */
