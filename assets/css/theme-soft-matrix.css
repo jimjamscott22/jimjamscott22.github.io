@@ -31,7 +31,7 @@ body,
 .nav-panel,
 .top-bar,
 .status-bar {
-  text-shadow: 0 0 2px var(--glow-color);
+  /* text-shadow removed: reading-first approach */
 }
 
 /* Gentler accent glow */
