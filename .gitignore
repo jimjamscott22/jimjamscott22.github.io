@@ -23,3 +23,5 @@ Gemfile.lock
 Thumbs.db
 .superpowers/
 .worktrees/
+.cursor/hooks/state/continual-learning-index.json
+.cursor/hooks/state/continual-learning.json
