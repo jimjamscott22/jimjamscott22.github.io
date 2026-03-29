@@ -9,30 +9,17 @@ description: "A chronological view of projects, blog posts, and technical milest
 
 A chronological view of projects, posts, and milestones. For detailed posts, visit the [Blog](/blog/). For project details, see [Projects](/projects/).
 
+{% assign cache_bust = site.github.build_revision %}
+{% if cache_bust == nil or cache_bust == "" %}
+{% assign cache_bust = site.time | date: "%s" %}
+{% endif %}
+
 <div class="timeline-container">
-  {% comment %} Collect and sort posts {% endcomment %}
-  {% assign sorted_posts = site.posts | sort: "date" | reverse %}
-
-  {% comment %} Collect and sort project milestones {% endcomment %}
-  {% assign sorted_projects = site.projects | where_exp: "p", "p.milestone_date" | sort: "milestone_date" | reverse %}
-
-  {% comment %} Merge posts and projects into timeline {% endcomment %}
-  {% assign all_items = "" | split: "" %}
-
-  {% for post in sorted_posts %}
-    {% assign item = post | hash %}
-    {% assign all_items = all_items | push: item %}
-  {% endfor %}
-
-  {% for project in sorted_projects %}
-    {% assign all_items = all_items | push: project %}
-  {% endfor %}
-
   <div class="timeline-entries">
-    {% comment %} Display posts {% endcomment %}
-    {% for post in sorted_posts %}
+    {% comment %} Render posts {% endcomment %}
+    {% for post in site.posts %}
       <div class="timeline-entry" data-date="{{ post.date | date: '%Y-%m-%d' }}">
-        <div class="timeline-date">{{ post.date | date: "%Y-%m-%d" }}</div>
+        <div class="timeline-date">{{ post.date | date: "%b %d" }}</div>
         <div class="timeline-marker"></div>
         <div class="timeline-connector"></div>
         <div class="timeline-content">
@@ -52,10 +39,11 @@ A chronological view of projects, posts, and milestones. For detailed posts, vis
       </div>
     {% endfor %}
 
-    {% comment %} Display project milestones {% endcomment %}
-    {% for project in sorted_projects %}
+    {% comment %} Render project milestones {% endcomment %}
+    {% assign milestone_projects = site.projects | where_exp: "p", "p.milestone_date" %}
+    {% for project in milestone_projects %}
       <div class="timeline-entry" data-date="{{ project.milestone_date }}">
-        <div class="timeline-date">{{ project.milestone_date }}</div>
+        <div class="timeline-date">{{ project.milestone_date | date: "%b %d" }}</div>
         <div class="timeline-marker timeline-marker-project"></div>
         <div class="timeline-connector"></div>
         <div class="timeline-content">
@@ -72,3 +60,5 @@ A chronological view of projects, posts, and milestones. For detailed posts, vis
     {% endfor %}
   </div>
 </div>
+
+<script defer src="{{ "/assets/js/timeline.js" | relative_url }}?v={{ cache_bust }}"></script>

@@ -1858,9 +1858,9 @@ th {
   bottom: 0;
   width: 2px;
   background: linear-gradient(to bottom,
-    rgba(0, 229, 255, 0.6) 0%,
-    rgba(0, 229, 255, 0.3) 50%,
-    rgba(0, 229, 255, 0.6) 100%);
+    var(--border-bright, var(--border-color)) 0%,
+    var(--border-color) 50%,
+    var(--border-bright, var(--border-color)) 100%);
 }
 
 .timeline-entry {
@@ -1875,7 +1875,7 @@ th {
   left: -120px;
   width: 90px;
   text-align: right;
-  color: #00e5ff;
+  color: var(--accent-bright, var(--border-bright));
   font-family: monospace;
   font-size: 0.9em;
   padding-top: 0.25rem;
@@ -1888,15 +1888,15 @@ th {
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background: #00e5ff;
-  border: 2px solid #050a0e;
-  box-shadow: 0 0 12px rgba(0, 229, 255, 0.8);
+  background: var(--accent-bright, var(--border-bright));
+  border: 2px solid var(--bg-primary, #050a0e);
+  box-shadow: 0 0 12px var(--glow-color);
   z-index: 2;
 }
 
 .timeline-marker-project {
-  background: #4dff88;
-  box-shadow: 0 0 12px rgba(77, 255, 136, 0.8);
+  background: var(--border-bright, var(--accent-bright));
+  box-shadow: 0 0 12px var(--shadow-color);
 }
 
 .timeline-connector {
@@ -1905,14 +1905,14 @@ th {
   top: 0.75rem;
   width: 20px;
   height: 2px;
-  background: rgba(0, 229, 255, 0.4);
+  background: var(--border-color);
 }
 
 .timeline-content {
   flex: 1;
   padding: 0.75rem 1rem;
-  border: 1px solid rgba(0, 229, 255, 0.4);
-  background: rgba(10, 18, 24, 0.6);
+  border: 1px solid var(--border-color);
+  background: var(--bg-secondary, rgba(10, 18, 24, 0.6));
 }
 
 .timeline-content h3 {
@@ -1928,17 +1928,17 @@ th {
 }
 
 .badge-post {
-  background: rgba(0, 229, 255, 0.1);
-  border-color: #00e5ff;
+  background: var(--bg-secondary, rgba(0, 229, 255, 0.1));
+  border-color: var(--accent-bright, var(--border-bright));
 }
 
 .badge-project {
-  background: rgba(77, 255, 136, 0.1);
-  border-color: #4dff88;
+  background: var(--bg-secondary, rgba(77, 255, 136, 0.1));
+  border-color: var(--border-bright, var(--accent-bright));
 }
 
 .timeline-description {
-  color: #9de3f5;
+  color: var(--text-secondary, #9de3f5);
   font-size: 0.95em;
   margin: 0.5rem 0;
 }
@@ -1948,6 +1948,26 @@ th {
   gap: 0.25rem;
   flex-wrap: wrap;
   margin-top: 0.5rem;
+}
+
+/* Year dividers inserted by timeline.js */
+.timeline-year-divider {
+  position: relative;
+  left: -120px;
+  width: calc(100% + 120px);
+  font-family: monospace;
+  font-size: 1.4rem;
+  font-weight: bold;
+  letter-spacing: 0.15em;
+  color: var(--accent-bright, var(--border-bright));
+  padding: 0.5rem 0;
+  margin: 1.5rem 0 1rem;
+  border-bottom: 1px solid var(--border-color);
+  text-shadow: 0 0 10px var(--glow-color);
+}
+
+.timeline-year-divider:first-child {
+  margin-top: 0;
 }
 
 @media (max-width: 820px) {
@@ -1978,6 +1998,12 @@ th {
 
   .timeline-entry {
     flex-direction: column;
+  }
+
+  .timeline-year-divider {
+    left: -40px;
+    width: calc(100% + 40px);
+    font-size: 1.2rem;
   }
 }
 
