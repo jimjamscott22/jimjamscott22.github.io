@@ -67,11 +67,11 @@ Quick, easy, and essential for a secure lab environment.
 
 <div class="image-gallery">
   <figure>
-    <img src="{{ "img/ufw.png" | relative_url }}" alt="ufw diagram" loading="lazy" decoding="async" />
+    <img src="{{ "/img/ufw.png" | relative_url }}" alt="ufw diagram" loading="lazy" decoding="async" />
     <figcaption>UFW overview</figcaption>
   </figure>
   <figure>
-    <img src="{{ "img/tunneledHTTPSZoom.svg" | relative_url }}" alt="HTTPS tunnel diagram" loading="lazy" decoding="async" />
+    <img src="{{ "/img/tunneledHTTPSZoom.svg" | relative_url }}" alt="HTTPS tunnel diagram" loading="lazy" decoding="async" />
     <figcaption>Hardening your Services</figcaption>
   </figure>
 </div>

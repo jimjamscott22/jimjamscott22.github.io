@@ -669,7 +669,7 @@ th {
 
 .project-image {
   max-width: 800px;
-  margin: 2rem auto;
+  margin: 1.5rem auto;
   padding: 0 1rem;
 }
 
@@ -1167,7 +1167,7 @@ th {
 /* ========== HOME HERO IMAGE ========== */
 
 .hero-shot {
-  margin-top: 1rem;
+  margin: 1.5rem 0;
   border: 1px solid var(--border-color);
   background: linear-gradient(145deg, var(--bg-secondary), rgba(0, 0, 0, 0.94));
   padding: 0.5rem;
@@ -1175,7 +1175,7 @@ th {
   box-shadow:
     0 0 12px var(--shadow-color),
     inset 0 0 12px rgba(0, 0, 0, 0.85);
-  max-width: 600px;
+  max-width: 460px;
 }
 
 .hero-shot img {
@@ -1196,7 +1196,7 @@ th {
 }
 
 .hero-shot--secondary {
-  max-width: 380px;
+  max-width: 360px;
   opacity: 0.9;
 }
 
