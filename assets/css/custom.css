@@ -1801,7 +1801,7 @@ th {
 
 .dashboard-image {
   flex-shrink: 0;
-  width: 300px;
+  width: 200px;
   border: 1px solid rgba(0, 229, 255, 0.4);
   background: rgba(10, 18, 24, 0.4);
   padding: 1rem;

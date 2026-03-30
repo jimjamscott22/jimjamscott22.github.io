@@ -9,11 +9,29 @@ description: "A chronological view of projects, blog posts, and technical milest
 
 A chronological view of projects, posts, and milestones. For detailed posts, visit the [Blog](/blog/). For project details, see [Projects](/projects/).
 
+{% assign sorted_posts = site.posts | sort: "date" %}
+{% assign sorted_projects = site.projects | where_exp: "p", "p.milestone_date" | sort: "milestone_date" %}
+
+<div class="mermaid">
+gantt
+    title jamielab · Posts & Projects
+    dateFormat YYYY-MM-DD
+    axisFormat %b '%y
+    section Posts
+    {% for post in sorted_posts %}{% assign safe_title = post.title | replace: ":", " " | replace: '"', '' | truncate: 38, "" %}
+    {{ safe_title }} :milestone, p{{ forloop.index }}, {{ post.date | date: "%Y-%m-%d" }}, 0d
+    {% endfor %}
+    section Projects
+    {% for project in sorted_projects %}{% assign safe_title = project.title | replace: ":", " " | replace: '"', '' | truncate: 38, "" %}
+    {{ safe_title }} :milestone, proj{{ forloop.index }}, {{ project.milestone_date }}, 0d
+    {% endfor %}
+</div>
+
 <div class="timeline-container">
-  {% comment %} Collect and sort posts {% endcomment %}
+  {% comment %} Collect and sort posts (newest first for list) {% endcomment %}
   {% assign sorted_posts = site.posts | sort: "date" | reverse %}
 
-  {% comment %} Collect and sort project milestones {% endcomment %}
+  {% comment %} Collect and sort project milestones (newest first for list) {% endcomment %}
   {% assign sorted_projects = site.projects | where_exp: "p", "p.milestone_date" | sort: "milestone_date" | reverse %}
 
   {% comment %} Merge posts and projects into timeline {% endcomment %}
