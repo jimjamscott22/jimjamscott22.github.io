@@ -35,8 +35,8 @@ description: "The requested page could not be found. Navigate back to explore ja
         <path d="M475 219 Q485 232 495 219" class="face"/>
       </g>
 
-      <text x="395" y="208" class="impact">BONK!</text>
-      <text x="100" y="120" class="oops">...well that was the wrong turn.</text>
+      <text x="395" y="208" class="impact" aria-hidden="true">BONK!</text>
+      <text x="100" y="120" class="oops" aria-hidden="true">...well that was the wrong turn.</text>
     </svg>
   </div>
 
@@ -62,7 +62,7 @@ description: "The requested page could not be found. Navigate back to explore ja
 }
 
 .error-page h1 {
-  color: #ff6666;
+  color: var(--text-primary);
   margin-bottom: 2rem;
 }
 
@@ -75,47 +75,51 @@ description: "The requested page could not be found. Navigate back to explore ja
 .cartoon-scene svg {
   width: 100%;
   height: auto;
-  border: 1px solid rgba(0, 255, 102, 0.25);
+  border: 1px solid color-mix(in srgb, var(--accent-bright) 28%, transparent);
   border-radius: 6px;
-  background: linear-gradient(180deg, rgba(0, 255, 102, 0.04), rgba(0, 0, 0, 0.2));
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--accent-bright) 8%, transparent),
+    color-mix(in srgb, var(--bg-primary) 65%, transparent)
+  );
 }
 
 .ground,
 .limb,
 .face {
-  stroke: #9bffbe;
+  stroke: color-mix(in srgb, var(--accent-bright) 75%, white);
   stroke-width: 4;
   fill: none;
   stroke-linecap: round;
 }
 
 .drop-line {
-  stroke: rgba(255, 180, 70, 0.75);
+  stroke: color-mix(in srgb, var(--text-primary) 70%, #f39c12);
   stroke-width: 3;
   stroke-linecap: round;
 }
 
 .head {
-  fill: rgba(0, 255, 102, 0.08);
-  stroke: #9bffbe;
+  fill: color-mix(in srgb, var(--accent-bright) 12%, transparent);
+  stroke: color-mix(in srgb, var(--accent-bright) 75%, white);
   stroke-width: 4;
 }
 
 .anvil-body {
-  fill: #9aa3ad;
-  stroke: #d7dde3;
+  fill: color-mix(in srgb, var(--text-secondary) 45%, #6f7680);
+  stroke: color-mix(in srgb, var(--text-primary) 60%, #d7dde3);
   stroke-width: 3;
 }
 
 .impact {
-  fill: #ffb347;
+  fill: color-mix(in srgb, var(--text-primary) 70%, #ffb347);
   font-weight: 800;
   font-size: 2.2rem;
   letter-spacing: 0.06em;
 }
 
 .oops {
-  fill: #b6f5c3;
+  fill: var(--text-secondary);
   font-size: 1rem;
   font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
 }
