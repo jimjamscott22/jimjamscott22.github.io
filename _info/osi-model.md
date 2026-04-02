@@ -17,7 +17,10 @@ The Open Systems Interconnection (OSI) model is a conceptual framework that stan
 
 ---
 
-<img src="{{ "/img/7osi_layers2.jpg.jpg" | relative_url }}" alt="7 osi layers pic" loading="lazy" decoding="async">
+<figure class="content-image content-image--wide">
+  <img src="{{ "/img/7osi_layers2.jpg.jpg" | relative_url }}" alt="The 7 OSI layers" loading="lazy" decoding="async">
+  <figcaption>The 7 OSI layers</figcaption>
+</figure>
 
 ## Quick Reference
 

@@ -9,11 +9,11 @@ description: "Short informational posts, lab notes, and technical writeups cover
 
 Short informational posts, lab notes, and writeups. For a chronological view of all posts, see the [Archive](/archive/).
 
-<div class="about-visual">
+<figure class="content-image content-image--compact">
   <img src="{{ "/img/cool-retro-term.png" | relative_url }}"
-       alt="Retro Terminal icon"
+       alt="Retro terminal screenshot"
        loading="lazy" decoding="async" />
-</div>
+</figure>
 
 <div class="blog-actions">
   <a href="{{ "/feed.xml" | relative_url }}" class="rss-link">

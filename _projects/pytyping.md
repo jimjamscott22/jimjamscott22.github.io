@@ -19,9 +19,10 @@ PyTyping is a lightweight typing trainer focused on quick sessions, clear feedba
 
 ## Screenshot
 
-<picture>
-  <source srcset="{{ "/img/pytyping_screenshot.png" | relative_url }}" type="image/png" alt="PyTyping app screenshot" loading="lazy" decoding="async" >
-</picture>
+<figure class="content-image">
+  <img src="{{ "/img/pytyping_screenshot.png" | relative_url }}" alt="PyTyping app screenshot" loading="lazy" decoding="async">
+  <figcaption>PyTyping typing trainer interface</figcaption>
+</figure>
 
 ## Highlights
 
