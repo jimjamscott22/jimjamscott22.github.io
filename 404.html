@@ -8,18 +8,39 @@ description: "The requested page could not be found. Navigate back to explore ja
 <div class="error-page">
   <h1>404: Terminal Connection Lost</h1>
   
-  <div class="ascii-art">
-<pre>
-    _____ ____  _  _   
-   / __  / __ \| || |  
-   \`' / / / / | || |_ 
-    / / / /_/ /|__   _|
-   / /_ \____/    | |  
-  /_/(_)          |_|  
-</pre>
+  <div class="cartoon-scene" aria-hidden="true">
+    <svg viewBox="0 0 700 360" role="img">
+      <title>A cartoon stick character getting bonked by a falling anvil</title>
+      <line x1="70" y1="290" x2="640" y2="290" class="ground" />
+
+      <line x1="465" y1="40" x2="465" y2="105" class="drop-line" />
+      <line x1="485" y1="35" x2="485" y2="95" class="drop-line" />
+      <line x1="505" y1="45" x2="505" y2="108" class="drop-line" />
+
+      <g class="anvil">
+        <path d="M425 115 L550 115 L530 138 L445 138 Z" class="anvil-body"/>
+        <rect x="445" y="138" width="85" height="18" class="anvil-body"/>
+        <rect x="470" y="156" width="34" height="16" class="anvil-body"/>
+      </g>
+
+      <g class="character">
+        <circle cx="485" cy="205" r="24" class="head"/>
+        <line x1="485" y1="229" x2="485" y2="272" class="limb"/>
+        <line x1="485" y1="240" x2="452" y2="258" class="limb"/>
+        <line x1="485" y1="240" x2="518" y2="258" class="limb"/>
+        <line x1="485" y1="272" x2="463" y2="289" class="limb"/>
+        <line x1="485" y1="272" x2="507" y2="289" class="limb"/>
+        <line x1="475" y1="202" x2="480" y2="208" class="face"/>
+        <line x1="495" y1="202" x2="500" y2="208" class="face"/>
+        <path d="M475 219 Q485 232 495 219" class="face"/>
+      </g>
+
+      <text x="395" y="208" class="impact">BONK!</text>
+      <text x="100" y="120" class="oops">...well that was the wrong turn.</text>
+    </svg>
   </div>
 
-  <p>The requested resource could not be located in the JamieLab system.</p>
+  <p>You found a page that doesn’t exist and triggered an unexpected cartoon physics event.</p>
   
   <div class="error-details">
     <p><strong>Status:</strong> <span class="accent">404 NOT_FOUND</span></p>
@@ -45,16 +66,58 @@ description: "The requested page could not be found. Navigate back to explore ja
   margin-bottom: 2rem;
 }
 
-.ascii-art {
+.cartoon-scene {
   margin: 2rem auto;
   display: inline-block;
+  width: min(100%, 720px);
 }
 
-.ascii-art pre {
-  color: #00ff66;
-  font-size: 0.9rem;
-  line-height: 1.2;
-  margin: 0;
+.cartoon-scene svg {
+  width: 100%;
+  height: auto;
+  border: 1px solid rgba(0, 255, 102, 0.25);
+  border-radius: 6px;
+  background: linear-gradient(180deg, rgba(0, 255, 102, 0.04), rgba(0, 0, 0, 0.2));
+}
+
+.ground,
+.limb,
+.face {
+  stroke: #9bffbe;
+  stroke-width: 4;
+  fill: none;
+  stroke-linecap: round;
+}
+
+.drop-line {
+  stroke: rgba(255, 180, 70, 0.75);
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+
+.head {
+  fill: rgba(0, 255, 102, 0.08);
+  stroke: #9bffbe;
+  stroke-width: 4;
+}
+
+.anvil-body {
+  fill: #9aa3ad;
+  stroke: #d7dde3;
+  stroke-width: 3;
+}
+
+.impact {
+  fill: #ffb347;
+  font-weight: 800;
+  font-size: 2.2rem;
+  letter-spacing: 0.06em;
+}
+
+.oops {
+  fill: #b6f5c3;
+  font-size: 1rem;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 
 .error-details {
@@ -104,8 +167,8 @@ description: "The requested page could not be found. Navigate back to explore ja
 }
 
 @media (max-width: 600px) {
-  .ascii-art pre {
-    font-size: 0.6rem;
+  .impact {
+    font-size: 1.6rem;
   }
   
   .error-actions {
