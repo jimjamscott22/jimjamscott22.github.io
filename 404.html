@@ -57,7 +57,7 @@ description: "The requested page could not be found. Navigate back to explore ja
 
 <style>
 .error-page {
-  --scene-border-subtle: 28%;
+  --scene-border-mix-amount: 28%;
   --scene-drop-color: color-mix(in srgb, var(--text-primary) 70%, var(--accent-bright));
   text-align: center;
   padding: 2rem 0;
@@ -77,7 +77,7 @@ description: "The requested page could not be found. Navigate back to explore ja
 .cartoon-scene svg {
   width: 100%;
   height: auto;
-  border: 1px solid color-mix(in srgb, var(--accent-bright) var(--scene-border-subtle), transparent);
+  border: 1px solid color-mix(in srgb, var(--accent-bright), transparent var(--scene-border-mix-amount));
   border-radius: 6px;
   background: linear-gradient(
     180deg,
