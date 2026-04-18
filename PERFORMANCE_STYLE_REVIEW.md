@@ -4,8 +4,8 @@ This document summarizes a targeted review of the JamieLab website codebase, foc
 
 ## Baseline checks run
 
-- `bundle _2.6.9_ exec jekyll build`
-- `bundle _2.6.9_ exec jekyll build JEKYLL_ENV=production`
+- `bundle exec jekyll build`
+- `bundle exec jekyll build JEKYLL_ENV=production`
 - `htmlproofer ./_site --disable-external --allow-hash-href --ignore-urls "/^http:\/\/127.0.0.1/,/^http:\/\/0.0.0.0/,/^http:\/\/localhost/,/^http:\/\/pi.hole/"`
 
 Result: build and HTML/link validation pass.
@@ -25,7 +25,7 @@ Result: build and HTML/link validation pass.
      - Scope `window.siteData` to pages/features that actually require it (or lazy-fetch in `terminal.js`).
 
 2. **Very large image assets are shipped directly**
-   - Evidence: several images in `img/` exceed 1–6 MB, e.g., `img/fort_knox_lan.png` (~2.2 MB) and `img/network_topology_var.png` (~1.4 MB).
+   - Evidence: several images in `img/` exceed 1–3 MB, e.g., `img/fort_knox_lan.png` (~2.2 MB) and `img/network_topology_var.png` (~1.4 MB).
    - Why it matters: slows LCP and increases bandwidth usage significantly.
    - Recommendation:
      - Create responsive, compressed variants (WebP/AVIF where possible).
