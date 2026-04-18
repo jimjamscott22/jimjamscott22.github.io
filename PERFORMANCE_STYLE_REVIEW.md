@@ -25,7 +25,7 @@ Result: build and HTML/link validation pass.
      - Scope `window.siteData` to pages/features that actually require it (or lazy-fetch in `terminal.js`).
 
 2. **Very large image assets are shipped directly**
-   - Evidence: several images in `img/` exceed 1–6 MB (for example `img/fort_knox_lan.png` ~2.2 MB, `img/network_topology_var.png` ~1.4 MB).
+   - Evidence: several images in `img/` exceed 1–6 MB, e.g., `img/fort_knox_lan.png` (~2.2 MB) and `img/network_topology_var.png` (~1.4 MB).
    - Why it matters: slows LCP and increases bandwidth usage significantly.
    - Recommendation:
      - Create responsive, compressed variants (WebP/AVIF where possible).
