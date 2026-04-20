@@ -14,8 +14,8 @@ document.addEventListener('DOMContentLoaded', function() {
   let activeCategory = 'all';
   let activeType = 'all';
   let searchTerm = '';
-  let wikiDataByUrl = null;
-  let wikiDataPromise = null;
+  let wikiDataMap = null;
+  let wikiDataLoadPromise = null;
 
   function normalizePath(url) {
     try {
@@ -26,15 +26,15 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   function loadWikiData() {
-    if (wikiDataByUrl) {
-      return Promise.resolve(wikiDataByUrl);
+    if (wikiDataMap) {
+      return Promise.resolve(wikiDataMap);
     }
 
-    if (wikiDataPromise) {
-      return wikiDataPromise;
+    if (wikiDataLoadPromise) {
+      return wikiDataLoadPromise;
     }
 
-    wikiDataPromise = fetch(wikiDataUrl, { credentials: 'same-origin' })
+    wikiDataLoadPromise = fetch(wikiDataUrl, { credentials: 'same-origin' })
       .then(response => {
         if (!response.ok) {
           throw new Error(`Wiki data request failed: ${response.status}`);
@@ -49,25 +49,20 @@ document.addEventListener('DOMContentLoaded', function() {
             if (key) map.set(key, item);
           });
         }
-        wikiDataByUrl = map;
-        return wikiDataByUrl;
+        wikiDataMap = map;
+        return wikiDataMap;
       })
-      .catch(() => {
-        wikiDataByUrl = new Map();
-        return wikiDataByUrl;
+      .catch((error) => {
+        console.warn('Unable to load wiki data', error);
+        wikiDataMap = new Map();
+        return wikiDataMap;
       });
 
-    return wikiDataPromise;
+    return wikiDataLoadPromise;
   }
 
-  async function getContentMatch(cardUrl, term) {
-    if (!term) return true;
-
-    const dataMap = await loadWikiData();
-    if (!dataMap || dataMap.size === 0) {
-      return false;
-    }
-
+  function getContentMatch(dataMap, cardUrl, term) {
+    if (!term || !dataMap || dataMap.size === 0) return false;
     const key = normalizePath(cardUrl);
     const item = dataMap.get(key);
     const content = item?.content ? String(item.content).toLowerCase() : '';
@@ -103,6 +98,11 @@ document.addEventListener('DOMContentLoaded', function() {
   // Apply filters
   async function applyFilters() {
     let visibleCount = 0;
+    let dataMap = null;
+    const shouldSearchContent = searchTerm.length >= 2;
+    if (shouldSearchContent) {
+      dataMap = await loadWikiData();
+    }
 
     for (const card of wikiCards) {
       const cardCategory = card.dataset.category;
@@ -117,8 +117,8 @@ document.addEventListener('DOMContentLoaded', function() {
         cardTitle.includes(searchTerm) ||
         cardTags.includes(searchTerm);
 
-      if (!searchMatch && searchTerm.length >= 2) {
-        searchMatch = await getContentMatch(cardUrl, searchTerm);
+      if (!searchMatch && shouldSearchContent) {
+        searchMatch = getContentMatch(dataMap, cardUrl, searchTerm);
       }
 
       if (categoryMatch && typeMatch && searchMatch) {

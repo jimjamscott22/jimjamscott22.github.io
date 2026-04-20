@@ -108,7 +108,8 @@
         window.siteData = normalized;
         return normalized;
       })
-      .catch(() => {
+      .catch((error) => {
+        console.warn('Unable to load terminal site data', error);
         window.siteData = EMPTY_SITE_DATA;
         return EMPTY_SITE_DATA;
       });
@@ -679,14 +680,13 @@ Building secure systems and breaking them (ethically).
       const value = input.value;
       appendOutput(value, true);
       input.value = '';
-      input.disabled = true;
       try {
         const result = await executeCommand(value);
         if (result) appendOutput(result);
       } catch (error) {
+        console.warn('Terminal command execution failed', error);
         appendOutput('<span class="term-error">Command failed. Please try again.</span>');
       } finally {
-        input.disabled = false;
         input.focus();
       }
     } else if (e.key === 'ArrowUp') {

@@ -30,6 +30,7 @@
       searchIndex = Array.isArray(data) ? data : [];
       return searchIndex;
     } catch (error) {
+      console.warn("Unable to load search data", error);
       if (searchCount) {
         searchCount.textContent = "Search index unavailable";
       }
@@ -37,10 +38,11 @@
     }
   }
 
-  const searchIndexPromise = loadSearchIndex();
+  let searchIndexPromise = null;
 
   function normalizeText(text) {
-    return String(text || "").toLowerCase().trim();
+    if (typeof text !== "string") return "";
+    return text.toLowerCase().trim();
   }
 
   function escapeRegex(str) {
@@ -62,7 +64,6 @@
   }
 
   async function performSearch(query) {
-    await searchIndexPromise;
     const normalizedQuery = normalizeText(query);
 
     if (!normalizedQuery || normalizedQuery.length < 2) {
@@ -70,6 +71,11 @@
       if (searchCount) searchCount.textContent = "";
       return;
     }
+
+    if (!searchIndexPromise) {
+      searchIndexPromise = loadSearchIndex();
+    }
+    await searchIndexPromise;
 
     const results = searchIndex.filter((item) => {
       const titleMatch = normalizeText(item.title).includes(normalizedQuery);
