@@ -41,11 +41,12 @@ Searchable knowledge base of runbooks, how-tos, and technical notes. For project
   <div id="wiki-count" class="search-count"></div>
 </div>
 
-<div class="wiki-grid" id="wiki-grid">
+<div class="wiki-grid" id="wiki-grid" data-wiki-data-url="{{ '/assets/data/wiki-data.json' | relative_url }}">
   {% for note in site.notes %}
     <div class="wiki-card card"
          data-category="{{ note.category | default: 'uncategorized' }}"
          data-type="{{ note.type }}"
+         data-url="{{ note.url | relative_url }}"
          data-title="{{ note.title | downcase }}"
          data-tags="{{ note.tags | join: ',' | downcase }}">
       <div class="card-header">
@@ -140,20 +141,5 @@ Low-friction visual thinking. If it survives iteration, it graduates to a projec
   </div>
 </div>
 
-<script>
-  window.wikiData = [
-    {% for note in site.notes %}
-    {
-      title: {{ note.title | jsonify }},
-      url: {{ note.url | relative_url | jsonify }},
-      date: {{ note.date | date: "%Y-%m-%d" | jsonify }},
-      type: {{ note.type | jsonify }},
-      category: {{ note.category | default: "uncategorized" | jsonify }},
-      tags: {{ note.tags | default: "[]" | jsonify }},
-      content: {{ note.content | strip_html | jsonify }}
-    }{% unless forloop.last %},{% endunless %}
-    {% endfor %}
-  ];
-</script>
 <script src="{{ "/assets/js/wiki.js" | relative_url }}?v={{ cache_bust }}"></script>
 <script src="{{ "/assets/js/notes.js" | relative_url }}?v={{ cache_bust }}"></script>

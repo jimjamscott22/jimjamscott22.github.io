@@ -29,7 +29,7 @@ Short informational posts, lab notes, and writeups. For a chronological view of 
 
 ## Search posts
 
-<div id="search-container" class="search-container">
+<div id="search-container" class="search-container" data-search-data-url="{{ '/assets/data/search-data.json' | relative_url }}">
   <div class="search-box">
     <input 
       type="text" 
@@ -42,20 +42,6 @@ Short informational posts, lab notes, and writeups. For a chronological view of 
   <div id="search-results" class="search-results"></div>
 </div>
 
-<script>
-  // Embed search data in the page
-  window.searchData = [
-    {% for post in site.posts %}
-    {
-      title: {{ post.title | jsonify }},
-      url: {{ post.url | relative_url | jsonify }},
-      date: {{ post.date | date: "%Y-%m-%d" | jsonify }},
-      content: {{ post.content | strip_html | strip_newlines | jsonify }},
-      tags: {{ post.tags | jsonify }}
-    }{% unless forloop.last %},{% endunless %}
-    {% endfor %}
-  ];
-</script>
 <script defer src="{{ "/assets/js/search.js" | relative_url }}"></script>
 
 ## Browse by tag
@@ -149,4 +135,3 @@ Short informational posts, lab notes, and writeups. For a chronological view of 
 No posts yet. Add your first one in `_posts/` and it’ll appear here automatically.
 
 {% endif %}
-

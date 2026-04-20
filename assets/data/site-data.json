@@ -1,0 +1,31 @@
+---
+---
+{
+  "posts": [
+    {% for post in site.posts %}
+    {
+      "title": {{ post.title | jsonify }},
+      "url": {{ post.url | relative_url | jsonify }},
+      "date": {{ post.date | date: "%Y-%m-%d" | jsonify }},
+      "tags": {{ post.tags | jsonify }}
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ],
+  "projects": [
+    {% for project in site.projects %}
+    {
+      "title": {{ project.title | jsonify }},
+      "url": {{ project.url | relative_url | jsonify }},
+      "status": {{ project.status | default: "unknown" | jsonify }}
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ],
+  "notes": [
+    {% for note in site.notes %}
+    {
+      "title": {{ note.title | jsonify }},
+      "url": {{ note.url | relative_url | jsonify }}
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ]
+}

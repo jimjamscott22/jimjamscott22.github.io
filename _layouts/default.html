@@ -256,25 +256,9 @@
   <!-- Theme switcher JS (deferred to run after DOM is parsed) -->
   <script defer src="{{ '/assets/js/theme-switcher.js' | relative_url }}?v={{ cache_bust }}"></script>
 
-  <!-- Site data for terminal commands -->
+  <!-- Site data URLs -->
   <script>
-    window.siteData = {
-      posts: [
-        {% for post in site.posts %}
-        { title: "{{ post.title | escape }}", url: "{{ post.url }}", date: "{{ post.date | date: '%Y-%m-%d' }}", tags: {{ post.tags | jsonify }} }{% unless forloop.last %},{% endunless %}
-        {% endfor %}
-      ],
-      projects: [
-        {% for project in site.projects %}
-        { title: "{{ project.title | escape }}", url: "{{ project.url }}", status: "{{ project.status }}" }{% unless forloop.last %},{% endunless %}
-        {% endfor %}
-      ],
-      notes: [
-        {% for note in site.notes %}
-        { title: "{{ note.title | escape }}", url: "{{ note.url }}" }{% unless forloop.last %},{% endunless %}
-        {% endfor %}
-      ]
-    };
+    window.siteDataUrl = "{{ '/assets/data/site-data.json' | relative_url }}?v={{ cache_bust }}";
     // Project admin API URL
     window.projectAdminApiUrl = "{{ site.project_admin_api_url }}";
   </script>

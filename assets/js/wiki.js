@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const wikiCards = wikiGrid ? wikiGrid.querySelectorAll('.wiki-card') : [];
   const countDisplay = document.getElementById('wiki-count');
   const filterButtons = document.querySelectorAll('.wiki-filter-btn');
+  const wikiDataUrl = wikiGrid?.dataset.wikiDataUrl || '/assets/data/wiki-data.json';
 
   if (!wikiGrid || wikiCards.length === 0) {
     return; // Exit if not on wiki page
@@ -13,6 +14,65 @@ document.addEventListener('DOMContentLoaded', function() {
   let activeCategory = 'all';
   let activeType = 'all';
   let searchTerm = '';
+  let wikiDataByUrl = null;
+  let wikiDataPromise = null;
+
+  function normalizePath(url) {
+    try {
+      return new URL(url, window.location.origin).pathname.replace(/\/$/, '');
+    } catch (e) {
+      return '';
+    }
+  }
+
+  function loadWikiData() {
+    if (wikiDataByUrl) {
+      return Promise.resolve(wikiDataByUrl);
+    }
+
+    if (wikiDataPromise) {
+      return wikiDataPromise;
+    }
+
+    wikiDataPromise = fetch(wikiDataUrl, { credentials: 'same-origin' })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`Wiki data request failed: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(data => {
+        const map = new Map();
+        if (Array.isArray(data)) {
+          data.forEach(item => {
+            const key = normalizePath(item.url);
+            if (key) map.set(key, item);
+          });
+        }
+        wikiDataByUrl = map;
+        return wikiDataByUrl;
+      })
+      .catch(() => {
+        wikiDataByUrl = new Map();
+        return wikiDataByUrl;
+      });
+
+    return wikiDataPromise;
+  }
+
+  async function getContentMatch(cardUrl, term) {
+    if (!term) return true;
+
+    const dataMap = await loadWikiData();
+    if (!dataMap || dataMap.size === 0) {
+      return false;
+    }
+
+    const key = normalizePath(cardUrl);
+    const item = dataMap.get(key);
+    const content = item?.content ? String(item.content).toLowerCase() : '';
+    return content.includes(term);
+  }
 
   // Load saved filters
   function loadFilters() {
@@ -41,20 +101,25 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // Apply filters
-  function applyFilters() {
+  async function applyFilters() {
     let visibleCount = 0;
 
-    wikiCards.forEach(card => {
+    for (const card of wikiCards) {
       const cardCategory = card.dataset.category;
       const cardType = card.dataset.type;
       const cardTitle = card.dataset.title;
       const cardTags = card.dataset.tags;
+      const cardUrl = card.dataset.url || '';
 
       const categoryMatch = activeCategory === 'all' || cardCategory === activeCategory;
       const typeMatch = activeType === 'all' || cardType === activeType;
-      const searchMatch = !searchTerm ||
+      let searchMatch = !searchTerm ||
         cardTitle.includes(searchTerm) ||
         cardTags.includes(searchTerm);
+
+      if (!searchMatch && searchTerm.length >= 2) {
+        searchMatch = await getContentMatch(cardUrl, searchTerm);
+      }
 
       if (categoryMatch && typeMatch && searchMatch) {
         card.classList.remove('hidden');
@@ -62,7 +127,7 @@ document.addEventListener('DOMContentLoaded', function() {
       } else {
         card.classList.add('hidden');
       }
-    });
+    }
 
     if (countDisplay) {
       countDisplay.textContent = `Showing ${visibleCount} of ${wikiCards.length} notes`;
