@@ -12,6 +12,8 @@
     historyIndex: -1,
     isOpen: false
   };
+  const EMPTY_SITE_DATA = { posts: [], projects: [], notes: [] };
+  let siteDataPromise = null;
 
   // Site launch date for uptime calculation
   const SITE_LAUNCH_DATE = new Date('2025-12-13');
@@ -76,6 +78,45 @@
     return bubble + cow;
   }
 
+  function getSiteDataUrl() {
+    if (window.siteDataUrl) return window.siteDataUrl;
+    return '/assets/data/site-data.json';
+  }
+
+  async function getSiteData() {
+    if (window.siteData && typeof window.siteData === 'object') {
+      return window.siteData;
+    }
+
+    if (siteDataPromise) {
+      return siteDataPromise;
+    }
+
+    siteDataPromise = fetch(getSiteDataUrl(), { credentials: 'same-origin' })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`Site data request failed: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(data => {
+        const normalized = {
+          posts: Array.isArray(data?.posts) ? data.posts : [],
+          projects: Array.isArray(data?.projects) ? data.projects : [],
+          notes: Array.isArray(data?.notes) ? data.notes : []
+        };
+        window.siteData = normalized;
+        return normalized;
+      })
+      .catch((error) => {
+        console.warn('Unable to load terminal site data', error);
+        window.siteData = EMPTY_SITE_DATA;
+        return EMPTY_SITE_DATA;
+      });
+
+    return siteDataPromise;
+  }
+
   // Command definitions
   const commands = {
     help: {
@@ -116,7 +157,7 @@
 
     ls: {
       description: 'List pages or content',
-      execute: (args) => {
+      execute: async (args) => {
         const section = args[0]?.toLowerCase();
 
         if (!section) {
@@ -137,23 +178,25 @@
 <span class="term-dim">Usage: ls [posts|projects|notes]</span>`;
         }
 
+        const siteData = await getSiteData();
+
         if (section === 'posts' || section === 'blog') {
-          if (!window.siteData?.posts?.length) {
+          if (!siteData.posts.length) {
             return '<span class="term-error">No posts found</span>';
           }
-          let output = `<span class="term-accent">Blog Posts (${window.siteData.posts.length})</span>\n\n`;
-          window.siteData.posts.forEach(post => {
+          let output = `<span class="term-accent">Blog Posts (${siteData.posts.length})</span>\n\n`;
+          siteData.posts.forEach(post => {
             output += `  <span class="term-file">${post.date}</span>  ${post.title}\n`;
           });
           return output;
         }
 
         if (section === 'projects') {
-          if (!window.siteData?.projects?.length) {
+          if (!siteData.projects.length) {
             return '<span class="term-error">No projects found</span>';
           }
-          let output = `<span class="term-accent">Projects (${window.siteData.projects.length})</span>\n\n`;
-          window.siteData.projects.forEach(project => {
+          let output = `<span class="term-accent">Projects (${siteData.projects.length})</span>\n\n`;
+          siteData.projects.forEach(project => {
             const status = project.status || 'unknown';
             const statusClass = status === 'active' ? 'term-success' :
                                status === 'building' ? 'term-warning' : 'term-dim';
@@ -163,11 +206,11 @@
         }
 
         if (section === 'notes') {
-          if (!window.siteData?.notes?.length) {
+          if (!siteData.notes.length) {
             return '<span class="term-error">No notes found</span>';
           }
-          let output = `<span class="term-accent">Notes (${window.siteData.notes.length})</span>\n\n`;
-          window.siteData.notes.forEach(note => {
+          let output = `<span class="term-accent">Notes (${siteData.notes.length})</span>\n\n`;
+          siteData.notes.forEach(note => {
             output += `  <span class="term-file">${note.title}</span>\n`;
           });
           return output;
@@ -179,7 +222,7 @@
 
     cd: {
       description: 'Navigate to a page',
-      execute: (args) => {
+      execute: async (args) => {
         const target = args[0]?.toLowerCase();
         if (!target) {
           return '<span class="term-error">Usage: cd <page></span>\n<span class="term-dim">Example: cd projects</span>';
@@ -207,11 +250,13 @@
           return `<span class="term-success">Navigating to ${target}...</span>`;
         }
 
+        const siteData = await getSiteData();
+
         // Check for post/project/note match
         const allContent = [
-          ...(window.siteData?.posts || []),
-          ...(window.siteData?.projects || []),
-          ...(window.siteData?.notes || [])
+          ...siteData.posts,
+          ...siteData.projects,
+          ...siteData.notes
         ];
 
         const match = allContent.find(item =>
@@ -265,10 +310,11 @@ Building secure systems and breaking them (ethically).
 
     neofetch: {
       description: 'Show system info',
-      execute: () => {
-        const posts = window.siteData?.posts?.length || 0;
-        const projects = window.siteData?.projects?.length || 0;
-        const notes = window.siteData?.notes?.length || 0;
+      execute: async () => {
+        const siteData = await getSiteData();
+        const posts = siteData.posts.length;
+        const projects = siteData.projects.length;
+        const notes = siteData.notes.length;
         const currentTheme = localStorage.getItem('selectedTheme') || 'cyber';
         const uptime = getUptime();
 
@@ -362,13 +408,14 @@ Building secure systems and breaking them (ethically).
 
     search: {
       description: 'Search posts',
-      execute: (args) => {
+      execute: async (args) => {
         const query = args.join(' ').toLowerCase();
         if (!query) {
           return '<span class="term-error">Usage: search <term></span>';
         }
 
-        const posts = window.siteData?.posts || [];
+        const siteData = await getSiteData();
+        const posts = siteData.posts;
         const results = posts.filter(post =>
           post.title.toLowerCase().includes(query) ||
           (post.tags && post.tags.some(t => t.toLowerCase().includes(query)))
@@ -442,16 +489,17 @@ Building secure systems and breaking them (ethically).
 
     cat: {
       description: 'View content preview',
-      execute: (args) => {
+      execute: async (args) => {
         const target = args.join(' ').toLowerCase();
         if (!target) {
           return '<span class="term-error">Usage: cat <post-name></span>';
         }
 
+        const siteData = await getSiteData();
         const allContent = [
-          ...(window.siteData?.posts || []),
-          ...(window.siteData?.projects || []),
-          ...(window.siteData?.notes || [])
+          ...siteData.posts,
+          ...siteData.projects,
+          ...siteData.notes
         ];
 
         const match = allContent.find(item =>
@@ -497,7 +545,7 @@ Building secure systems and breaking them (ethically).
     return `${days} days, ${hours} hours`;
   }
 
-  function executeCommand(input) {
+  async function executeCommand(input) {
     const trimmed = input.trim();
     if (!trimmed) return '';
 
@@ -513,7 +561,7 @@ Building secure systems and breaking them (ethically).
     state.historyIndex = state.history.length;
 
     if (commands[cmd]) {
-      return commands[cmd].execute(args);
+      return await commands[cmd].execute(args);
     }
 
     return `<span class="term-error">Command not found: ${cmd}</span>\n<span class="term-dim">Type 'help' for available commands</span>`;
@@ -625,15 +673,22 @@ Building secure systems and breaking them (ethically).
   }
 
   // Event handlers
-  function handleInputKeydown(e) {
+  async function handleInputKeydown(e) {
     const input = e.target;
 
     if (e.key === 'Enter') {
       const value = input.value;
       appendOutput(value, true);
-      const result = executeCommand(value);
-      if (result) appendOutput(result);
       input.value = '';
+      try {
+        const result = await executeCommand(value);
+        if (result) appendOutput(result);
+      } catch (error) {
+        console.warn('Terminal command execution failed', error);
+        appendOutput('<span class="term-error">Command failed. Please try again.</span>');
+      } finally {
+        input.focus();
+      }
     } else if (e.key === 'ArrowUp') {
       e.preventDefault();
       if (state.historyIndex > 0) {
@@ -663,7 +718,7 @@ Building secure systems and breaking them (ethically).
       }
     } else if (e.key === 'l' && e.ctrlKey) {
       e.preventDefault();
-      executeCommand('clear');
+      await executeCommand('clear');
       const output = document.getElementById('cli-terminal-output');
       if (output) output.innerHTML = '';
     } else if (e.key === 'c' && e.ctrlKey) {
