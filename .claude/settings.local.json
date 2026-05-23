@@ -3,5 +3,19 @@
     "allow": [
       "Bash(grep:*)"
     ]
-  }
+  },
+  "enabledMcpjsonServers": [
+    "memory-bank",
+    "sequential-thinking",
+    "brave-search"
+  ],
+  "disabledMcpjsonServers": [
+    "python-sdk",
+    "docker",
+    "jupyter",
+    "postgresql",
+    "opik",
+    "google-maps",
+    "deep-graph"
+  ]
 }

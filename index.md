@@ -31,8 +31,6 @@ Network tools engaged.
   </div>
 </div>
 
-<script defer src="{{ "/assets/js/typewriter.js" | relative_url }}?v={{ cache_bust }}"></script>
-
 ## Featured image
 
 <div class="hero-shot">
