@@ -68,6 +68,32 @@
   }
 }
 
+/* Home hero grid */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin: 1.5rem 0;
+  width: 100%;
+}
+
+.hero-grid .hero-shot {
+  max-width: 100%;
+  margin: 0;
+  width: 100%;
+}
+
+.hero-grid .hero-shot--secondary {
+  max-width: 100%;
+  opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Home hero image */
 .hero-shot img {
   display: block;

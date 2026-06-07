@@ -33,17 +33,19 @@ Network tools engaged.
 
 ## Featured image
 
-<div class="hero-shot">
-  <img src="{{ "/img/minimalist_workstation.png" | relative_url }}?v={{ cache_bust }}" alt="guy at a computer" loading="lazy" decoding="async">
-  <div class="hero-caption">Where thoughts become bits [01010101] </div>
-</div>
+<div class="hero-grid">
+  <div class="hero-shot">
+    <img src="{{ "/img/minimalist_workstation.png" | relative_url }}?v={{ cache_bust }}" alt="guy at a computer" loading="lazy" decoding="async">
+    <div class="hero-caption">Where thoughts become bits [01010101] </div>
+  </div>
 
-<div class="hero-shot hero-shot--secondary">
-  <img src="{{ "/img/mini_me.JPG" | relative_url }}?v={{ cache_bust }}"
-       alt="Desk figurine of Jamie seated at workstation"
-       loading="lazy"
-       decoding="async">
-  <div class="hero-caption">
-    Physical avatar :: desk-side operator
+  <div class="hero-shot hero-shot--secondary">
+    <img src="{{ "/img/mini_me.JPG" | relative_url }}?v={{ cache_bust }}"
+         alt="Desk figurine of Jamie seated at workstation"
+         loading="lazy"
+         decoding="async">
+    <div class="hero-caption">
+      Physical avatar :: desk-side operator
+    </div>
   </div>
 </div>
