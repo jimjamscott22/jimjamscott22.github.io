@@ -41,9 +41,9 @@
 
 ## Security/Cybersec Focused
 
-25. **CVE Tracker** - List of vulnerabilities you're researching or patching
+25. **CVE Tracker** ✅ - List of vulnerabilities you're researching or patching
 26. **Security Tools Catalog** - Curated list of tools you use/recommend
-27. **Capture the Flag Write-ups** - Dedicated section for CTF solutions
+27. **Capture the Flag Write-ups** ✅ - Dedicated section for CTF solutions
 28. **Threat Intelligence Feed** - Display recent security news (RSS aggregation)
 
 ## Analytics & Performance

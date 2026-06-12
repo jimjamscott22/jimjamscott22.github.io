@@ -2889,3 +2889,174 @@ th {
     transition: none;
   }
 }
+
+/* ========== CVE TRACKER + CTF WRITE-UPS ========== */
+
+/* Shared: hide filtered cards (used by info/wiki/cve/ctf filters) */
+.hidden {
+  display: none !important;
+}
+
+/* Filter controls shared by CVE tracker and CTF write-ups */
+.wiki-controls {
+  margin: 0.75rem 0 1.25rem;
+}
+
+.wiki-controls .search-container {
+  margin-bottom: 0.75rem;
+}
+
+.wiki-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.filter-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.filter-group > label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+  margin-right: 0.15rem;
+}
+
+/* Filter buttons reuse the tag-filter look */
+.cve-sev-btn,
+.cve-status-btn,
+.ctf-cat-btn,
+.ctf-diff-btn {
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.78rem;
+  padding: 0.18rem 0.55rem;
+  border-radius: 2px;
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  text-transform: lowercase;
+  letter-spacing: 0.05em;
+  transition: background-color 0.12s ease, border-color 0.12s ease, box-shadow 0.12s ease;
+}
+
+.cve-sev-btn:hover,
+.cve-status-btn:hover,
+.ctf-cat-btn:hover,
+.ctf-diff-btn:hover {
+  border-color: var(--accent-bright);
+  box-shadow: 0 0 6px var(--glow-color);
+}
+
+.cve-sev-btn.active,
+.cve-status-btn.active,
+.ctf-cat-btn.active,
+.ctf-diff-btn.active {
+  background-color: rgba(0, 255, 102, 0.18);
+  border-color: var(--accent-bright);
+  color: var(--accent-bright);
+  box-shadow: 0 0 8px var(--glow-color);
+}
+
+/* CVE severity badges */
+.badge.sev-critical {
+  background-color: rgba(255, 64, 64, 0.18);
+  border-color: rgba(255, 96, 96, 0.8);
+  color: #ff9a9a;
+}
+
+.badge.sev-high {
+  background-color: rgba(255, 138, 61, 0.16);
+  border-color: rgba(255, 150, 70, 0.75);
+  color: #ffc08f;
+}
+
+.badge.sev-medium {
+  background-color: rgba(255, 197, 61, 0.16);
+  border-color: rgba(255, 197, 61, 0.7);
+  color: #ffe9b3;
+}
+
+.badge.sev-low {
+  background-color: rgba(120, 200, 255, 0.14);
+  border-color: rgba(120, 200, 255, 0.6);
+  color: #bfe4ff;
+}
+
+/* CVE status badges (extends existing .status-* set) */
+.status-researching {
+  background-color: rgba(120, 200, 255, 0.14);
+  border-color: rgba(120, 200, 255, 0.6);
+  color: #bfe4ff;
+}
+
+.status-patching {
+  background-color: rgba(255, 197, 61, 0.16);
+  border-color: rgba(255, 197, 61, 0.7);
+  color: #ffe9b3;
+}
+
+.status-mitigated,
+.status-resolved {
+  background-color: rgba(0, 255, 102, 0.14);
+  border-color: var(--border-bright);
+  color: var(--accent-bright);
+}
+
+.status-watching {
+  background-color: rgba(173, 173, 173, 0.12);
+  border-color: rgba(173, 173, 173, 0.55);
+  color: #d7d7d7;
+}
+
+.cve-affected {
+  font-size: 0.85rem;
+  margin: 0.1rem 0;
+}
+
+.cve-label {
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  margin-right: 0.25rem;
+}
+
+/* CTF category + difficulty badges */
+.badge.ctf-cat {
+  border-style: solid;
+  text-transform: lowercase;
+}
+
+.badge.ctf-diff-easy {
+  background-color: rgba(0, 255, 102, 0.14);
+  border-color: var(--border-bright);
+  color: var(--accent-bright);
+}
+
+.badge.ctf-diff-medium {
+  background-color: rgba(255, 197, 61, 0.16);
+  border-color: rgba(255, 197, 61, 0.7);
+  color: #ffe9b3;
+}
+
+.badge.ctf-diff-hard {
+  background-color: rgba(255, 64, 64, 0.18);
+  border-color: rgba(255, 96, 96, 0.8);
+  color: #ff9a9a;
+}
+
+.card-header h2 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.card-header h2 a:hover {
+  color: var(--accent-bright);
+}

@@ -24,6 +24,9 @@ collections:
   info:
     output: true
     permalink: /info/:name/
+  ctf:
+    output: true
+    permalink: /ctf/:name/
   pages:
     output: true
 
@@ -54,6 +57,11 @@ defaults:
       type: info
     values:
       layout: default
+
+  - scope:
+      type: ctf
+    values:
+      layout: ctf
 
 # Giscus Comments Configuration
 giscus:

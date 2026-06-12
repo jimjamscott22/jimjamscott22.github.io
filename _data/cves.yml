@@ -1,0 +1,51 @@
+# CVE Tracker data
+# Add an entry per vulnerability you're researching, patching, or have mitigated.
+#
+# Fields:
+#   id        - CVE identifier (e.g. CVE-2024-3094). Used for the NVD link.
+#   title     - Short human-readable name.
+#   severity  - one of: critical | high | medium | low
+#   cvss      - CVSS base score (optional, string or number).
+#   status    - one of: researching | patching | mitigated | resolved | watching
+#   affected  - Product / system affected.
+#   date      - Date you started tracking (YYYY-MM-DD).
+#   tags      - List of free-form tags for filtering/search.
+#   summary   - 1-3 sentence description.
+#   link      - Optional reference URL (advisory, write-up). NVD link auto-generated from id.
+
+- id: CVE-2024-3094
+  title: "XZ Utils backdoor (liblzma)"
+  severity: critical
+  cvss: "10.0"
+  status: mitigated
+  affected: "xz-utils 5.6.0 / 5.6.1"
+  date: 2026-03-30
+  tags: [supply-chain, ssh, backdoor, linux]
+  summary: >
+    Malicious code injected into the xz/liblzma build process creating an SSH
+    backdoor. Audited homelab hosts and confirmed no affected versions deployed.
+  link: "https://www.openwall.com/lists/oss-security/2024/03/29/4"
+
+- id: CVE-2021-44228
+  title: "Log4Shell (Log4j JNDI RCE)"
+  severity: critical
+  cvss: "10.0"
+  status: resolved
+  affected: "Apache Log4j 2 < 2.17.0"
+  date: 2026-01-12
+  tags: [java, rce, jndi, logging]
+  summary: >
+    Unauthenticated remote code execution via JNDI lookups in Log4j 2.
+    Reviewing as part of a Java security study; reproduced in an isolated lab VM.
+
+- id: CVE-2023-4863
+  title: "WebP heap buffer overflow (libwebp)"
+  severity: high
+  cvss: "8.8"
+  status: watching
+  affected: "libwebp (Chrome, Electron, many apps)"
+  date: 2026-02-05
+  tags: [browser, heap-overflow, image-parsing]
+  summary: >
+    Heap buffer overflow in libwebp's Huffman decoding, widely exploitable
+    through any app that decodes WebP images. Tracking patch propagation.
