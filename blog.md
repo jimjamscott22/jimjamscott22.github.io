@@ -9,7 +9,7 @@ description: "Short informational posts, lab notes, and technical writeups cover
 
 Short informational posts, lab notes, and writeups. For a chronological view of all posts, see the [Archive](/archive/).
 
-<figure class="content-image content-image--compact">
+<figure class="content-image content-image--small">
   <img src="{{ "/img/cool-retro-term.png" | relative_url }}"
        alt="Retro terminal screenshot"
        loading="lazy" decoding="async" />

@@ -196,3 +196,8 @@
 .content-image--compact {
   max-width: 600px;
 }
+
+/* Small square icons and decorative images (native ~256px assets) */
+.content-image--small {
+  max-width: 256px;
+}
