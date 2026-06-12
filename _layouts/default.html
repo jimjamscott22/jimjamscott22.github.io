@@ -174,6 +174,10 @@
         </a>
       </nav>
 
+      <div class="matrix-rain-toggle">
+        <button class="matrix-toggle-btn" id="matrix-toggle-btn" aria-pressed="false">[rain: off]</button>
+      </div>
+
       <div class="theme-switcher">
         <label class="theme-label" for="theme-select">Theme</label>
         <select class="theme-select" id="theme-select" data-theme-select>
@@ -258,6 +262,9 @@
 
   <!-- Theme switcher JS (deferred to run after DOM is parsed) -->
   <script defer src="{{ '/assets/js/theme-switcher.js' | relative_url }}?v={{ cache_bust }}"></script>
+
+  <!-- Matrix rain toggle -->
+  <script defer src="{{ '/assets/js/matrix.js' | relative_url }}?v={{ cache_bust }}"></script>
 
   <!-- Site data URLs -->
   <script>

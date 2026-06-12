@@ -2,6 +2,8 @@
 layout: default
 ---
 
+<div id="reading-progress-bar" aria-hidden="true"></div>
+
 <article class="post" itemscope itemtype="https://schema.org/BlogPosting">
   <header class="post-header">
     <h1 class="post-title" itemprop="headline">{{ page.title }}</h1>
@@ -38,6 +40,49 @@ layout: default
     <a class="card-link" href="{{ "/blog/" | relative_url }}">← back to blog</a>
   </footer>
 </article>
+
+{% if page.tags and page.tags.size > 0 %}
+  {% assign related = "" | split: "" %}
+  {% for tag in page.tags %}
+    {% for post in site.tags[tag] %}
+      {% unless post.url == page.url %}
+        {% assign related = related | push: post %}
+      {% endunless %}
+    {% endfor %}
+  {% endfor %}
+  {% assign related = related | uniq | sort: "date" | reverse | limit: 3 %}
+  {% if related.size > 0 %}
+<section class="related-posts">
+  <h2 class="related-posts-title">// related posts</h2>
+  <div class="related-posts-grid">
+    {% for rel in related %}
+      <article class="card related-post-card">
+        <header class="card-header">
+          <h2><a href="{{ rel.url | relative_url }}">{{ rel.title }}</a></h2>
+          <span class="badge tag">{{ rel.date | date: "%Y-%m-%d" }}</span>
+        </header>
+        {% if rel.tags and rel.tags.size > 0 %}
+          <div class="card-meta">
+            {% for t in rel.tags %}
+              <span class="badge tag">{{ t }}</span>
+            {% endfor %}
+          </div>
+        {% endif %}
+        {% if rel.description %}
+          <p class="post-excerpt">{{ rel.description | strip_html | truncate: 120 }}</p>
+        {% elsif rel.excerpt %}
+          <p class="post-excerpt">{{ rel.excerpt | strip_html | truncate: 120 }}</p>
+        {% endif %}
+        <a class="card-link" href="{{ rel.url | relative_url }}">read →</a>
+      </article>
+    {% endfor %}
+  </div>
+</section>
+  {% endif %}
+{% endif %}
+
+<script defer src="{{ '/assets/js/reading-progress.js' | relative_url }}"></script>
+<script defer src="{{ '/assets/js/toc.js' | relative_url }}"></script>
 
 {% if site.giscus.enabled %}
 <div class="comments-section">

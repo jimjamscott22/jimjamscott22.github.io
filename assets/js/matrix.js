@@ -1,125 +1,120 @@
 (function () {
-  if (typeof window === "undefined") return;
+  if (typeof window === 'undefined') return;
 
-  const prefersReducedMotion =
-    typeof window.matchMedia === "function" &&
-    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const STORAGE_KEY = 'matrix-rain-enabled';
+  var canvas, ctx, drops, columns, rafId, isRunning, lastFrameTs, resizeTimer;
+  var fontSize = 14;
+  var frameIntervalMs = 60;
+  var letters = '01アイウエオカキクケコサシスセソタチツテトナニヌネノ';
 
-  // If the user prefers reduced motion, skip the animation entirely.
-  if (prefersReducedMotion) return;
+  function resize() {
+    var dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+    var w = window.innerWidth;
+    var h = window.innerHeight;
+    canvas.width = Math.floor(w * dpr);
+    canvas.height = Math.floor(h * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    columns = Math.ceil(w / fontSize);
+    drops = new Array(columns).fill(1);
+  }
 
-  const init = () => {
-    // Create the canvas if it doesn't already exist
-    let canvas = document.getElementById("matrix");
-    if (!canvas) {
-      canvas = document.createElement("canvas");
-      canvas.id = "matrix";
-      document.body.prepend(canvas); // ensure it sits behind everything
+  function draw() {
+    ctx.fillStyle = 'rgba(0,0,0,0.07)';
+    ctx.fillRect(0, 0, window.innerWidth, window.innerHeight);
+    ctx.fillStyle = 'rgba(0,255,102,0.75)';
+    ctx.font = fontSize + 'px monospace';
+    for (var i = 0; i < drops.length; i++) {
+      var ch = letters.charAt(Math.floor(Math.random() * letters.length));
+      ctx.fillText(ch, i * fontSize, drops[i] * fontSize);
+      if (drops[i] * fontSize > window.innerHeight || Math.random() > 0.975) {
+        drops[i] = 0;
+      }
+      drops[i]++;
     }
+  }
 
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
+  function tick(ts) {
+    if (!isRunning) return;
+    if (ts - lastFrameTs >= frameIntervalMs) {
+      lastFrameTs = ts;
+      draw();
+    }
+    rafId = window.requestAnimationFrame(tick);
+  }
 
-    // Layering + styling (kept simple; main layering in CSS)
-    canvas.style.position = "fixed";
-    canvas.style.top = "0";
-    canvas.style.left = "0";
-    canvas.style.width = "100%";
-    canvas.style.height = "100%";
-    canvas.style.zIndex = "0";
-    canvas.style.pointerEvents = "none";
+  function startAnimation() {
+    if (isRunning) return;
+    isRunning = true;
+    lastFrameTs = 0;
+    rafId = window.requestAnimationFrame(tick);
+  }
 
-    // Matrix effect
-    const letters = "01";
-    const fontSize = 16;
-    const frameIntervalMs = 50; // ~20fps (keeps CPU lower than full rAF)
+  function stopAnimation() {
+    if (!isRunning) return;
+    isRunning = false;
+    if (rafId) window.cancelAnimationFrame(rafId);
+    rafId = null;
+  }
 
-    let drops = [];
-    let columns = 0;
-    let rafId = null;
-    let isRunning = false;
-    let lastFrameTs = 0;
-    let resizeTimer = null;
+  function enable() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (!canvas) {
+      canvas = document.createElement('canvas');
+      canvas.id = 'matrix-canvas';
+      canvas.style.cssText = [
+        'position:fixed', 'top:0', 'left:0', 'width:100%', 'height:100%',
+        'z-index:0', 'pointer-events:none', 'opacity:0.18'
+      ].join(';');
+      document.body.prepend(canvas);
+      ctx = canvas.getContext('2d');
 
-    const resize = () => {
-      // Keep coordinates in CSS pixels; clamp DPR to avoid extreme GPU/CPU cost.
-      const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
-      const w = window.innerWidth;
-      const h = window.innerHeight;
-
-      canvas.width = Math.floor(w * dpr);
-      canvas.height = Math.floor(h * dpr);
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-
-      columns = Math.ceil(w / fontSize);
-      drops = new Array(columns).fill(1);
-    };
-
-    const draw = () => {
-      // Slightly stronger fade makes background cleaner
-      ctx.fillStyle = "rgba(0, 0, 0, 0.08)";
-      ctx.fillRect(0, 0, window.innerWidth, window.innerHeight);
-
-      ctx.fillStyle = "#00ff66";
-      ctx.font = `${fontSize}px monospace`;
-
-      for (let i = 0; i < drops.length; i++) {
-        const text = letters.charAt(Math.floor(Math.random() * letters.length));
-        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
-        // Reset drop or keep falling
-        if (drops[i] * fontSize > window.innerHeight || Math.random() > 0.975) {
-          drops[i] = 0;
-        }
-        drops[i]++;
-      }
-    };
-
-    const tick = (ts) => {
-      if (!isRunning) return;
-      if (ts - lastFrameTs >= frameIntervalMs) {
-        lastFrameTs = ts;
-        draw();
-      }
-      rafId = window.requestAnimationFrame(tick);
-    };
-
-    const start = () => {
-      if (isRunning) return;
-      isRunning = true;
-      lastFrameTs = 0;
-      rafId = window.requestAnimationFrame(tick);
-    };
-
-    const stop = () => {
-      if (!isRunning) return;
-      isRunning = false;
-      if (rafId) window.cancelAnimationFrame(rafId);
-      rafId = null;
-    };
-
-    window.addEventListener("resize", () => {
-      if (resizeTimer) window.clearTimeout(resizeTimer);
-      resizeTimer = window.setTimeout(resize, 120);
-    });
-
-    document.addEventListener("visibilitychange", () => {
-      if (document.hidden) {
-        stop();
-      } else {
-        resize();
-        start();
-      }
-    });
-
+      window.addEventListener('resize', function () {
+        if (resizeTimer) clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(resize, 120);
+      });
+      document.addEventListener('visibilitychange', function () {
+        if (document.hidden) stopAnimation(); else startAnimation();
+      });
+    }
+    canvas.style.display = '';
     resize();
-    if (!document.hidden) start();
-  };
+    if (!document.hidden) startAnimation();
+    localStorage.setItem(STORAGE_KEY, '1');
+    updateBtn(true);
+  }
 
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", init, { once: true });
+  function disable() {
+    stopAnimation();
+    if (canvas) canvas.style.display = 'none';
+    localStorage.setItem(STORAGE_KEY, '0');
+    updateBtn(false);
+  }
+
+  function toggle() {
+    if (isRunning) disable(); else enable();
+  }
+
+  function updateBtn(on) {
+    var btn = document.getElementById('matrix-toggle-btn');
+    if (!btn) return;
+    btn.textContent = on ? '[rain: on]' : '[rain: off]';
+    btn.setAttribute('aria-pressed', String(on));
+  }
+
+  window.matrixRain = { enable: enable, disable: disable, toggle: toggle };
+
+  function init() {
+    var btn = document.getElementById('matrix-toggle-btn');
+    if (btn) btn.addEventListener('click', toggle);
+
+    var saved = localStorage.getItem(STORAGE_KEY);
+    if (saved === '1') enable();
+    else updateBtn(false);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init, { once: true });
   } else {
     init();
   }
 })();
-
