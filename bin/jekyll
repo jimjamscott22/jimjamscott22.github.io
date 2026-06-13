@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+#
+# Local Jekyll runner via Docker.
+#
+# Why: this machine's default Ruby is 4.0.x, but the `github-pages` gem stack
+# (commonmarker, jekyll 3.x) requires Ruby < 4.0, so it can't build natively.
+# This script runs the GitHub Pages toolchain on Ruby 3.3 inside a container,
+# matching the version GitHub Pages CI uses. Your system Ruby is untouched.
+#
+# Usage:
+#   bin/jekyll serve     # live-reload dev server at http://localhost:4000
+#   bin/jekyll build     # production build into ./_site
+#   bin/jekyll <cmd>     # any other bundle/jekyll command, e.g. `bin/jekyll install`
+#
+# Gems are cached in a named Docker volume (jekyll_bundle) so repeat runs are fast.
+
+set -euo pipefail
+
+IMAGE="ruby:3.3-bookworm"
+REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+SUBCMD="${1:-serve}"
+shift || true
+
+docker_run() {
+  docker run --rm -it \
+    -v "$REPO_ROOT":/site \
+    -v jekyll_bundle:/usr/local/bundle \
+    -w /site \
+    -p 4000:4000 \
+    -e JEKYLL_ENV="${JEKYLL_ENV:-development}" \
+    "$IMAGE" bash -lc "git config --global --add safe.directory /site; $1"
+}
+
+case "$SUBCMD" in
+  install)
+    docker_run "bundle install"
+    ;;
+  serve)
+    docker_run "bundle install && bundle exec jekyll serve --host 0.0.0.0 --force_polling --livereload $*"
+    ;;
+  build)
+    docker_run "bundle install && bundle exec jekyll build $*"
+    ;;
+  *)
+    docker_run "bundle install && bundle exec jekyll $SUBCMD $*"
+    ;;
+esac

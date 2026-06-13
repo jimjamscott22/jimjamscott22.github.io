@@ -1,0 +1,92 @@
+# Security Tools Catalog data
+# Add an entry per tool you use or recommend.
+#
+# Fields:
+#   name      - Tool name.
+#   category  - one of: recon | scanning | exploitation | web | network |
+#               forensics | password | wireless | defensive | osint | misc
+#   platform  - Free-form: cli, gui, web, etc.
+#   cost      - one of: free | freemium | paid | open-source
+#   url       - Project / homepage URL.
+#   tags      - List of free-form tags for filtering/search.
+#   summary   - 1-2 sentence description of what it does / why you use it.
+
+- name: Nmap
+  category: scanning
+  platform: cli
+  cost: open-source
+  url: "https://nmap.org/"
+  tags: [port-scanning, network, discovery]
+  summary: >
+    The de-facto network scanner for host discovery, port scanning, and service
+    /OS fingerprinting. NSE scripts extend it into light vuln detection.
+
+- name: Wireshark
+  category: network
+  platform: gui
+  cost: open-source
+  url: "https://www.wireshark.org/"
+  tags: [packet-analysis, pcap, network]
+  summary: >
+    Deep packet inspection and protocol analysis. Indispensable for debugging
+    network issues and analysing captured traffic.
+
+- name: Burp Suite
+  category: web
+  platform: gui
+  cost: freemium
+  url: "https://portswigger.net/burp"
+  tags: [web, proxy, http, pentest]
+  summary: >
+    Intercepting proxy and web app testing toolkit. The Community edition covers
+    most manual testing; Pro adds the active scanner and Intruder at speed.
+
+- name: Metasploit Framework
+  category: exploitation
+  platform: cli
+  cost: open-source
+  url: "https://www.metasploit.com/"
+  tags: [exploitation, payloads, post-exploitation]
+  summary: >
+    Modular exploitation framework with a large library of exploits, payloads,
+    and post-exploitation modules. Great for validating findings in a lab.
+
+- name: Gobuster
+  category: web
+  platform: cli
+  cost: open-source
+  url: "https://github.com/OJ/gobuster"
+  tags: [web, fuzzing, directory-bruteforce]
+  summary: >
+    Fast directory, DNS, and vhost brute-forcing. A go-to for content discovery
+    during web challenges and assessments.
+
+- name: Hashcat
+  category: password
+  platform: cli
+  cost: open-source
+  url: "https://hashcat.net/hashcat/"
+  tags: [password-cracking, gpu, hashes]
+  summary: >
+    GPU-accelerated password recovery supporting hundreds of hash types. Pairs
+    well with rule-based and mask attacks on captured hashes.
+
+- name: Ghidra
+  category: forensics
+  platform: gui
+  cost: open-source
+  url: "https://ghidra-sre.org/"
+  tags: [reverse-engineering, disassembler, decompiler]
+  summary: >
+    NSA-developed reverse engineering suite with a capable decompiler. A free
+    alternative to IDA for static binary analysis and CTF reversing.
+
+- name: CyberChef
+  category: misc
+  platform: web
+  cost: open-source
+  url: "https://gchq.github.io/CyberChef/"
+  tags: [encoding, crypto, data-analysis]
+  summary: >
+    The "cyber swiss-army knife" for encoding, decoding, encryption, and data
+    transforms — chain operations into reusable recipes entirely in-browser.
