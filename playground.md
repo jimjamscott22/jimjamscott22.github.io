@@ -39,7 +39,10 @@ Write and execute code directly in your browser. JavaScript runs in a sandboxed 
 <button id="copy-code" class="editor-btn">Copy Code</button>
 </div>
 </div>
+<div class="editor-body">
+<div id="editor-gutter" class="editor-gutter" aria-hidden="true">1</div>
 <textarea id="code-editor" placeholder="Write your code here..." spellcheck="false"></textarea>
+</div>
 </div>
 
 <div class="playground-output-container">
@@ -171,6 +174,9 @@ Write and execute code directly in your browser. JavaScript runs in a sandboxed 
 
 - **JavaScript Execution**: Run JavaScript code in a secure sandboxed iframe
 - **Python Support**: Full Python 3 via Pyodide (loads on first use)
+- **Line Numbers**: Gutter with live line numbering
+- **Smart Indentation**: Enter preserves indentation and adds a level after `{` or `:`
+- **Autosave**: Your code is saved per-language and restored on your next visit
 - **Code Examples**: Pre-built examples for common patterns
 - **Share Links**: Generate shareable URLs with your code
 - **Keyboard Shortcuts**: Quick run with Ctrl+Enter

@@ -19,6 +19,17 @@
     history: []
   };
 
+  // Pyodide version served from the jsDelivr CDN
+  const PYODIDE_VERSION = 'v0.26.4';
+
+  // localStorage keys for autosave / language persistence
+  const STORAGE = {
+    code: (lang) => `playground:code:${lang}`,
+    lang: 'playground:lang'
+  };
+
+  let saveTimer = null;
+
   // ========================================
   // EXAMPLE CODE SNIPPETS
   // ========================================
@@ -170,6 +181,7 @@ print("Squares:", list(squares_gen))`
   function initElements() {
     elements = {
       editor: document.getElementById('code-editor'),
+      gutter: document.getElementById('editor-gutter'),
       output: document.getElementById('code-output'),
       runBtn: document.getElementById('run-code'),
       clearBtn: document.getElementById('clear-output'),
@@ -292,7 +304,7 @@ print("Squares:", list(squares_gen))`
     try {
       // Load Pyodide from CDN
       const script = document.createElement('script');
-      script.src = 'https://cdn.jsdelivr.net/pyodide/v0.24.1/full/pyodide.js';
+      script.src = `https://cdn.jsdelivr.net/pyodide/${PYODIDE_VERSION}/full/pyodide.js`;
 
       await new Promise((resolve, reject) => {
         script.onload = resolve;
@@ -301,7 +313,7 @@ print("Squares:", list(squares_gen))`
       });
 
       state.pyodide = await window.loadPyodide({
-        indexURL: 'https://cdn.jsdelivr.net/pyodide/v0.24.1/full/'
+        indexURL: `https://cdn.jsdelivr.net/pyodide/${PYODIDE_VERSION}/full/`
       });
 
       state.pyodideReady = true;
@@ -344,13 +356,10 @@ sys.stderr = sys.__stderr__
       `);
 
       const endTime = performance.now();
-      let output = stdout;
-      if (stderr) {
-        output += (output ? '\n' : '') + '[stderr]\n' + stderr;
-      }
 
       return {
-        output: output || '(no output)',
+        output: stdout || '',
+        stderr: stderr || '',
         executionTime: (endTime - startTime).toFixed(2)
       };
     } catch (error) {
@@ -426,6 +435,54 @@ sys.stderr = sys.__stderr__
 
     if (code && elements.editor) {
       elements.editor.value = code;
+      updateGutter();
+      scheduleSave();
+    }
+  }
+
+  // ========================================
+  // GUTTER (LINE NUMBERS)
+  // ========================================
+
+  function updateGutter() {
+    if (!elements.gutter || !elements.editor) return;
+    const lineCount = elements.editor.value.split('\n').length || 1;
+    let text = '';
+    for (let i = 1; i <= lineCount; i++) {
+      text += i + (i < lineCount ? '\n' : '');
+    }
+    elements.gutter.textContent = text;
+    elements.gutter.scrollTop = elements.editor.scrollTop;
+  }
+
+  function syncGutterScroll() {
+    if (elements.gutter && elements.editor) {
+      elements.gutter.scrollTop = elements.editor.scrollTop;
+    }
+  }
+
+  // ========================================
+  // AUTOSAVE / PERSISTENCE
+  // ========================================
+
+  function saveCodeNow() {
+    try {
+      localStorage.setItem(STORAGE.code(state.currentLanguage), elements.editor?.value || '');
+    } catch (e) {
+      // localStorage unavailable (private mode / quota) — fail silently
+    }
+  }
+
+  function scheduleSave() {
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(saveCodeNow, 400);
+  }
+
+  function loadSavedCode(lang) {
+    try {
+      return localStorage.getItem(STORAGE.code(lang));
+    } catch (e) {
+      return null;
     }
   }
 
@@ -461,6 +518,17 @@ sys.stderr = sys.__stderr__
         result.output.split('\n').forEach(line => {
           appendOutput(line);
         });
+      }
+
+      if (result.stderr) {
+        appendOutput('[stderr]', 'error');
+        result.stderr.split('\n').forEach(line => {
+          if (line) appendOutput(line, 'error');
+        });
+      }
+
+      if (!result.output && !result.stderr) {
+        appendOutput('(no output)', 'info');
       }
 
       if (elements.executionTime) {
@@ -584,6 +652,36 @@ sys.stderr = sys.__stderr__
 
       elements.editor.value = value.substring(0, start) + '  ' + value.substring(end);
       elements.editor.selectionStart = elements.editor.selectionEnd = start + 2;
+      updateGutter();
+      scheduleSave();
+      return;
+    }
+
+    // Enter in editor: preserve indentation, add one level after { or :
+    if (e.key === 'Enter' && e.target === elements.editor) {
+      const ta = elements.editor;
+      const start = ta.selectionStart;
+      const value = ta.value;
+      const lineStart = value.lastIndexOf('\n', start - 1) + 1;
+      const currentLine = value.slice(lineStart, start);
+      const indentMatch = currentLine.match(/^[ \t]*/);
+      let indent = indentMatch ? indentMatch[0] : '';
+
+      if (/[:{[(]$/.test(currentLine.trim())) {
+        indent += '  ';
+      }
+
+      // Only intervene when there's indentation to carry; otherwise let the
+      // browser's default newline + input event handle the gutter update.
+      if (indent) {
+        e.preventDefault();
+        const end = ta.selectionEnd;
+        const insert = '\n' + indent;
+        ta.value = value.slice(0, start) + insert + value.slice(end);
+        ta.selectionStart = ta.selectionEnd = start + insert.length;
+        updateGutter();
+        scheduleSave();
+      }
     }
   }
 
@@ -608,8 +706,24 @@ sys.stderr = sys.__stderr__
 
     if (elements.langSelect) {
       elements.langSelect.addEventListener('change', (e) => {
+        // Persist the current buffer under the language we're leaving
+        saveCodeNow();
+
         state.currentLanguage = e.target.value;
         populateExamples();
+
+        // Restore this language's saved buffer (or fall back to Hello World)
+        const saved = loadSavedCode(state.currentLanguage);
+        elements.editor.value = saved != null
+          ? saved
+          : (examples[state.currentLanguage]?.['Hello World'] || '');
+        updateGutter();
+
+        try {
+          localStorage.setItem(STORAGE.lang, state.currentLanguage);
+        } catch (err) {
+          // ignore
+        }
 
         // Show loading status for Python
         if (state.currentLanguage === 'python' && !state.pyodideReady) {
@@ -618,6 +732,15 @@ sys.stderr = sys.__stderr__
           updateStatus('JavaScript ready', 'ready');
         }
       });
+    }
+
+    // Live gutter + autosave as the user types and scrolls
+    if (elements.editor) {
+      elements.editor.addEventListener('input', () => {
+        updateGutter();
+        scheduleSave();
+      });
+      elements.editor.addEventListener('scroll', syncGutterScroll);
     }
 
     if (elements.exampleSelect) {
@@ -647,14 +770,42 @@ sys.stderr = sys.__stderr__
     // Keyboard shortcuts
     document.addEventListener('keydown', handleKeydown);
 
-    // Initialize
-    populateExamples();
-    loadFromURL();
-    updateStatus('JavaScript ready', 'ready');
+    // Restore the last-used language before building the example list
+    let savedLang = null;
+    try {
+      savedLang = localStorage.getItem(STORAGE.lang);
+    } catch (e) {
+      // ignore
+    }
+    if (savedLang && examples[savedLang]) {
+      state.currentLanguage = savedLang;
+      if (elements.langSelect) elements.langSelect.value = savedLang;
+    }
 
-    // Set default code if empty
+    populateExamples();
+
+    // Restore the autosaved buffer for the current language
+    const savedCode = loadSavedCode(state.currentLanguage);
+    if (savedCode != null) {
+      elements.editor.value = savedCode;
+    }
+
+    // A shared URL takes precedence over saved state
+    loadFromURL();
+
+    // Fall back to a Hello World example when there's nothing to show
     if (!elements.editor.value) {
-      elements.editor.value = examples.javascript['Hello World'];
+      elements.editor.value = examples[state.currentLanguage]?.['Hello World']
+        || examples.javascript['Hello World'];
+    }
+
+    updateGutter();
+
+    // Status reflects the restored language
+    if (state.currentLanguage === 'python' && !state.pyodideReady) {
+      updateStatus('Python will load on first run', 'info');
+    } else {
+      updateStatus('JavaScript ready', 'ready');
     }
   }
 

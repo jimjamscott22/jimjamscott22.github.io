@@ -52,6 +52,26 @@
 30. **Core Web Vitals Badge** - Display performance metrics
 31. **Carbon Footprint Indicator** - Website environmental impact (using websitecarbon.com API)
 
+## Code Playground Enhancements
+
+The `/playground/` interactive editor received a bundle of improvements:
+
+- **Autosave & Language Persistence** ✅ - Editor buffer is saved per-language to
+  `localStorage` and restored on the next visit; the last-used language is also
+  remembered (no more losing code on refresh)
+- **Line-Number Gutter** ✅ - Live line numbering alongside the editor, scroll-synced
+- **Smart Auto-Indent** ✅ - Enter preserves the current line's indentation and adds
+  an extra level after an opening `{`, `:`, `[`, or `(`
+- **Stderr Error Styling** ✅ - Python `stderr` output now renders in the error color
+  instead of plain text
+- **Pyodide Upgrade** ✅ - Bumped the Python runtime from v0.24.1 to v0.26.4 (faster
+  load, slimmer core)
+- **Web Worker for Python timeout** - Outstanding: Pyodide still runs on the main
+  thread, so an infinite Python loop can freeze the tab. Moving execution into a Web
+  Worker would make the 5s timeout enforceable for Python (currently JS-only)
+- **Syntax Highlighting** - Outstanding: editor is still a styled `<textarea>`; a
+  CodeMirror 6 integration (themed to match the site) would add real highlighting
+
 ## Creative/Fun Additions
 
 32. **ASCII Art Generator** - Tool to convert images to ASCII (fits terminal theme)
