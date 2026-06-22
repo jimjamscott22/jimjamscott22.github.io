@@ -2122,45 +2122,29 @@ th {
   display: flex;
   align-items: stretch;
   overflow: hidden;
-}
-
-.editor-gutter {
-  flex: 0 0 auto;
-  min-width: 2.5rem;
-  padding: 1rem 0.5rem 1rem 0.75rem;
-  text-align: right;
-  background: rgba(0, 0, 0, 0.25);
-  border-right: 1px solid var(--border-color);
-  color: var(--text-secondary);
-  opacity: 0.45;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
-  font-size: 0.9rem;
-  line-height: 1.5;
-  white-space: pre;
-  text-align: right;
-  user-select: none;
-  overflow: hidden;
+  resize: vertical;
+  min-height: 300px;
 }
 
 #code-editor {
   flex: 1 1 auto;
   width: 100%;
   min-height: 300px;
-  padding: 1rem;
-  background: transparent;
-  border: none;
-  color: var(--accent-bright);
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
-  font-size: 0.9rem;
-  line-height: 1.5;
-  resize: vertical;
-  outline: none;
-  tab-size: 2;
 }
 
-#code-editor::placeholder {
-  color: var(--text-secondary);
-  opacity: 0.5;
+.playground-editor-container .cm-editor {
+  height: 100%;
+  min-height: 300px;
+  background: transparent;
+  outline: none;
+}
+
+.playground-editor-container .cm-editor.cm-focused {
+  outline: none;
+}
+
+.playground-editor-container .cm-scroller {
+  tab-size: 2;
 }
 
 .playground-output-container {
@@ -2428,14 +2412,14 @@ th {
     justify-content: center;
   }
 
+  .playground-editor-container .cm-editor,
   #code-editor {
     min-height: 200px;
-    font-size: 0.85rem;
   }
 
-  .editor-gutter {
+  .playground-editor-container .cm-content,
+  .playground-editor-container .cm-gutters {
     font-size: 0.85rem;
-    min-width: 2rem;
   }
 
   .shortcuts-list {

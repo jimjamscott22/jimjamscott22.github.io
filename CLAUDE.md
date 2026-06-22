@@ -32,14 +32,22 @@ Defined in `_config.yml`:
 - `_projects/` — Project showcases, permalink `/projects/:name/`
 - `_notes/` — Technical reference notes, permalink `/notes/:name/`
 - `_info/` — Educational reference pages (algorithms, data structures, git, design patterns), permalink `/info/:name/`
+- `_ctf/` — CTF challenge writeups, permalink `/ctf/:name/`, uses `ctf` layout
+
+`pages` collection is defined in `_config.yml` for scoped defaults; most site pages are root-level `.md` files (e.g. `playground.md`, `tools.md`).
 
 `future: true` is set, so future-dated posts are included in builds.
 
 ### Layouts
 
-Two layouts in `_layouts/`, no `_includes/` directory — layouts are self-contained:
+Three layouts in `_layouts/`, no `_includes/` directory — layouts are self-contained:
 - `default.html` — Master layout: SEO meta tags (Open Graph, Twitter Cards, JSON-LD), cache busting via git revision, theme stylesheet loading, RSS feed link
 - `post.html` — Extends default: reading time (word count ÷ 200), tag links, Giscus comments (GitHub Discussions), Schema.org BlogPosting markup
+- `ctf.html` — CTF challenge pages
+
+### CSS Architecture
+
+`base.css` owns structure/layout/typography; `theme-*.css` owns color variables; `custom.css` holds cyber-lab overrides. Keep this split when editing styles. `syntax.css` and `images.css` are shared utilities.
 
 ### Theme System
 
@@ -47,7 +55,7 @@ Five CSS themes in `assets/css/`: `cyber-lab`, `enhanced-matrix`, `light-termina
 
 ### JavaScript
 
-All JS is in `assets/js/` and loaded as static files — no bundler. Key files:
+Most JS is static in `assets/js/` — no bundler. Exception: `playground.js` imports pre-bundled `playground-cm.bundle.js` (CodeMirror). Key files:
 - `search.js` — Client-side content search
 - `theme-switcher.js` — Theme switching
 - `notes.js` — Notes with `localStorage` persistence
@@ -64,3 +72,10 @@ All JS is in `assets/js/` and loaded as static files — no bundler. Key files:
 
 Posts support: `title`, `tags`, `excerpt_separator: <!--more-->`.
 Layouts derive reading time and structured data automatically from content.
+
+### Gotchas
+
+- Markdown processor is kramdown (Rouge highlighter)
+- Mermaid diagrams loaded via CDN
+- Local validation: `gem install html-proofer` if not already available
+- Ruby 3+ requires `webrick` gem (already in Gemfile) for `jekyll serve`

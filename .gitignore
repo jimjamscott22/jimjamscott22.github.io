@@ -4,6 +4,7 @@ _site/
 .jekyll-metadata
 .bundle/
 vendor/
+assets/js/vendor/node_modules/
 Gemfile.lock
 
 # Local env vars

@@ -85,7 +85,7 @@ html {
 .note-field textarea,
 .form-group input,
 .form-group textarea,
-#code-editor,
+.playground-editor-container .cm-content,
 #cli-terminal-input {
   background: rgba(255, 255, 255, 0.8);
   color: var(--text-primary);
