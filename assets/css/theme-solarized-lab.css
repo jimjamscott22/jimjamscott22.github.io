@@ -1,0 +1,32 @@
+/* ========== THEME: SOLARIZED LAB ========== */
+/* Muted documentation-focused palette with ochre accents */
+/* All structural CSS is in base.css */
+
+:root {
+  /* Core colors */
+  --bg-primary: #002b36;
+  --bg-secondary: #073642;
+  --text-primary: #eee8d5;
+  --text-secondary: #93a1a1;
+  --accent-bright: #b58900;
+  --accent-glow: #2aa198;
+
+  /* Component colors */
+  --border-color: rgba(42, 161, 152, 0.34);
+  --border-bright: rgba(181, 137, 0, 0.62);
+  --glow-color: rgba(42, 161, 152, 0.26);
+  --shadow-color: rgba(7, 54, 66, 0.38);
+}
+
+/* Theme-specific background gradient */
+.crt-theme {
+  background:
+    radial-gradient(circle at top left, rgba(42, 161, 152, 0.05), transparent 60%),
+    radial-gradient(circle at bottom right, rgba(181, 137, 0, 0.06), var(--bg-primary) 75%);
+}
+
+/* Documentation-friendly accent treatment */
+.accent {
+  color: var(--accent-bright);
+  text-shadow: 0 0 3px var(--glow-color);
+}

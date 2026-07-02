@@ -1,0 +1,31 @@
+/* ========== THEME: OCEANIC CONSOLE ========== */
+/* Deep navy console with seafoam and blue accents */
+/* All structural CSS is in base.css */
+
+:root {
+  /* Core colors */
+  --bg-primary: #031018;
+  --bg-secondary: #071c27;
+  --text-primary: #d5fbff;
+  --text-secondary: #9adce8;
+  --accent-bright: #3df5c5;
+  --accent-glow: #25b7ff;
+
+  /* Component colors */
+  --border-color: rgba(61, 245, 197, 0.34);
+  --border-bright: rgba(37, 183, 255, 0.62);
+  --glow-color: rgba(37, 183, 255, 0.34);
+  --shadow-color: rgba(61, 245, 197, 0.20);
+}
+
+/* Theme-specific background gradient */
+.crt-theme {
+  background:
+    radial-gradient(circle at top left, rgba(61, 245, 197, 0.05), transparent 60%),
+    radial-gradient(circle at bottom right, rgba(37, 183, 255, 0.08), var(--bg-primary) 75%);
+}
+
+/* Seafoam accents stay crisp while the main reading surface remains calm */
+.accent {
+  text-shadow: 0 0 4px var(--glow-color);
+}

@@ -51,9 +51,51 @@ This document describes all available themes and how to use the theme system.
   - Text: Light lavender (`#e5d4ff`)
   - Accent: Bright purple (`#b866ff`) with cyan highlights
 
+#### 5. **Amber Phosphor**
+
+- **Color Palette**: Warm amber and dark brown-black tones
+- **Vibe**: Vintage monochrome CRT terminal
+- **Best For**: Archive pages, notes, and long evening reading sessions
+- **Colors**:
+  - Background: Deep warm black (`#100b04`)
+  - Text: Soft amber (`#ffd98a`)
+  - Accent: Phosphor amber (`#ffb000`)
+- **Features**:
+  - Warm retro palette with restrained glow
+  - Strong terminal identity without neon-green intensity
+  - Body reading surface stays calm while UI chrome keeps the CRT feel
+
+#### 6. **Oceanic Console**
+
+- **Color Palette**: Deep navy with seafoam and blue accents
+- **Vibe**: Modern research-console aesthetic
+- **Best For**: Projects, tools, and technical pages
+- **Colors**:
+  - Background: Deep navy (`#031018`)
+  - Text: Pale cyan (`#d5fbff`)
+  - Accent: Seafoam (`#3df5c5`) with blue glow (`#25b7ff`)
+- **Features**:
+  - Cleaner blue-toned alternative to Cyber Lab
+  - Modern technical feel with moderate contrast
+  - Good fit for project showcases and utility pages
+
+#### 7. **Solarized Lab**
+
+- **Color Palette**: Muted blue-green base with ochre accents
+- **Vibe**: Documentation-focused terminal theme
+- **Best For**: Notes, info pages, and reading-heavy posts
+- **Colors**:
+  - Background: Solarized blue base (`#002b36`)
+  - Text: Warm cream (`#eee8d5`)
+  - Accent: Ochre (`#b58900`) with teal glow (`#2aa198`)
+- **Features**:
+  - Highest comfort among the dark custom themes
+  - Muted contrast for long documentation sessions
+  - Keeps enough accent color for navigation and UI state
+
 ### Light Theme
 
-#### 5. **Light Terminal** ☀️ NEW
+#### 8. **Light Terminal** ☀️ NEW
 
 - **Color Palette**: Clean whites with subtle green accents
 - **Vibe**: Professional, daytime-friendly terminal
@@ -72,21 +114,24 @@ This document describes all available themes and how to use the theme system.
 
 ### Theme Selector
 
-Use the dropdown menu in the sidebar to switch between all available themes. Your selection is automatically saved to localStorage.
+Use the dropdown menu in the sidebar to switch between all available themes. Your
+selection is automatically saved to localStorage.
 
 ### Dark/Light Mode Toggle ✨ NEW
 
 The quick toggle button switches between:
 
 - **Light Mode**: Always uses "Light Terminal" theme
-- **Dark Mode**: Switches to your last-used dark theme (or "Soft Matrix" by default)
+- **Dark Mode**: Switches to your last-used dark theme (or "Soft Matrix" by
+  default)
 
 **How it works:**
 
 1. Click the toggle button (☀️/🌙 icon)
 2. Theme switches instantly
 3. Your dark theme preference is remembered
-4. Example: If you're on "Neon Terminal" and toggle to light, then toggle back, you'll return to "Neon Terminal"
+4. Example: If you're on "Neon Terminal" and toggle to light, then toggle back,
+   you'll return to "Neon Terminal"
 
 ## Theme Persistence
 
@@ -99,13 +144,16 @@ Themes are saved using `localStorage`:
 
 All themes follow this structure:
 
-```
+```text
 /assets/css/
 ├── base.css                    # Structure, layout (theme-agnostic)
 ├── theme-cyber-lab.css         # Cyan/teal theme
 ├── theme-enhanced-matrix.css   # Bright green theme
 ├── theme-soft-matrix.css       # Gentle green theme ✨ NEW
 ├── theme-neon-terminal.css     # Purple/cyan theme
+├── theme-amber-phosphor.css    # Warm amber CRT theme
+├── theme-oceanic-console.css   # Deep navy/seafoam theme
+├── theme-solarized-lab.css     # Muted documentation theme
 └── theme-light-terminal.css    # Light mode theme ✨ NEW
 ```
 
@@ -129,15 +177,16 @@ All themes follow this structure:
 }
 ```
 
-3. Add optional background gradients and overrides
-4. Add to `_layouts/default.html` theme selector
-5. Update `theme-switcher.js` if needed
+1. Add optional background gradients and overrides
+2. Add to `_layouts/default.html` theme selector
+3. Update `theme-switcher.js` if needed
 
 ## Accessibility Considerations
 
 ### Eye Strain Reduction
 
 - **Soft Matrix**: Designed specifically for comfort
+- **Solarized Lab**: Comfortable dark theme for documentation-heavy pages
 - **Light Terminal**: Reduces blue light, better for daytime
 - Text glow effects are reduced or removed on comfortable themes
 - `prefers-reduced-motion` media query disables animations
@@ -167,7 +216,9 @@ Themes use multiple visual cues beyond color:
 | Quick terminal tasks       | Cyber Lab                     |
 | Presentations/demos        | Enhanced Matrix               |
 | Evening creative work      | Neon Terminal                 |
-| Reading documentation      | Soft Matrix or Light Terminal |
+| Warm retro browsing        | Amber Phosphor                |
+| Technical project review   | Oceanic Console               |
+| Reading documentation      | Solarized Lab or Soft Matrix  |
 
 ## Troubleshooting
 
@@ -201,5 +252,5 @@ Planned features:
 
 ---
 
-**Last Updated**: 2026-02-03
-**Version**: 2.0.0 (Added Soft Matrix and Light Terminal themes with mode toggle)
+**Last Updated**: 2026-07-01
+**Version**: 2.1.0 (Added Amber Phosphor, Oceanic Console, and Solarized Lab themes)

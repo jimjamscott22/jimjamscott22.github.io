@@ -1,0 +1,31 @@
+/* ========== THEME: AMBER PHOSPHOR ========== */
+/* Warm monochrome CRT terminal aesthetic */
+/* All structural CSS is in base.css */
+
+:root {
+  /* Core colors */
+  --bg-primary: #100b04;
+  --bg-secondary: #1a1106;
+  --text-primary: #ffd98a;
+  --text-secondary: #d9a957;
+  --accent-bright: #ffb000;
+  --accent-glow: #ffcc66;
+
+  /* Component colors */
+  --border-color: rgba(255, 176, 0, 0.36);
+  --border-bright: rgba(255, 204, 102, 0.66);
+  --glow-color: rgba(255, 176, 0, 0.34);
+  --shadow-color: rgba(255, 176, 0, 0.22);
+}
+
+/* Theme-specific background gradient */
+.crt-theme {
+  background:
+    radial-gradient(circle at top left, rgba(255, 176, 0, 0.06), transparent 60%),
+    radial-gradient(circle at bottom right, rgba(255, 204, 102, 0.08), var(--bg-primary) 75%);
+}
+
+/* Keep warmth in the UI chrome without adding glow to body prose */
+.accent {
+  text-shadow: 0 0 4px var(--glow-color);
+}
