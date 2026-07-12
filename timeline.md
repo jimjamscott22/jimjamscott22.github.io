@@ -3,6 +3,7 @@ layout: default
 title: Timeline
 permalink: /timeline/
 description: "A chronological view of projects, blog posts, and technical milestones in the jamielab journey."
+mermaid: true
 ---
 
 # Timeline
@@ -11,12 +12,14 @@ A chronological view of projects, posts, and milestones. For detailed posts, vis
 
 {% assign sorted_posts = site.posts | sort: "date" %}
 {% assign sorted_projects = site.projects | where_exp: "p", "p.milestone_date" | sort: "milestone_date" %}
+{% assign timeline_item_count = sorted_posts.size | plus: sorted_projects.size %}
+{% assign timeline_chart_height = timeline_item_count | times: 24 | plus: 100 %}
 {% assign cache_bust = site.github.build_revision %}
 {% if cache_bust == nil or cache_bust == "" %}
 {% assign cache_bust = site.time | date: "%s" %}
 {% endif %}
 
-<div class="mermaid">
+<div class="mermaid timeline-chart" style="--timeline-chart-height: {{ timeline_chart_height }}px">
 gantt
     title jamielab · Posts & Projects
     dateFormat YYYY-MM-DD

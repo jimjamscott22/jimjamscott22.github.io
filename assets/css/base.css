@@ -33,6 +33,20 @@ img {
   height: auto;
 }
 
+/*
+ * Mermaid Gantt charts render asynchronously. The timeline page supplies the
+ * expected chart height from its build-time item count so following content
+ * stays fixed while Mermaid replaces the source text with an SVG.
+ */
+.timeline-chart {
+  min-height: var(--timeline-chart-height);
+  contain: layout;
+}
+
+.timeline-chart svg {
+  display: block;
+}
+
 /* Custom scrollbar for body/page scroll */
 
 body::-webkit-scrollbar {

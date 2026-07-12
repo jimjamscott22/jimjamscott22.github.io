@@ -3,6 +3,7 @@ layout: default
 title: Notes
 permalink: /notes/
 description: "Technical knowledge base with notes on networking, security, programming, and various IT concepts."
+mermaid: true
 ---
 
 # Knowledge Base
