@@ -20,7 +20,7 @@ Network tools engaged.
 <div class="profile-card">
   <img
     class="profile-photo"
-    src="{{ "/img/me.jpg" | relative_url }}?v={{ cache_bust }}"
+    src="{{ "img/pro-hacker-jamie-2.jpg" | relative_url }}?v={{ cache_bust }}"
     alt="Portrait of Jamie"
     loading="lazy"
     decoding="async">
