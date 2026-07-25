@@ -1,9 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <rect width="100" height="100" rx="18" fill="#18181b"/>
-  <!-- Stylized JJ monogram -->
-  <text x="8" y="75" font-family="Georgia, serif" font-size="72" font-weight="bold" fill="white" letter-spacing="-8">JJ</text>
-  <!-- Underline accent -->
-  <rect x="10" y="82" width="78" height="4" rx="2" fill="#a78bfa"/>
-  <!-- Small dot accent -->
-  <circle cx="85" cy="30" r="6" fill="#a78bfa"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#18181b" rx="18"/><text x="8" y="75" fill="#fff" font-family="Georgia, serif" font-size="72" font-weight="bold" letter-spacing="-8">JJ</text><rect width="78" height="4" x="10" y="82" fill="#a78bfa" rx="2"/><circle cx="85" cy="30" r="6" fill="#a78bfa"/></svg>
