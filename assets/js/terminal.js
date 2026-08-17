@@ -631,7 +631,7 @@ Building secure systems and breaking them (ethically).
     if (isCommand) {
       line.innerHTML = `<span class="cli-terminal-prompt">jamie@jamielab:~$</span> ${escapeHtml(text)}`;
     } else {
-      line.innerHTML = text;
+      line.innerHTML = sanitizeTerminalHtml(text);
     }
 
     output.appendChild(line);
@@ -642,6 +642,23 @@ Building secure systems and breaking them (ethically).
     const div = document.createElement('div');
     div.textContent = text;
     return div.innerHTML;
+  }
+
+  function sanitizeTerminalHtml(html) {
+    const escaped = escapeHtml(String(html ?? ''));
+
+    const withSafeBreaks = escaped.replace(/&lt;br\s*\/?&gt;/gi, '<br>');
+    const withSafeOpenSpans = withSafeBreaks.replace(
+      /&lt;span class=(?:&quot;|&#39;)([^"'<>]+)(?:&quot;|&#39;)&gt;/gi,
+      (_, classes) => {
+        const safeClasses = classes
+          .split(/\s+/)
+          .filter(className => /^term-[a-z0-9-]+$/i.test(className));
+        return safeClasses.length ? `<span class="${safeClasses.join(' ')}">` : '<span>';
+      }
+    );
+
+    return withSafeOpenSpans.replace(/&lt;\/span&gt;/gi, '</span>');
   }
 
   function openTerminal() {
