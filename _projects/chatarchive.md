@@ -20,7 +20,7 @@ ChatArchive is a self-hosted app for importing and organizing conversation expor
 ## Screenshot
 
 <figure class="content-image content-image--wide">
-  <img src="{{ "/img/chatarchive_screenshot.png" | relative_url }}" alt="ChatArchive UI screenshot" loading="lazy" decoding="async">
+  <img src="{{ "/img/CArchive-08-26-2026.png" | relative_url }}" alt="ChatArchive UI screenshot" loading="lazy" decoding="async">
   <figcaption>ChatArchive conversation browser interface</figcaption>
 </figure>
 
