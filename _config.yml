@@ -27,16 +27,8 @@ collections:
   ctf:
     output: true
     permalink: /ctf/:name/
-  pages:
-    output: true
 
 defaults:
-  - scope:
-      path: "_pages"
-    values:
-      layout: default
-      permalink: "/:name/"
-
   - scope:
       type: posts
     values:
