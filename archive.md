@@ -45,4 +45,4 @@ Looking for specific content? Try [searching the blog](/blog/).
   {% endfor %}
 </div>
 
-<script src="{{ '/assets/js/archive.js' | relative_url }}"></script>
+<script defer src="{{ '/assets/js/archive.js' | relative_url }}"></script>

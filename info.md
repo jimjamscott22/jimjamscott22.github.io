@@ -62,4 +62,4 @@ Reference material and breakdowns on different subjects. Quick-access knowledge 
   {% endfor %}
 </div>
 
-<script src="{{ "/assets/js/info.js" | relative_url }}?v={{ cache_bust }}"></script>
+<script defer src="{{ "/assets/js/info.js" | relative_url }}?v={{ cache_bust }}"></script>

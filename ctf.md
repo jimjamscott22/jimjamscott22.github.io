@@ -76,4 +76,4 @@ Solutions and walk-throughs from Capture the Flag challenges. Filter by category
   {% endfor %}
 </div>
 
-<script src="{{ "/assets/js/ctf.js" | relative_url }}?v={{ cache_bust }}"></script>
+<script defer src="{{ "/assets/js/ctf.js" | relative_url }}?v={{ cache_bust }}"></script>

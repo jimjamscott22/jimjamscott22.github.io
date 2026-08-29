@@ -74,4 +74,4 @@ Tools I reach for and recommend. Filter by category or cost, or search by name o
   {% endfor %}
 </div>
 
-<script src="{{ "/assets/js/security-tools.js" | relative_url }}?v={{ cache_bust }}"></script>
+<script defer src="{{ "/assets/js/security-tools.js" | relative_url }}?v={{ cache_bust }}"></script>

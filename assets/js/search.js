@@ -13,11 +13,20 @@
 
   let searchIndex = [];
 
+  function withNormalizedFields(items) {
+    return items.map((item) => ({
+      ...item,
+      _normalizedTitle: normalizeText(item.title),
+      _normalizedContent: normalizeText(item.content),
+      _normalizedTags: (item.tags || []).map(normalizeText),
+    }));
+  }
+
   async function loadSearchIndex() {
     if (searchIndex.length > 0) return searchIndex;
 
     if (typeof window.searchData !== "undefined") {
-      searchIndex = window.searchData;
+      searchIndex = withNormalizedFields(window.searchData);
       return searchIndex;
     }
 
@@ -27,7 +36,7 @@
         throw new Error(`Search data request failed: ${response.status}`);
       }
       const data = await response.json();
-      searchIndex = Array.isArray(data) ? data : [];
+      searchIndex = withNormalizedFields(Array.isArray(data) ? data : []);
       return searchIndex;
     } catch (error) {
       console.warn("Unable to load search data", error);
@@ -78,13 +87,11 @@
     await searchIndexPromise;
 
     const results = searchIndex.filter((item) => {
-      const titleMatch = normalizeText(item.title).includes(normalizedQuery);
-      const contentMatch = normalizeText(item.content).includes(normalizedQuery);
-      const tagsMatch =
-        item.tags &&
-        item.tags.some((tag) =>
-        normalizeText(tag).includes(normalizedQuery)
-        );
+      const titleMatch = item._normalizedTitle.includes(normalizedQuery);
+      const contentMatch = item._normalizedContent.includes(normalizedQuery);
+      const tagsMatch = item._normalizedTags.some((tag) =>
+        tag.includes(normalizedQuery)
+      );
       return titleMatch || contentMatch || tagsMatch;
     });
 

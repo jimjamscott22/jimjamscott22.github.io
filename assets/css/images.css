@@ -132,7 +132,7 @@
   border: 1px solid var(--border-color);
   border-radius: 4px;
   padding: 0.5rem;
-  transition: all 0.3s ease;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .image-gallery figure:hover {
@@ -164,7 +164,7 @@
   border: 1px solid var(--border-color);
   border-radius: 4px;
   padding: 0.5rem;
-  transition: all 0.3s ease;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .content-image:hover {

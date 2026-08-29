@@ -142,5 +142,5 @@ Low-friction visual thinking. If it survives iteration, it graduates to a projec
   </div>
 </div>
 
-<script src="{{ "/assets/js/wiki.js" | relative_url }}?v={{ cache_bust }}"></script>
-<script src="{{ "/assets/js/notes.js" | relative_url }}?v={{ cache_bust }}"></script>
+<script defer src="{{ "/assets/js/wiki.js" | relative_url }}?v={{ cache_bust }}"></script>
+<script defer src="{{ "/assets/js/notes.js" | relative_url }}?v={{ cache_bust }}"></script>

@@ -144,4 +144,4 @@ Interactive utilities for your terminal adventures. All tools run entirely in yo
 
 </div>
 
-<script src="{{ '/assets/js/tools.js' | relative_url }}"></script>
+<script defer src="{{ '/assets/js/tools.js' | relative_url }}"></script>

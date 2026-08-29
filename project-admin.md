@@ -116,4 +116,4 @@ This project does...
   </div>
 </div>
 
-<script src="{{ '/assets/js/project-admin.js' | relative_url }}"></script>
+<script defer src="{{ '/assets/js/project-admin.js' | relative_url }}"></script>
