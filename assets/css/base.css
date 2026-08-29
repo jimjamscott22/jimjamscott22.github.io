@@ -346,7 +346,7 @@ body,
   font-family: inherit;
   font-size: 0.85rem;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .theme-select:hover,
@@ -384,7 +384,7 @@ body,
   font-family: inherit;
   font-size: 0.85rem;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
 
 .mode-toggle-btn:hover {
@@ -1404,7 +1404,7 @@ th {
   font-size: 0.8rem;
   cursor: pointer;
   border-radius: 4px;
-  transition: all 0.2s ease;
+  transition: background 0.2s ease, border-color 0.2s ease, text-shadow 0.2s ease;
   z-index: 10;
 }
 
@@ -1467,7 +1467,7 @@ th {
   color: var(--text-primary);
   font-family: inherit;
   font-size: 1rem;
-  transition: all 0.2s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .search-input:focus {
@@ -1498,7 +1498,7 @@ th {
   background: rgba(0, 0, 0, 0.3);
   border: 1px solid var(--border-color);
   border-radius: 4px;
-  transition: all 0.2s ease;
+  transition: background 0.2s ease, border-color 0.2s ease;
 }
 
 .search-result-item:hover {
@@ -1522,7 +1522,7 @@ th {
 .search-result-header h3 a {
   color: var(--accent-bright);
   text-decoration: none;
-  transition: all 0.2s ease;
+  transition: text-shadow 0.2s ease;
 }
 
 .search-result-header h3 a:hover {
@@ -1592,7 +1592,7 @@ th {
   cursor: pointer;
   opacity: 0;
   visibility: hidden;
-  transition: all 0.3s ease;
+  transition: opacity 0.3s ease, visibility 0.3s ease, background 0.3s ease, border-color 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease;
   z-index: 100;
   font-size: 1.5rem;
   text-decoration: none;
@@ -1633,7 +1633,7 @@ th {
   text-decoration: none;
   border-radius: 4px;
   font-size: 0.9rem;
-  transition: all 0.2s ease;
+  transition: background 0.2s ease, border-color 0.2s ease, text-shadow 0.2s ease;
   margin: 1rem 0;
 }
 
@@ -1667,7 +1667,7 @@ th {
   color: var(--accent-bright);
   text-decoration: none;
   border-radius: 4px;
-  transition: all 0.2s ease;
+  transition: background 0.2s ease, border-color 0.2s ease, text-shadow 0.2s ease, transform 0.2s ease;
 }
 
 .social-link:hover {
@@ -1701,7 +1701,7 @@ th {
   z-index: 100;
   font-family: inherit;
   font-size: 1rem;
-  transition: all 0.2s ease;
+  transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
 
 .cli-terminal-trigger:hover {
@@ -2025,7 +2025,7 @@ th {
   font-family: inherit;
   font-size: 0.85rem;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .playground-btn:hover:not(:disabled) {
@@ -2124,7 +2124,7 @@ th {
   color: var(--text-secondary);
   font-size: 0.75rem;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: border-color 0.2s ease, color 0.2s ease;
 }
 
 .editor-btn:hover {
@@ -2322,7 +2322,7 @@ th {
   border: 1px solid var(--border-color);
   border-radius: 4px;
   padding: 1rem;
-  transition: all 0.3s ease;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .resource-category:hover {
@@ -2371,7 +2371,7 @@ th {
   border: 1px solid transparent;
   border-radius: 3px;
   text-decoration: none;
-  transition: all 0.2s ease;
+  transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
   position: relative;
 }
 
@@ -2605,7 +2605,7 @@ th {
   border: 1px solid var(--border-bright);
   border-radius: 3px;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
   background: linear-gradient(120deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.85));
   color: var(--text-secondary);
 }
