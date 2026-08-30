@@ -27,7 +27,7 @@ tinkering at last became a dream!"
       <span class="badge tag">vlans</span>
       <span class="badge tag">ruleset</span>
     </div>
-    <a class="card-link" href="#">Firewall notes →</a>
+    <a class="card-link" href="{{ "/notes/pfsense-rule-tuning/" | relative_url }}">Firewall notes →</a>
   </article>
 
   <article class="card">
@@ -42,7 +42,7 @@ tinkering at last became a dream!"
       <span class="badge tag">wireguard</span>
       <span class="badge tag">acl</span>
     </div>
-    <a class="card-link" href="#">ACL plan →</a>
+    <a class="card-link" href="{{ "/notes/tailscale-subnet-routing/" | relative_url }}">ACL plan →</a>
   </article>
 </div>
 <!-- markdownlint-enable MD033 -->
@@ -61,7 +61,7 @@ tinkering at last became a dream!"
       <span class="badge tag">grafana</span>
       <span class="badge tag">proxmox</span>
     </div>
-    <a class="card-link" href="#">Dashboards →</a>
+    <a class="card-link" href="{{ "/notes/prometheus-scrape-configs/" | relative_url }}">Dashboards →</a>
   </article>
 
   <article class="card">
