@@ -1595,6 +1595,7 @@ th {
   transition: all 0.3s ease;
   z-index: 100;
   font-size: 1.5rem;
+  font-family: inherit;
   text-decoration: none;
 }
 

@@ -10,6 +10,8 @@ milestone_date: 2025-12-01
 milestone_text: "Started self-hosted password manager migration"
 ---
 
+# VaultWarden BYOPM
+
 **Status:** Building  
 **Tags:** docker, vaultwarden, security, self-hosted
 

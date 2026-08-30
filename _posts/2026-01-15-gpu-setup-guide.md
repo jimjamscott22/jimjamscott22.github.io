@@ -1,6 +1,6 @@
 ---
 title: "Setting up a new GPU"
-date: 2025-12-24 01:30:00 -0500
+date: 2026-01-15 01:30:00 -0500
 tags: [homelab, security, linux]
 description: "A quick guide on installing a new GPU."
 ---
