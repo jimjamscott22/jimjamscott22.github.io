@@ -3,11 +3,13 @@ layout: default
 title: PyTyping
 permalink: /projects/pytyping/
 status: active
-last_updated: 2025-08-30
+last_updated: 2026-04-02
 tech_stack: [python, pyqt, ui]
 milestone_date: 2025-06-15
 milestone_text: "Released PyTyping typing trainer application"
 ---
+
+# PyTyping
 
 **Status:** Active  
 **Tags:** python, pyqt, typing, ui

@@ -3,8 +3,8 @@
 
 (function () {
   // Create back to top button
-  const backToTop = document.createElement('a');
-  backToTop.href = '#';
+  const backToTop = document.createElement('button');
+  backToTop.type = 'button';
   backToTop.className = 'back-to-top';
   backToTop.setAttribute('aria-label', 'Back to top');
   backToTop.innerHTML = '↑';

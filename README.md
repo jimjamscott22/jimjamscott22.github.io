@@ -31,9 +31,9 @@ bundle exec jekyll build
 
 ## Documentation
 
-- [FEATURES.md](FEATURES.md) - Detailed feature documentation
+- [FEATURES.md](docs/FEATURES.md) - Detailed feature documentation
 - [THEMES.md](THEMES.md) - Theme customization guide and color palettes
-- [THEME_GUIDE.md](THEME_GUIDE.md) - Original theme development guide
+- [THEME_GUIDE.md](docs/THEME_GUIDE.md) - Original theme development guide
 
 ## License
 
