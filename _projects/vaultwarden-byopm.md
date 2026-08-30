@@ -3,7 +3,6 @@ layout: default
 title: VaultWarden BYOPM
 permalink: /projects/vaultwarden-byopm/
 status: building
-health: healthy
 last_updated: 2026-01-20
 tech_stack: [docker, vaultwarden, unbound, gitea]
 milestone_date: 2025-12-01

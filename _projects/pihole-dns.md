@@ -3,7 +3,6 @@ layout: default
 title: Pi-hole + DNS toys
 permalink: /projects/pihole-dns/
 status: active
-health: healthy
 last_updated: 2026-01-10
 tech_stack: [pihole, dns, tailscale, doh]
 milestone_date: 2024-07-20

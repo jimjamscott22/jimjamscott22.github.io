@@ -3,7 +3,6 @@ layout: default
 title: PyTyping
 permalink: /projects/pytyping/
 status: active
-health: healthy
 last_updated: 2025-08-30
 tech_stack: [python, pyqt, ui]
 milestone_date: 2025-06-15
