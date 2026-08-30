@@ -66,6 +66,8 @@ Most JS is static in `assets/js/` — no bundler. Exception: `playground.js` imp
 
 `/api/create-project.js` — A serverless function for an admin project-creation interface. Integrates with the GitHub API to create `_projects/*.md` files. Can be deployed to Vercel or Netlify. Not required for the main site to function.
 
+The admin UI (`project-admin.md`, `assets/js/project-admin.js`) is excluded from the Jekyll build by default (see `exclude:` in `_config.yml`) — it's a public token prompt with nowhere to post to until `project_admin_api_url` is set and the serverless function above is deployed. Remove both entries from `exclude:` only once that backend is actually live.
+
 ### Content Front Matter
 
 Posts support: `title`, `tags`, `excerpt_separator: <!--more-->`.
