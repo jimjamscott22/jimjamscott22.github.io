@@ -1740,37 +1740,6 @@ th {
   flex-wrap: wrap;
 }
 
-.health-indicator {
-  font-size: 1.2em;
-  line-height: 1;
-}
-
-.health-healthy {
-  color: #4dff88;
-  text-shadow: 0 0 8px rgba(77, 255, 136, 0.6);
-}
-
-.health-degraded {
-  color: #ffc53d;
-  text-shadow: 0 0 8px rgba(255, 197, 61, 0.6);
-}
-
-.health-down {
-  color: #ff4d4f;
-  text-shadow: 0 0 8px rgba(255, 77, 79, 0.6);
-}
-
-.dashboard-health {
-  font-size: 0.9em;
-  text-transform: capitalize;
-}
-
-.dashboard-uptime {
-  color: #4dff88;
-  font-family: monospace;
-  font-size: 0.85em;
-}
-
 .dashboard-tech {
   display: flex;
   gap: 0.35rem;

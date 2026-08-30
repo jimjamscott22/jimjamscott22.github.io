@@ -19,15 +19,8 @@ A rolling set of builds, tools, and lab experiments. Click the links below each 
           <h3><a href="{{ project.url | relative_url }}">{{ project.title }}</a></h3>
         </div>
         <div class="dashboard-status-row">
-          {% if project.health %}
-            <span class="health-indicator health-{{ project.health }}">●</span>
-            <span class="dashboard-health">{{ project.health }}</span>
-          {% endif %}
           {% if project.status %}
             <span class="badge status-{{ project.status }}">{{ project.status }}</span>
-          {% endif %}
-          {% if project.uptime_pct %}
-            <span class="dashboard-uptime">↑ {{ project.uptime_pct }}%</span>
           {% endif %}
         </div>
         {% if project.tech_stack %}

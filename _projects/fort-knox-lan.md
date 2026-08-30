@@ -3,7 +3,6 @@ layout: default
 title: Fort Knox LAN
 permalink: /projects/fort-knox-lan/
 status: building
-health: healthy
 last_updated: 2025-12-20
 tech_stack: [pfsense, ansible, vlans, iac]
 milestone_date: 2025-10-01
