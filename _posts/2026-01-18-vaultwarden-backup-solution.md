@@ -1,4 +1,9 @@
-# Self-Hosting Vaultwarden on a Raspberry Pi (With a Disaster-Recovery Fallback)
+---
+title: "Self-Hosting Vaultwarden on a Raspberry Pi (With a Disaster-Recovery Fallback)"
+date: 2026-01-18 09:00:00 -0500
+tags: [homelab, security, self-hosting]
+description: "Self-hosting a Bitwarden-compatible password manager on a Raspberry Pi 5, with a warm-standby second Pi as a disaster-recovery fallback."
+---
 
 ## Why I Self-Host My Password Manager
 
