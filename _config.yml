@@ -17,6 +17,8 @@ future: true
 exclude:
   - docs/
   - api/
+  - project-admin.md
+  - assets/js/project-admin.js
   - CLAUDE.md
   - AGENTS.md
   - THEMES.md
