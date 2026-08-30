@@ -35,9 +35,6 @@ collections:
   info:
     output: true
     permalink: /info/:name/
-  ctf:
-    output: true
-    permalink: /ctf/:name/
 
 defaults:
   - scope:
@@ -60,11 +57,6 @@ defaults:
       type: info
     values:
       layout: default
-
-  - scope:
-      type: ctf
-    values:
-      layout: ctf
 
 # Giscus Comments Configuration
 giscus:

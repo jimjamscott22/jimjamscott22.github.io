@@ -32,7 +32,6 @@ Defined in `_config.yml`:
 - `_projects/` — Project showcases, permalink `/projects/:name/`
 - `_notes/` — Technical reference notes, permalink `/notes/:name/`
 - `_info/` — Educational reference pages (algorithms, data structures, git, design patterns), permalink `/info/:name/`
-- `_ctf/` — CTF challenge writeups, permalink `/ctf/:name/`, uses `ctf` layout
 
 `pages` collection is defined in `_config.yml` for scoped defaults; most site pages are root-level `.md` files (e.g. `playground.md`, `tools.md`).
 
@@ -40,10 +39,9 @@ Defined in `_config.yml`:
 
 ### Layouts
 
-Three layouts in `_layouts/`, no `_includes/` directory — layouts are self-contained:
+Two layouts in `_layouts/`, no `_includes/` directory — layouts are self-contained:
 - `default.html` — Master layout: SEO meta tags (Open Graph, Twitter Cards, JSON-LD), cache busting via git revision, theme stylesheet loading, RSS feed link
 - `post.html` — Extends default: reading time (word count ÷ 200), tag links, Giscus comments (GitHub Discussions), Schema.org BlogPosting markup
-- `ctf.html` — CTF challenge pages
 
 ### CSS Architecture
 
