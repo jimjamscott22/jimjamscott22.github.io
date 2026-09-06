@@ -127,6 +127,8 @@
 
 <body class="crt-theme">
 
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
   <!-- Global overlays -->
   <div class="noise-overlay"></div>
   <div class="scanlines-overlay"></div>
@@ -135,77 +137,67 @@
     <!-- Sidebar / nav panel -->
     <aside class="nav-panel" role="navigation" aria-label="Main navigation">
       <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
-      <div class="nav-brand">
+      <a class="nav-brand" href="{{ '/' | relative_url }}">
         <div class="nav-brand-title">jamielab<span class="brand-blink">_</span></div>
         <div class="nav-brand-sub">personal cyber lab</div>
-      </div>
+      </a>
+
+      {% assign current_path = page.url %}
+      {% assign is_work = false %}
+      {% assign is_writing = false %}
+      {% assign is_lab = false %}
+      {% assign is_about = false %}
+      {% if current_path contains '/projects/' %}{% assign is_work = true %}{% endif %}
+      {% if current_path contains '/blog/' or current_path contains '/archive/' %}{% assign is_writing = true %}{% endif %}
+      {% if current_path contains '/lab/' or current_path contains '/playground/' or current_path contains '/tools/' or current_path contains '/cve-tracker/' or current_path contains '/security-tools/' or current_path contains '/homelab/' or current_path contains '/timeline/' or current_path contains '/notes/' or current_path contains '/info/' %}{% assign is_lab = true %}{% endif %}
+      {% if current_path contains '/about/' %}{% assign is_about = true %}{% endif %}
 
       <nav class="nav-menu" aria-label="Primary navigation">
-        <a class="nav-link" href="{{ '/' | relative_url }}">
-          <span class="nav-prefix">&gt;</span> home
+        <a class="nav-link" href="{{ '/projects/' | relative_url }}" {% if is_work %}aria-current="page"{% endif %}>
+          <span class="nav-prefix">&gt;</span> work
         </a>
-        <a class="nav-link" href="{{ '/projects/' | relative_url }}">
-          <span class="nav-prefix">&gt;</span> projects
+        <a class="nav-link" href="{{ '/blog/' | relative_url }}" {% if is_writing %}aria-current="page"{% endif %}>
+          <span class="nav-prefix">&gt;</span> writing
         </a>
-        <a class="nav-link" href="{{ '/homelab/' | relative_url }}">
-          <span class="nav-prefix">&gt;</span> homelab
+        <a class="nav-link" href="{{ '/lab/' | relative_url }}" {% if is_lab %}aria-current="page"{% endif %}>
+          <span class="nav-prefix">&gt;</span> lab
         </a>
-        <a class="nav-link" href="{{ '/timeline/' | relative_url }}">
-          <span class="nav-prefix">&gt;</span> timeline
-        </a>
-        <a class="nav-link" href="{{ '/notes/' | relative_url }}">
-          <span class="nav-prefix">&gt;</span> notes
-        </a>
-        <a class="nav-link" href="{{ '/info/' | relative_url }}">
-          <span class="nav-prefix">&gt;</span> info
-        </a>
-        <a class="nav-link" href="{{ '/tools/' | relative_url }}">
-          <span class="nav-prefix">&gt;</span> tools
-        </a>
-        <a class="nav-link" href="{{ '/cve-tracker/' | relative_url }}">
-          <span class="nav-prefix">&gt;</span> cve tracker
-        </a>
-        <a class="nav-link" href="{{ '/security-tools/' | relative_url }}">
-          <span class="nav-prefix">&gt;</span> sec tools
-        </a>
-        <a class="nav-link" href="{{ '/playground/' | relative_url }}">
-          <span class="nav-prefix">&gt;</span> playground
-        </a>
-        <a class="nav-link" href="{{ '/blog/' | relative_url }}">
-          <span class="nav-prefix">&gt;</span> blog
-        </a>
-        <a class="nav-link" href="{{ '/archive/' | relative_url }}">
-          <span class="nav-prefix">&gt;</span> archive
-        </a>
-        <a class="nav-link" href="{{ '/about/' | relative_url }}">
+        <a class="nav-link" href="{{ '/about/' | relative_url }}" {% if is_about %}aria-current="page"{% endif %}>
           <span class="nav-prefix">&gt;</span> about
+        </a>
+        <a class="nav-link" href="{{ '/assets/files/resume.pdf' | relative_url }}" target="_blank" rel="noopener noreferrer">
+          <span class="nav-prefix">&gt;</span> résumé
         </a>
       </nav>
 
-      <div class="matrix-rain-toggle">
-        <button class="matrix-toggle-btn" id="matrix-toggle-btn" aria-pressed="false">[rain: off]</button>
-      </div>
+      <details class="console-settings">
+        <summary class="console-settings-toggle">console settings</summary>
 
-      <div class="theme-switcher">
-        <label class="theme-label" for="theme-select">Theme</label>
-        <select class="theme-select" id="theme-select" data-theme-select>
-          <option value="cyber" data-theme-href="{{ "/assets/css/theme-cyber-lab.css" | relative_url }}?v={{ cache_bust }}">Cyber Lab</option>
-          <option value="matrix" data-theme-href="{{ "/assets/css/theme-enhanced-matrix.css" | relative_url }}?v={{ cache_bust }}">Enhanced Matrix</option>
-          <option value="soft-matrix" data-theme-href="{{ "/assets/css/theme-soft-matrix.css" | relative_url }}?v={{ cache_bust }}">Soft Matrix</option>
-          <option value="neon" data-theme-href="{{ "/assets/css/theme-neon-terminal.css" | relative_url }}?v={{ cache_bust }}">Neon Terminal</option>
-          <option value="amber" data-theme-href="{{ "/assets/css/theme-amber-phosphor.css" | relative_url }}?v={{ cache_bust }}">Amber Phosphor</option>
-          <option value="oceanic" data-theme-href="{{ "/assets/css/theme-oceanic-console.css" | relative_url }}?v={{ cache_bust }}">Oceanic Console</option>
-          <option value="solarized" data-theme-href="{{ "/assets/css/theme-solarized-lab.css" | relative_url }}?v={{ cache_bust }}">Solarized Lab</option>
-          <option value="light" data-theme-href="{{ "/assets/css/theme-light-terminal.css" | relative_url }}?v={{ cache_bust }}">Light Terminal</option>
-        </select>
-      </div>
+        <div class="matrix-rain-toggle">
+          <button class="matrix-toggle-btn" id="matrix-toggle-btn" aria-pressed="false">[rain: off]</button>
+        </div>
 
-      <div class="mode-toggle-container">
-        <button class="mode-toggle-btn" id="mode-toggle" aria-label="Toggle dark/light mode">
-          <span class="mode-icon" id="mode-icon">☀️</span>
-          <span class="mode-text" id="mode-text">Light Mode</span>
-        </button>
-      </div>
+        <div class="theme-switcher">
+          <label class="theme-label" for="theme-select">Theme</label>
+          <select class="theme-select" id="theme-select" data-theme-select>
+            <option value="cyber" data-theme-href="{{ "/assets/css/theme-cyber-lab.css" | relative_url }}?v={{ cache_bust }}">Cyber Lab</option>
+            <option value="matrix" data-theme-href="{{ "/assets/css/theme-enhanced-matrix.css" | relative_url }}?v={{ cache_bust }}">Enhanced Matrix</option>
+            <option value="soft-matrix" data-theme-href="{{ "/assets/css/theme-soft-matrix.css" | relative_url }}?v={{ cache_bust }}">Soft Matrix</option>
+            <option value="neon" data-theme-href="{{ "/assets/css/theme-neon-terminal.css" | relative_url }}?v={{ cache_bust }}">Neon Terminal</option>
+            <option value="amber" data-theme-href="{{ "/assets/css/theme-amber-phosphor.css" | relative_url }}?v={{ cache_bust }}">Amber Phosphor</option>
+            <option value="oceanic" data-theme-href="{{ "/assets/css/theme-oceanic-console.css" | relative_url }}?v={{ cache_bust }}">Oceanic Console</option>
+            <option value="solarized" data-theme-href="{{ "/assets/css/theme-solarized-lab.css" | relative_url }}?v={{ cache_bust }}">Solarized Lab</option>
+            <option value="light" data-theme-href="{{ "/assets/css/theme-light-terminal.css" | relative_url }}?v={{ cache_bust }}">Light Terminal</option>
+          </select>
+        </div>
+
+        <div class="mode-toggle-container">
+          <button class="mode-toggle-btn" id="mode-toggle" aria-label="Toggle dark/light mode">
+            <span class="mode-icon" id="mode-icon">☀️</span>
+            <span class="mode-text" id="mode-text">Light Mode</span>
+          </button>
+        </div>
+      </details>
 
       <div class="nav-footer">
         <div class="nav-footer-line">user: jamie</div>
