@@ -26,6 +26,7 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - bin/
+  - vendor/
 
 collections:
   notes:
