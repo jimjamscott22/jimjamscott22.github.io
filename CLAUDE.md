@@ -37,6 +37,10 @@ Defined in `_config.yml`:
 
 `future: true` is set, so future-dated posts are included in builds.
 
+### Navigation
+
+The sidebar (`_layouts/default.html`) surfaces five top-level destinations — work (`/projects/`), writing (`/blog/`), lab (`/lab/`), about (`/about/`), résumé (a direct PDF link) — plus a collapsed "console settings" `<details>` popover holding the theme picker, matrix-rain toggle, and light/dark toggle. `lab.md` is a hub page with cards linking out to the individual lab surfaces (playground, tools, CVE tracker, security tools, homelab, timeline, notes, info); those pages keep their existing URLs and are just no longer individually listed in the sidebar. Active-state highlighting uses `aria-current="page"`, computed per-page in the layout via `page.url` substring checks — update those checks if a new page should belong to one of the five sections.
+
 ### Layouts
 
 Two layouts in `_layouts/`, no `_includes/` directory — layouts are self-contained:
