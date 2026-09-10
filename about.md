@@ -7,12 +7,12 @@ description: "Learn about Jamie, a cybersecurity enthusiast and homelab operator
 
 # About Jamie
 
-Curious, technical, and usually building or breaking something in the homelab. I also love dogs and plants!
-I am currently finishing my BA of Information Science at University at SUNY Oswego, in Oswego, NY.
+Curious, technical, and usually building or breaking something in the homelab. I also love dogs and physical fitness. 
+I recently graduated with my BA in Information Science at University at SUNY Oswego, in Oswego, NY.
 
 <div class="about-grid">
   <div class="about-copy">
-    <p>I like building all different types of software projects, which can be displayed on the "Projects" page. I also enjoy practical security, network tinkering, and lightweight automation. This site is the public scratchpad for what is running, what broke, and what might get deployed next.</p>
+    <p>I like building all different types of software projects, some of which can be displayed on the "Projects" page. I also enjoy practical security, network tinkering, and lightweight automation. This site is the public scratchpad for what is running, what broke, and what might get deployed next.</p>
 
     <h2>Stack & Tools</h2>
     <ul>
