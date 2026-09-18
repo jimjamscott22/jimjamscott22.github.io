@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: project
 title: ThreatStream Lite
 permalink: /projects/threatstream-lite/
 status: active
@@ -13,21 +13,11 @@ image: /img/threat_stream_dash.png
 image_alt: "Screenshot of ThreatStream Lite dashboard"
 ---
 
-# ThreatStream Lite
-
-**Status:** Active  
-**Tags:** python, sqlite, rss
-
 ## Overview
 Lightweight intel aggregator pulling feeds into a local DB with quick search and IOC tagging.
 
-## Notes
+## Screenshot
 
-### Setup
-<!-- Add your setup notes here -->
-
-### Features
-<!-- Document key features -->
 <figure class="content-image content-image--wide">
   <img src="{{ "/img/threat_stream_dash.png" | relative_url }}"
        alt="ThreatStream Lite dashboard screenshot"
@@ -36,11 +26,10 @@ Lightweight intel aggregator pulling feeds into a local DB with quick search and
   <figcaption>Dashboard interface showing threat intelligence aggregation</figcaption>
 </figure>
 
-### Challenges & Solutions
-<!-- Track problems you've solved -->
+## Decisions
 
-### Next Steps
-<!-- What you're working on next -->
+<!-- TODO: 2-3 real tradeoffs made building this, with the option rejected and why -->
 
----
-[← Back to Projects](/projects/)
+## Lessons
+
+<!-- TODO: what you'd do differently -->

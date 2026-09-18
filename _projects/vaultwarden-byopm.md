@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: project
 title: VaultWarden BYOPM
 permalink: /projects/vaultwarden-byopm/
 status: building
@@ -13,11 +13,6 @@ description: "Self-hosted password manager with Docker, Unbound DNS, and automat
 image: /img/byopm_schematic.webp
 image_alt: "VaultWarden password manager schematic"
 ---
-
-# VaultWarden BYOPM
-
-**Status:** Building  
-**Tags:** docker, vaultwarden, security, self-hosted
 
 ## Overview
 
@@ -46,40 +41,16 @@ Self-hosted password manager built on VaultWarden (Bitwarden-compatible server),
 
 ## Setup
 
-### Prerequisites
-<!-- Document initial requirements, VM specs, etc. -->
-
-### Installation Steps
-<!-- Walk through the deployment process -->
-
 For the sanitized Docker Compose template and detailed configuration, see:  
 → [VaultWarden Compose Template](/notes/vaultwarden-compose-template/)
 
-### Security Hardening
-<!-- Document security measures implemented -->
+## Decisions
 
-## Features & Functionality
+<!-- TODO: 2-3 real tradeoffs made building this, with the option rejected and why -->
 
-### Password Management
-<!-- How you're using VaultWarden, client setup, etc. -->
+## Lessons
 
-### Backup & Recovery
-<!-- Backup strategy, testing recovery procedures -->
-
-### Monitoring
-<!-- Prometheus metrics, health checks, alerting -->
-
-## Challenges & Solutions
-
-### Challenge: Secure Remote Access
-<!-- How you solved remote access without exposing services -->
-
-### Challenge: Backup Integrity
-<!-- Testing and validating backup/restore procedures -->
-
-## Lessons Learned
-
-<!-- What you learned building this -->
+<!-- TODO: what you'd do differently -->
 
 ## Next Steps
 
@@ -94,6 +65,3 @@ For the sanitized Docker Compose template and detailed configuration, see:
 - [VaultWarden Compose Template](/notes/vaultwarden-compose-template/)
 - [Tailscale Subnet Routing](/notes/tailscale-subnet-routing/)
 - [pfSense Rule Tuning](/notes/pfsense-rule-tuning/)
-
----
-[← Back to Projects](/projects/)

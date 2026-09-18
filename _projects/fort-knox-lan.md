@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: project
 title: Fort Knox LAN
 permalink: /projects/fort-knox-lan/
 status: building
@@ -13,30 +13,13 @@ image: /img/fort_knox_lan.png
 image_alt: "Image of a VLAN diagram"
 ---
 
-# Fort Knox LAN
-
-**Status:** Building  
-**Tags:** pfsense, ansible, vlans
-
 ## Overview
 Network hardening lab with segmented VLANs, pfSense rules, and repeatable IaC templates.
 
-## Runbook
+## Decisions
 
-### Network Architecture
-<!-- Document your VLAN structure -->
+<!-- TODO: 2-3 real tradeoffs made building this, with the option rejected and why -->
 
-### pfSense Configuration
-<!-- Rules and settings -->
+## Lessons
 
-### Ansible Playbooks
-<!-- Automation notes -->
-
-### Testing & Validation
-<!-- How you verify everything works -->
-
-### Troubleshooting
-<!-- Common issues and fixes -->
-
----
-[← Back to Projects](/projects/)
+<!-- TODO: what you'd do differently -->

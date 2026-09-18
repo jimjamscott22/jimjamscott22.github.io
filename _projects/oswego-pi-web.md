@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: project
 title: Oswego Pi Web
 permalink: /projects/oswego-pi-web/
 status: active
@@ -12,11 +12,6 @@ image: /img/oswego_server_homepage.png
 image_alt: "Oswego Raspberry Pi server website homepage"
 demo: https://www.cs.oswego.edu/~jscott21/coursework/ISC250/index.html
 ---
-
-# Oswego Pi Web
-
-**Status:** Active  
-**Tags:** html, css, linux, apache, raspberry-pi
 
 ## Overview
 
@@ -37,9 +32,10 @@ someone else's server that I don't fully control."
 - First time working with real Linux file permissions and a server I didn't
   own or configure from scratch
 
-## Links
+## Decisions
 
-- Live site: [cs.oswego.edu/~jscott21](https://www.cs.oswego.edu/~jscott21/coursework/ISC250/index.html)
+<!-- TODO: 2-3 real tradeoffs made building this, with the option rejected and why -->
 
----
-[← Back to Projects](/projects/)
+## Lessons
+
+<!-- TODO: what you'd do differently -->

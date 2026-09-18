@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: project
 title: PyTyping
 permalink: /projects/pytyping/
 status: active
@@ -12,11 +12,6 @@ description: "Lightweight local typing trainer built in Python/PyQt with real-ti
 image: /img/pytyping_screenshot.png
 image_alt: "PyTyping application screenshot showing typing speed trainer interface"
 ---
-
-# PyTyping
-
-**Status:** Active  
-**Tags:** python, pyqt, typing, ui
 
 ## Overview
 
@@ -42,9 +37,10 @@ PyTyping is a lightweight typing trainer focused on quick sessions, clear feedba
 - **PyQt** for the desktop UI
 - (Optional) **matplotlib** for charts/visualizations
 
-## Links
+## Decisions
 
-- Repo: (add link when ready)
+<!-- TODO: 2-3 real tradeoffs made building this, with the option rejected and why -->
 
----
-[← Back to Projects](/projects/)
+## Lessons
+
+<!-- TODO: what you'd do differently -->
