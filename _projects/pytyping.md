@@ -7,6 +7,10 @@ last_updated: 2026-04-02
 tech_stack: [python, pyqt, ui]
 milestone_date: 2025-06-15
 milestone_text: "Released PyTyping typing trainer application"
+weight: 4
+description: "Lightweight local typing trainer built in Python/PyQt with real-time accuracy + speed feedback and session tracking."
+image: /img/pytyping_screenshot.png
+image_alt: "PyTyping application screenshot showing typing speed trainer interface"
 ---
 
 # PyTyping
