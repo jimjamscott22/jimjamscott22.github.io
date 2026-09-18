@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: project
 title: ChatArchive
 permalink: /projects/chatarchive/
 status: building
@@ -14,11 +14,6 @@ image: /img/chatarchive_screenshot.png
 image_alt: "ChatArchive application screenshot showing chat interface"
 repo: https://github.com/jimjamscott22/ChatArchive
 ---
-
-# ChatArchive
-
-**Status:** Building  
-**Tags:** fastapi, react, sqlite, llm, search
 
 ## Overview
 
@@ -44,9 +39,10 @@ ChatArchive is a self-hosted app for importing and organizing conversation expor
 - **Backend:** FastAPI (Python)
 - **Storage:** SQLite (planned: optional Postgres)
 
-## Links
+## Decisions
 
-- GitHub: [github.com/jimjamscott22/ChatArchive](https://github.com/jimjamscott22/ChatArchive)
+<!-- TODO: 2-3 real tradeoffs made building this, with the option rejected and why -->
 
----
-[← Back to Projects](/projects/)
+## Lessons
+
+<!-- TODO: what you'd do differently -->

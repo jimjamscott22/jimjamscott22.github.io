@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: project
 title: Pi-hole + DNS toys
 permalink: /projects/pihole-dns/
 status: active
@@ -12,11 +12,6 @@ description: "DNS sinkhole tests, DoH/DoT trials, and dashboard tweaks for home 
 image: /img/pihole_dash.png
 image_alt: "Experimental Pi-hole dashboard screenshot"
 ---
-
-# Pi-hole + DNS toys
-
-**Status:** Active  
-**Tags:** dns, pihole, tailscale
 
 ## Overview
 DNS sinkhole tests, DoH/DoT trials, and dashboard tweaks for home clients and lab guests.
@@ -42,20 +37,12 @@ DNS sinkhole tests, DoH/DoT trials, and dashboard tweaks for home clients and la
 ## Notes
 
 ### Blocklists
-<!-- Your blocklist sources and custom rules -->
 [StevenBlack hosts](https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts)
 
-### Metrics & Performance
-<!-- Stats you're tracking -->
+## Decisions
 
-### DoH/DoT Configuration
-<!-- Encrypted DNS setup notes -->
+<!-- TODO: 2-3 real tradeoffs made building this, with the option rejected and why -->
 
-### Integration with Tailscale
-<!-- How you're routing DNS through your VPN -->
+## Lessons
 
-### Customizations
-<!-- Dashboard tweaks and modifications -->
-
----
-[← Back to Projects](/projects/)
+<!-- TODO: what you'd do differently -->

@@ -1128,6 +1128,61 @@ th {
   margin-top: 0.75rem;
 }
 
+/* ========== PROJECT CASE STUDY ========== */
+
+.project {
+  display: flex;
+  flex-direction: column;
+}
+
+.project-header {
+  margin-bottom: 0.75rem;
+}
+
+.project-title {
+  margin: 0;
+}
+
+.project-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.45rem;
+}
+
+.project-updated {
+  font-size: 0.75rem;
+  color: var(--text-secondary, #9de3f5);
+}
+
+.project-tech {
+  margin-top: 0.5rem;
+}
+
+.project-description {
+  opacity: 0.85;
+  margin-top: 0.5rem;
+}
+
+.project-links {
+  margin-top: 0.75rem;
+}
+
+.project-link-note {
+  font-size: 0.85rem;
+  color: var(--text-secondary, #9de3f5);
+  font-style: italic;
+}
+
+.project-body {
+  margin-top: 0.75rem;
+}
+
+.project-footer {
+  margin-top: 0.9rem;
+}
+
 /* ========== COMMENTS SECTION ========== */
 
 .comments-section {
