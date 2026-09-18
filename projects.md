@@ -7,160 +7,89 @@ description: "A collection of builds, tools, and lab experiments including Threa
 
 # Projects
 
-A rolling set of builds, tools, and lab experiments. Click the links below each project to view how I built it. Enjoy!
+A rolling set of builds, tools, and lab experiments. Click a card to see how I built it.
 
-## Status Dashboard
+{% assign all_projects = site.projects | sort: "weight" %}
 
-<div class="dashboard-container">
-  <div class="project-dashboard">
-    {% for project in site.projects %}
-      <div class="dashboard-card">
-        <div class="dashboard-card-header">
-          <h3><a href="{{ project.url | relative_url }}">{{ project.title }}</a></h3>
-        </div>
-        <div class="dashboard-status-row">
-          {% if project.status %}
-            <span class="badge status-{{ project.status }}">{{ project.status }}</span>
-          {% endif %}
-        </div>
+{% assign tag_string = "" %}
+{% for project in all_projects %}
+  {% if project.tech_stack %}
+    {% assign joined = project.tech_stack | join: "," %}
+    {% assign tag_string = tag_string | append: joined | append: "," %}
+  {% endif %}
+{% endfor %}
+{% assign all_tags = tag_string | split: "," | uniq | sort %}
+
+<script defer src="{{ "/assets/js/tag-filter.js" | relative_url }}"></script>
+
+## Filter by stack
+
+<div class="tag-filter-bar" id="tag-filter-bar">
+  <button class="badge tag tag-filter-btn tag-filter-active" data-tag="all">all</button>
+  {% for tag in all_tags %}
+    <button class="badge tag tag-filter-btn" data-tag="{{ tag | slugify }}">{{ tag }}</button>
+  {% endfor %}
+</div>
+<p class="tag-filter-status" id="tag-filter-status" aria-live="polite"></p>
+
+<div id="filtered-post-list">
+
+<h2>Featured</h2>
+
+<div class="card-grid">
+  {% for project in all_projects %}
+    {% if project.featured %}
+      <article class="card post-item" data-tags="{% if project.tech_stack %}{{ project.tech_stack | join: ',' | slugify: 'latin' }}{% endif %}">
+        {% if project.image %}
+          <img src="{{ project.image | relative_url }}" alt="{{ project.image_alt | default: project.title }}" loading="lazy" decoding="async" />
+        {% endif %}
+        <header class="card-header">
+          <h2><a href="{{ project.url | relative_url }}">{{ project.title }}</a></h2>
+          {% if project.status %}<span class="badge status status-{{ project.status }}">{{ project.status }}</span>{% endif %}
+        </header>
+        {% if project.description %}<p>{{ project.description }}</p>{% endif %}
         {% if project.tech_stack %}
-          <div class="dashboard-tech">
-            {% for tech in project.tech_stack %}
-              <span class="tech-tag">{{ tech }}</span>
-            {% endfor %}
+          <div class="card-meta">
+            {% for tech in project.tech_stack %}<span class="badge tag">{{ tech }}</span>{% endfor %}
           </div>
         {% endif %}
-        {% if project.last_updated %}
-          <div class="dashboard-updated">Updated: {{ project.last_updated }}</div>
+        <div class="card-links">
+          <a class="card-link" href="{{ project.url | relative_url }}">Case study →</a>
+          {% if project.repo %}<a class="card-link" href="{{ project.repo }}" target="_blank" rel="noopener">Source →</a>{% endif %}
+          {% if project.demo %}<a class="card-link" href="{{ project.demo }}" target="_blank" rel="noopener">Live demo →</a>{% endif %}
+        </div>
+      </article>
+    {% endif %}
+  {% endfor %}
+</div>
+
+<h2>All projects</h2>
+
+<div class="card-grid">
+  {% for project in all_projects %}
+    {% unless project.featured %}
+      <article class="card post-item" data-tags="{% if project.tech_stack %}{{ project.tech_stack | join: ',' | slugify: 'latin' }}{% endif %}">
+        {% if project.image %}
+          <img src="{{ project.image | relative_url }}" alt="{{ project.image_alt | default: project.title }}" loading="lazy" decoding="async" />
         {% endif %}
-      </div>
-    {% endfor %}
-  </div>
-  
-  <div class="dashboard-image">
-    <img src="{{ "/img/crud_infographic.png" | relative_url }}" alt="CRUD operations infographic" loading="lazy" decoding="async" />
-  </div>
+        <header class="card-header">
+          <h2><a href="{{ project.url | relative_url }}">{{ project.title }}</a></h2>
+          {% if project.status %}<span class="badge status status-{{ project.status }}">{{ project.status }}</span>{% endif %}
+        </header>
+        {% if project.description %}<p>{{ project.description }}</p>{% endif %}
+        {% if project.tech_stack %}
+          <div class="card-meta">
+            {% for tech in project.tech_stack %}<span class="badge tag">{{ tech }}</span>{% endfor %}
+          </div>
+        {% endif %}
+        <div class="card-links">
+          <a class="card-link" href="{{ project.url | relative_url }}">Case study →</a>
+          {% if project.repo %}<a class="card-link" href="{{ project.repo }}" target="_blank" rel="noopener">Source →</a>{% endif %}
+          {% if project.demo %}<a class="card-link" href="{{ project.demo }}" target="_blank" rel="noopener">Live demo →</a>{% endif %}
+        </div>
+      </article>
+    {% endunless %}
+  {% endfor %}
 </div>
 
----
-
-## Active builds
-
-<div class="card-grid">
-  <article class="card">
-    <img src="{{ "/img/threat_stream_dash.png" | relative_url }}" alt="Screenshot of ThreatStream Lite dashboard" loading="lazy" decoding="async" />
-    <header class="card-header">
-      <h2>ThreatStream Lite</h2>
-      <span class="badge status status-active">active</span>
-    </header>
-    <p>Lightweight intel aggregator pulling feeds into a local DB with quick search and IOC tagging.</p>
-    <div class="card-meta">
-      <span class="badge tag">python</span>
-      <span class="badge tag">sqlite</span>
-      <span class="badge tag">rss</span>
-    </div>
-    <a class="card-link" href="/projects/threatstream-lite/">View notes →</a>
-  </article>
-
-  <article class="card">
-    <img src="{{ "/img/fort_knox_lan.png" | relative_url }}" alt="Image of a VLAN diagram" loading="lazy" decoding="async" />
-    <header class="card-header">
-      <h2>Fort Knox LAN</h2>
-      <span class="badge status status-building">building</span>
-    </header>
-    <p>Network hardening lab with segmented VLANs, pfSense rules, and repeatable IaC templates.</p>
-    <div class="card-meta">
-      <span class="badge tag">pfsense</span>
-      <span class="badge tag">ansible</span>
-      <span class="badge tag">vlans</span>
-    </div>
-    <a class="card-link" href="/projects/fort-knox-lan/">Runbook draft →</a>
-  </article>
-
-  <article class="card">
-    <img src="{{ "/img/byopm_schematic.webp" | relative_url }}" alt="VaultWarden password manager schematic" loading="lazy" decoding="async" />
-    <header class="card-header">
-      <h2>VaultWarden BYOPM</h2>
-      <span class="badge status status-building">building</span>
-    </header>
-    <p>Self-hosted password manager with Docker, Unbound DNS, and automated backups—bringing your own password management home.</p>
-    <div class="card-meta">
-      <span class="badge tag">docker</span>
-      <span class="badge tag">vaultwarden</span>
-      <span class="badge tag">security</span>
-    </div>
-    <a class="card-link" href="/projects/vaultwarden-byopm/">Project details →</a>
-  </article>
-
-  <article class="card">
-   <img src="{{ "/img/chatarchive_screenshot.png" | relative_url }}" alt="ChatArchive application screenshot showing chat interface" loading="lazy" decoding="async" />
-    <header class="card-header">
-      <h2>ChatArchive</h2>
-      <span class="badge status status-building">building</span>
-    </header>
-    <p>Self-hosted chat archive for importing ChatGPT exports into local SQLite with a React UI and fast search planned.</p>
-    <div class="card-meta">
-      <span class="badge tag">fastapi</span>
-      <span class="badge tag">react</span>
-      <span class="badge tag">sqlite</span>
-    </div>
-    <a class="card-link" href="/projects/chatarchive/">Project details →</a>
-  </article>
-
-  <article class="card">
-   <img src="{{ "/img/pytyping_screenshot.png" | relative_url }}" alt="PyTyping application screenshot showing typing speed trainer interface" loading="lazy" decoding="async" />
-    <header class="card-header">
-      <h2>PyTyping</h2>
-      <span class="badge status status-active">active</span>
-    </header>
-    <p>Lightweight local typing trainer built in Python/PyQt with real-time accuracy + speed feedback and session tracking.</p>
-    <div class="card-meta">
-      <span class="badge tag">python</span>
-      <span class="badge tag">pyqt</span>
-      <span class="badge tag">desktop</span>
-    </div>
-    <a class="card-link" href="/projects/pytyping/">Project details →</a>
-  </article>
 </div>
-
-## Experiments
-
-<div class="card-grid">
-  <article class="card">
-    <img src="{{ "/img/pihole_dash.png" | relative_url }}" alt="Experimental Pi-hole dashboard screenshot" loading="lazy" decoding="async" />
-    <header class="card-header">
-      <h2>Pi-hole + DNS toys</h2>
-      <span class="badge status status-active">active</span>
-    </header>
-    <p>DNS sinkhole tests, DoH/DoT trials, and dashboard tweaks for home clients and lab guests.</p>
-    <div class="card-meta">
-      <span class="badge tag">dns</span>
-      <span class="badge tag">pihole</span>
-      <span class="badge tag">tailscale</span>
-    </div>
-    <a class="card-link" href="/projects/pihole-dns/">Blocklists & metrics →</a>
-  </article>
-
-   <article class="card">
-    <img src="{{ "/img/oswego_server_homepage.png" | relative_url }}" alt="Oswego Raspberry Pi server website homepage" loading="lazy" decoding="async" />
-    <header class="card-header">
-      <h2>Oswego Pi Web</h2>
-      <span class="badge status status-active">active</span>
-    </header>
-    <p>
-      My first deployed website, hosted on a SUNY Oswego Raspberry Pi server.
-      Built to understand real-world hosting, Linux permissions, and serving
-      content outside my local lab.
-    </p>
-    <div class="card-meta">
-      <span class="badge tag">html</span>
-      <span class="badge tag">css</span>
-      <span class="badge tag">linux</span>
-      <span class="badge tag">apache</span>
-      <span class="badge tag">raspberry-pi</span>
-    </div>
-    <a class="card-link" href="https://www.cs.oswego.edu/~jscott21/coursework/ISC250/index.html" target="_blank">Visit site →</a>
-  </article>
-
-</div>
-

@@ -7,6 +7,10 @@ last_updated: 2025-12-20
 tech_stack: [pfsense, ansible, vlans, iac]
 milestone_date: 2025-10-01
 milestone_text: "Started network segmentation and hardening project"
+weight: 7
+description: "Network hardening lab with segmented VLANs, pfSense rules, and repeatable IaC templates."
+image: /img/fort_knox_lan.png
+image_alt: "Image of a VLAN diagram"
 ---
 
 # Fort Knox LAN

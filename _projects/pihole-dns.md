@@ -7,6 +7,10 @@ last_updated: 2026-01-10
 tech_stack: [pihole, dns, tailscale, doh]
 milestone_date: 2024-07-20
 milestone_text: "Deployed Pi-hole DNS sinkhole for network-wide ad blocking"
+weight: 3
+description: "DNS sinkhole tests, DoH/DoT trials, and dashboard tweaks for home clients and lab guests."
+image: /img/pihole_dash.png
+image_alt: "Experimental Pi-hole dashboard screenshot"
 ---
 
 # Pi-hole + DNS toys

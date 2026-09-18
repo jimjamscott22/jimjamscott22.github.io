@@ -5,6 +5,8 @@ permalink: /projects/pi-cluster/
 status: planned
 last_updated: 2025-11-15
 tech_stack: [k3s, arm, prometheus, raspberry-pi]
+weight: 6
+description: "Small ARM cluster for k3s experiments, lightweight services, and observability demos."
 ---
 
 # Pi cluster

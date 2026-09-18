@@ -7,6 +7,12 @@ last_updated: 2026-08-27
 tech_stack: [fastapi, react, sqlite, llm]
 milestone_date: 2025-11-01
 milestone_text: "Started ChatArchive conversation management app"
+weight: 1
+featured: true
+description: "Self-hosted chat archive for importing ChatGPT exports into local SQLite with a React UI and fast search planned."
+image: /img/chatarchive_screenshot.png
+image_alt: "ChatArchive application screenshot showing chat interface"
+repo: https://github.com/jimjamscott22/ChatArchive
 ---
 
 # ChatArchive

@@ -943,6 +943,17 @@ th {
   border-color: var(--border-bright);
 }
 
+.card-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: auto;
+}
+
+.card-links .card-link {
+  margin-top: 0;
+}
+
 .placeholder-img {
   height: 140px;
   border: 1px dashed var(--border-color);
