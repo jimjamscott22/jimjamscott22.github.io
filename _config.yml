@@ -27,6 +27,7 @@ exclude:
   - Gemfile.lock
   - bin/
   - vendor/
+  - assets/js/vendor/
 
 collections:
   notes:
