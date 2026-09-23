@@ -499,6 +499,14 @@ p {
   margin: 0.45rem 0;
 }
 
+.identity-line {
+  margin: 0.9rem 0 1.25rem;
+  padding-left: 0.75rem;
+  border-left: 3px solid #4dff88;
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
 a {
   color: #4dff88;
   text-decoration: none;

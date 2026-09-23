@@ -13,9 +13,61 @@ description: "JamieLab - Experiments, networks, homelab, and code. A personal cy
 
 <div id="intro" data-text="Initializing JamieLab command console..."></div>
 
-Welcome to the lab. Systems online.  
-Homelab status: operational.  
-Network tools engaged.
+<p class="identity-line">Jamie — BA in Information Science (SUNY Oswego). I build self-hosted security tooling and full-stack apps, and document how they work. Currently looking for an internship or entry-level role in security or software.</p>
+
+## Featured work
+
+<div class="card-grid">
+  <article class="card">
+    <header class="card-header">
+      <h2><a href="{{ "/projects/chatarchive/" | relative_url }}">ChatArchive</a></h2>
+      <span class="badge status status-building">building</span>
+    </header>
+    <p>Pulls exported conversations from four AI tools into one searchable, self-hosted archive.</p>
+    <div class="card-links">
+      <a class="card-link" href="{{ "/projects/chatarchive/" | relative_url }}">Case study →</a>
+      <a class="card-link" href="https://github.com/jimjamscott22/ChatArchive" target="_blank" rel="noopener noreferrer">Source →</a>
+    </div>
+  </article>
+
+  <article class="card">
+    <header class="card-header">
+      <h2><a href="{{ "/projects/vaultwarden-byopm/" | relative_url }}">VaultWarden BYOPM</a></h2>
+      <span class="badge status status-building">building</span>
+    </header>
+    <p>Self-hosted password management, fully in-house — no third party holds the keys.</p>
+    <div class="card-links">
+      <a class="card-link" href="{{ "/projects/vaultwarden-byopm/" | relative_url }}">Case study →</a>
+    </div>
+  </article>
+
+  <article class="card">
+    <header class="card-header">
+      <h2><a href="{{ "/projects/code-playground/" | relative_url }}">Code Playground</a></h2>
+      <span class="badge status status-active">active</span>
+    </header>
+    <p>Runs real JavaScript and Python in the browser — no install, no account, no server.</p>
+    <div class="card-links">
+      <a class="card-link" href="{{ "/projects/code-playground/" | relative_url }}">Case study →</a>
+      <a class="card-link" href="{{ "/playground/" | relative_url }}">Live demo →</a>
+    </div>
+  </article>
+</div>
+
+## Latest write-up
+
+<div class="card-grid">
+  <article class="card">
+    <header class="card-header">
+      <h2><a href="{{ "/blog/2026/01/18/vaultwarden-backup-solution/" | relative_url }}">Self-Hosting Vaultwarden on a Raspberry Pi (With a Disaster-Recovery Fallback)</a></h2>
+      <span class="badge tag">2026-01-18</span>
+    </header>
+    <p>Self-hosting a Bitwarden-compatible password manager on a Raspberry Pi 5, with a warm-standby second Pi as a disaster-recovery fallback.</p>
+    <div class="card-links">
+      <a class="card-link" href="{{ "/blog/2026/01/18/vaultwarden-backup-solution/" | relative_url }}">Read →</a>
+    </div>
+  </article>
+</div>
 
 <div class="profile-card">
   <img
@@ -31,7 +83,9 @@ Network tools engaged.
   </div>
 </div>
 
-## Featured image
+Welcome to the lab. Systems online.  
+Homelab status: operational.  
+Network tools engaged.
 
 <div class="hero-grid">
   <div class="hero-shot">
