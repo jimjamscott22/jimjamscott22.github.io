@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Projects
+seo_title: "Homelab, Security & Software Projects · Jamie Lab"
 permalink: /projects/
 description: "A collection of builds, tools, and lab experiments including ThreatStream Lite, Fort Knox LAN, VaultWarden, and more homelab projects."
 ---

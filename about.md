@@ -1,8 +1,9 @@
 ---
 layout: default
 title: About
+seo_title: "About Jamie Scott: Homelab & Security Student · Jamie Lab"
 permalink: /about/
-description: "Learn about Jamie, a cybersecurity enthusiast and homelab operator studying Information Science at SUNY Oswego."
+description: "Learn about Jamie Scott, a cybersecurity enthusiast and homelab operator studying Information Science at SUNY Oswego, building secure self-hosted systems and software."
 ---
 
 # About Jamie

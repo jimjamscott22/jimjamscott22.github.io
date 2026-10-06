@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Blog
+seo_title: "Homelab, Security & Networking Blog · Jamie Lab"
 permalink: /blog/
 description: "Short informational posts, lab notes, and technical writeups covering homelab, security, networking, and various tech experiments."
 ---

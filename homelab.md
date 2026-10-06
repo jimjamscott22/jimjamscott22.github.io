@@ -1,8 +1,9 @@
 ---
 layout: default
 title: Homelab
+seo_title: "Homelab Setup: Pi-hole, Tailscale & Monitoring · Jamie Lab"
 permalink: /homelab/
-description: "Overview of core homelab services including Pi-hole DNS, Tailscale VPN, network infrastructure, and various self-hosted applications."
+description: "Overview of my homelab: Pi-hole DNS, Tailscale VPN mesh, network infrastructure, monitoring, and self-hosted apps like Vaultwarden, with diagrams and notes."
 ---
 
 # Homelab

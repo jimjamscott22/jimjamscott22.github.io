@@ -2,7 +2,7 @@
 layout: default
 title: Timeline
 permalink: /timeline/
-description: "A chronological view of projects, blog posts, and technical milestones in the jamielab journey."
+description: "A chronological view of projects, blog posts, and technical milestones in the Jamie Lab journey."
 mermaid: true
 ---
 
@@ -21,7 +21,7 @@ A chronological view of projects, posts, and milestones. For detailed posts, vis
 
 <div class="mermaid timeline-chart" style="--timeline-chart-height: {{ timeline_chart_height }}px">
 gantt
-    title jamielab · Posts & Projects
+    title Jamie Lab · Posts & Projects
     dateFormat YYYY-MM-DD
     axisFormat %b '%y
     section Posts
