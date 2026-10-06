@@ -67,7 +67,7 @@ Quick, easy, and essential for a secure lab environment.
 
 <div class="image-gallery">
   <figure>
-    <img src="{{ "/img/ufw.png" | relative_url }}" alt="ufw diagram" loading="lazy" decoding="async" />
+    <img src="{{ "/img/ufw.webp" | relative_url }}" alt="Diagram of UFW firewall rules allowing and denying traffic to a server" width="1536" height="1024" loading="lazy" decoding="async" />
     <figcaption>UFW overview</figcaption>
   </figure>
   <figure>

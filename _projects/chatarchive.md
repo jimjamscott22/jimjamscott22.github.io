@@ -19,7 +19,7 @@ repo: https://github.com/jimjamscott22/ChatArchive
 Chat exports from different AI services arrive in different shapes. Keeping the files is easy; finding a useful exchange later, seeing its surrounding messages, and grouping related conversations across services is harder. ChatArchive brings those exports into one searchable conversation library.
 
 <figure class="content-image content-image--wide">
-  <img src="{{ "/img/CArchive-08-26-2026.png" | relative_url }}" alt="ChatArchive conversation browser with a conversation list and message view" loading="lazy" decoding="async">
+  <img src="{{ "/img/CArchive-08-26-2026.webp" | relative_url }}" alt="ChatArchive conversation browser with a conversation list and message view" width="1600" height="1130" loading="lazy" decoding="async">
   <figcaption>The conversation browser</figcaption>
 </figure>
 

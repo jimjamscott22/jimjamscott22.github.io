@@ -90,7 +90,7 @@ Network tools engaged.
 
 <div class="hero-grid">
   <div class="hero-shot">
-    <img src="{{ "/img/minimalist_workstation.png" | relative_url }}?v={{ cache_bust }}" alt="guy at a computer" loading="lazy" decoding="async">
+    <img src="{{ "/img/minimalist_workstation.webp" | relative_url }}?v={{ cache_bust }}" alt="Dark minimalist desk setup with an ultrawide monitor showing code and a green backlit keyboard beside a rainy window" width="1024" height="1024" loading="lazy" decoding="async">
     <div class="hero-caption">Where thoughts become bits [01010101] </div>
   </div>
 

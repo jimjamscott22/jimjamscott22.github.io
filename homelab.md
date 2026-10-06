@@ -16,7 +16,7 @@ tinkering at last became a dream!"
 <!-- markdownlint-disable MD033 -->
 <div class="card-grid">
   <article class="card">
-    <img src="{{ "/img/services.png" | relative_url }}" alt="web dash of running services" loading="lazy" decoding="async">
+    <img src="{{ "/img/services.webp" | relative_url }}" alt="Dashboard listing the self-hosted services running in the homelab" width="1600" height="846" loading="lazy" decoding="async">
     <header class="card-header">
       <h3>Dashboards</h3>
       <span class="badge status status-active">active</span>
@@ -31,7 +31,7 @@ tinkering at last became a dream!"
   </article>
 
   <article class="card">
-    <img src="{{ "/img/network_topology_var.png" | relative_url }}" alt="network diagram" loading="lazy" decoding="async">
+    <img src="{{ "/img/network_topology_var.webp" | relative_url }}" alt="Homelab network diagram: firewall and managed switch linking a Raspberry Pi 4 Docker host, a Synology NAS, and client devices over VLANs and a WireGuard VPN" width="1024" height="1024" loading="lazy" decoding="async">
     <header class="card-header">
       <h3>Tailscale mesh</h3>
       <span class="badge status status-active">active</span>
