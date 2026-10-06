@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Blog
+seo_title: "Homelab, Security & Networking Blog · Jamie Lab"
 permalink: /blog/
 description: "Short informational posts, lab notes, and technical writeups covering homelab, security, networking, and various tech experiments."
 ---
@@ -67,7 +68,7 @@ Short informational posts, lab notes, and writeups. For a chronological view of 
 
     <article class="card post-item" data-tags="{% if post.tags %}{{ post.tags | join: ',' | slugify: 'latin' }}{% endif %}">
       <header class="card-header">
-        <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+        <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
         <span class="badge tag">{{ post.date | date: "%Y-%m-%d" }}</span>
       </header>
 
@@ -111,7 +112,7 @@ Short informational posts, lab notes, and writeups. For a chronological view of 
 
       <article class="card post-item">
         <header class="card-header">
-          <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+          <h4><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h4>
           <span class="badge tag">{{ post.date | date: "%Y-%m-%d" }}</span>
         </header>
 

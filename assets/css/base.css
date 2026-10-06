@@ -885,7 +885,8 @@ th {
   text-transform: lowercase;
 }
 
-.card-header h2 {
+.card-header h2,
+.card-header h3 {
   margin: 0;
   font-size: 1rem;
   letter-spacing: 0.06em;
@@ -2930,7 +2931,8 @@ th {
   gap: 0.75rem;
 }
 
-.related-post-card .card-header h2 {
+.related-post-card .card-header h2,
+.related-post-card .card-header h3 {
   font-size: 0.9rem;
 }
 
@@ -3264,4 +3266,16 @@ th {
   background-color: rgba(255, 138, 61, 0.16);
   border-color: rgba(255, 150, 70, 0.75);
   color: #ffc08f;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }

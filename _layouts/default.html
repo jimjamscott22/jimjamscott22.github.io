@@ -8,9 +8,9 @@
   {% endif %}
 
   <meta charset="utf-8">
-  <title>
-    {% if page.title %}{{ page.title }} · {% endif %}{{ site.title | default: "jamielab" }}
-  </title>
+  {% capture seo_title %}{% if page.seo_title %}{{ page.seo_title }}{% elsif page.title %}{{ page.title }} · {{ site.title }}{% else %}{{ site.title }}{% endif %}{% endcapture %}
+  {% assign seo_title = seo_title | strip %}
+  <title>{{ seo_title }}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description"
     content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
@@ -30,7 +30,7 @@
   {% endif %}
 
   <!-- Open Graph meta tags for social sharing -->
-  <meta property="og:title" content="{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}">
+  <meta property="og:title" content="{{ seo_title | escape }}">
   <meta property="og:description"
     content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
   <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
@@ -47,7 +47,7 @@
 
   <!-- Twitter Card meta tags -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}">
+  <meta name="twitter:title" content="{{ seo_title | escape }}">
   <meta name="twitter:description"
     content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
   {% if page.image %}
@@ -55,11 +55,6 @@
   {% else %}
   <meta name="twitter:image" content="{{ "/img/og-card.png" | absolute_url }}">
   {% endif %}
-
-  <!-- Cache hints for HTML (best-effort; headers are controlled by host/CDN) -->
-  <meta http-equiv="Cache-Control" content="no-store, max-age=0">
-  <meta http-equiv="Pragma" content="no-cache">
-  <meta http-equiv="Expires" content="0">
 
   <!-- Base CSS (structure + layout) -->
   <link rel="stylesheet" href="{{ '/assets/css/base.css' | relative_url }}?v={{ cache_bust }}">
@@ -74,55 +69,62 @@
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }} RSS Feed" href="{{ '/feed.xml' |
     relative_url }}">
 
-  <!-- Optional: basic favicon -->
-  <link rel="icon" type="image/svg+xml" href="{{ '/assets/img/terminal-icon.svg' | relative_url }}?v={{ cache_bust }}">
-  
   <!-- JSON-LD Structured Data -->
+  {% assign ld_image = page.image | default: "/img/og-card.png" | absolute_url %}
+  {% assign ld_section = "" %}
+  {% if page.layout == 'post' %}{% assign ld_section = "blog" %}
+  {% elsif page.collection == 'projects' %}{% assign ld_section = "projects" %}
+  {% elsif page.collection == 'notes' %}{% assign ld_section = "notes" %}
+  {% elsif page.collection == 'info' %}{% assign ld_section = "info" %}{% endif %}
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "{% if page.layout == 'post' %}BlogPosting{% else %}WebPage{% endif %}",
-    "headline": "{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}",
-    "description": "{% if page.description %}{{ page.description | escape }}{% else %}{{ site.description | escape }}{% endif %}",
-    "url": "{{ page.url | absolute_url }}",
-    {% if page.layout == 'post' %}
-    "datePublished": "{{ page.date | date_to_xmlschema }}",
-    "author": {
-      "@type": "Person",
-      "name": "Jamie"
-    },
-    {% if page.tags %}
-    "keywords": "{{ page.tags | join: ', ' }}",
-    {% endif %}
-    {% endif %}
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": "{{ page.url | absolute_url }}"
-    },
-    "publisher": {
-      "@type": "Person",
-      "name": "Jamie",
-      "url": "{{ site.url }}"
-    }
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "{{ site.url }}/#person",
+        "name": "Jamie Scott",
+        "url": "{{ site.url }}",
+        "sameAs": ["https://github.com/jimjamscott22"]
+      },
+      {
+        "@type": "{% if page.layout == 'post' %}BlogPosting{% else %}WebPage{% endif %}",
+        "headline": "{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}",
+        "description": "{% if page.description %}{{ page.description | escape }}{% else %}{{ site.description | escape }}{% endif %}",
+        "url": "{{ page.url | absolute_url }}",
+        {% if page.layout == 'post' %}
+        "datePublished": "{{ page.date | date_to_xmlschema }}",
+        "dateModified": "{% if page.last_modified_at %}{{ page.last_modified_at | date_to_xmlschema }}{% else %}{{ page.date | date_to_xmlschema }}{% endif %}",
+        "image": "{{ ld_image }}",
+        {% if page.tags %}
+        "keywords": "{{ page.tags | join: ', ' }}",
+        {% endif %}
+        {% endif %}
+        "author": { "@id": "{{ site.url }}/#person" },
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "{{ page.url | absolute_url }}"
+        },
+        "publisher": { "@id": "{{ site.url }}/#person" }
+      }{% if ld_section != "" %},
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ '/' | absolute_url }}" },
+          { "@type": "ListItem", "position": 2, "name": "{{ ld_section | capitalize }}", "item": "{{ '/' | append: ld_section | append: '/' | absolute_url }}" },
+          { "@type": "ListItem", "position": 3, "name": "{{ page.title | escape }}" }
+        ]
+      }{% endif %}{% if page.url == "/" or page.url == "/index.html" %},
+      {
+        "@type": "WebSite",
+        "name": "{{ site.title }}",
+        "description": "{{ site.description }}",
+        "url": "{{ site.url }}",
+        "author": { "@id": "{{ site.url }}/#person" }
+      }{% endif %}
+    ]
   }
   </script>
-  
-  {% if page.url == "/" or page.url == "/index.html" %}
-  <!-- Website structured data for homepage -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "{{ site.title }}",
-    "description": "{{ site.description }}",
-    "url": "{{ site.url }}",
-    "author": {
-      "@type": "Person",
-      "name": "Jamie"
-    }
-  }
-  </script>
-  {% endif %}
 </head>
 
 <body class="crt-theme">

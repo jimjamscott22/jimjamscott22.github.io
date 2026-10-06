@@ -1,8 +1,9 @@
 ---
 title: "Setting up a reverse proxy"
+seo_title: "Reverse Proxy Setup: Nginx, Apache & Traefik with SSL · Jamie Lab"
 date: 2026-01-19 11:00:00 -0500
 tags: [linux, dev, workflow]
-description: "A comprehensive guide for setting up a reverse proxy w/three different apps"
+description: "Step-by-step guide to setting up a reverse proxy with Nginx, Apache, and Traefik, including Let's Encrypt SSL/TLS, advanced options, and troubleshooting tips."
 ---
 
 ## What is a Reverse Proxy?

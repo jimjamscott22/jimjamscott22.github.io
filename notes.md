@@ -42,6 +42,7 @@ Searchable knowledge base of runbooks, how-tos, and technical notes. For project
   <div id="wiki-count" class="search-count"></div>
 </div>
 
+<h2 class="sr-only">All notes</h2>
 <div class="wiki-grid" id="wiki-grid" data-wiki-data-url="{{ '/assets/data/wiki-data.json' | relative_url }}">
   {% for note in site.notes %}
     <div class="wiki-card card"

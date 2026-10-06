@@ -30,7 +30,7 @@ DNS sinkhole tests, DoH/DoT trials, and dashboard tweaks for home clients and la
 </div>
 
 <figure class="content-image">
-  <img src="{{ "/img/piholepic2.jpeg" | relative_url }}" alt="DNS query metrics" loading="lazy" decoding="async" />
+  <img src="{{ "/img/piholepic2.webp" | relative_url }}" alt="Pi-hole DNS query metrics chart" width="1553" height="1600" loading="lazy" decoding="async" />
   <figcaption>DNS query metrics over time</figcaption>
 </figure>
 

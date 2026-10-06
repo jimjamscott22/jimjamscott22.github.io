@@ -54,7 +54,7 @@ The experimental side of the site — interactive tools, reference material, and
     <header class="card-header">
       <h2><a href="{{ "/timeline/" | relative_url }}">Timeline</a></h2>
     </header>
-    <p>A chronological view of projects, blog posts, and technical milestones in the jamielab journey.</p>
+    <p>A chronological view of projects, blog posts, and technical milestones in the Jamie Lab journey.</p>
     <a class="card-link" href="{{ "/timeline/" | relative_url }}">View timeline →</a>
   </article>
 

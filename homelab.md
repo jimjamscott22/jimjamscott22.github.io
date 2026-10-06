@@ -1,8 +1,9 @@
 ---
 layout: default
 title: Homelab
+seo_title: "Homelab Setup: Pi-hole, Tailscale & Monitoring · Jamie Lab"
 permalink: /homelab/
-description: "Overview of core homelab services including Pi-hole DNS, Tailscale VPN, network infrastructure, and various self-hosted applications."
+description: "Overview of my homelab: Pi-hole DNS, Tailscale VPN mesh, network infrastructure, monitoring, and self-hosted apps like Vaultwarden, with diagrams and notes."
 ---
 
 # Homelab
@@ -16,9 +17,9 @@ tinkering at last became a dream!"
 <!-- markdownlint-disable MD033 -->
 <div class="card-grid">
   <article class="card">
-    <img src="{{ "/img/services.png" | relative_url }}" alt="web dash of running services" loading="lazy" decoding="async">
+    <img src="{{ "/img/services.webp" | relative_url }}" alt="Dashboard listing the self-hosted services running in the homelab" width="1600" height="846" loading="lazy" decoding="async">
     <header class="card-header">
-      <h2>Dashboards</h2>
+      <h3>Dashboards</h3>
       <span class="badge status status-active">active</span>
     </header>
     <p>Centralized network dashboards provide real\-time status, traffic insights, and alerts for homelab devices and segments.</p>
@@ -31,9 +32,9 @@ tinkering at last became a dream!"
   </article>
 
   <article class="card">
-    <img src="{{ "/img/network_topology_var.png" | relative_url }}" alt="network diagram" loading="lazy" decoding="async">
+    <img src="{{ "/img/network_topology_var.webp" | relative_url }}" alt="Homelab network diagram: firewall and managed switch linking a Raspberry Pi 4 Docker host, a Synology NAS, and client devices over VLANs and a WireGuard VPN" width="1024" height="1024" loading="lazy" decoding="async">
     <header class="card-header">
-      <h2>Tailscale mesh</h2>
+      <h3>Tailscale mesh</h3>
       <span class="badge status status-active">active</span>
     </header>
     <p>Exit node, subnet router, and a few devices on the Tailnet for remote admin and quick access to files on my home network.</p>
@@ -52,7 +53,7 @@ tinkering at last became a dream!"
   <article class="card">
    <img src="{{ "/img/monitoring.JPG" | relative_url }}" alt="Monitoring Diagram" loading="lazy" decoding="async">
     <header class="card-header">
-      <h2>Observability stack</h2>
+      <h3>Observability stack</h3>
       <span class="badge status status-building">building</span>
     </header>
     <p>Prometheus + Grafana on a small VM; exporters on switches, APs, and Proxmox nodes.</p>
@@ -67,7 +68,7 @@ tinkering at last became a dream!"
   <article class="card">
     <img src="{{ "/img/fortinet.jpeg" | relative_url }}" alt="Fortinet diagram" loading="lazy" decoding="async">
     <header class="card-header">
-      <h2>VaultWarden-Services VM</h2>
+      <h3>VaultWarden-Services VM</h3>
       <span class="badge status status-building">building</span>
     </header>
     <p>Primary Docker host for VaultWarden (self-hosted password manager), with Unbound and a lightweight git/CI runner; all managed via IaC.</p>

@@ -3,79 +3,27 @@ layout: none
 ---
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Homepage -->
-  <url>
-    <loc>{{ site.url }}{{ site.baseurl }}/</loc>
-    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-
-  <!-- Static pages -->
   {% for page in site.pages %}
-    {% unless page.url contains '/assets/' or page.url contains '/404' %}
+    {% assign ext = page.path | split: '.' | last %}
+    {% if ext == 'md' or ext == 'html' %}
+    {% unless page.url contains '/assets/' or page.url contains '/404' or page.sitemap == false %}
     <url>
-      <loc>{{ page.url | prepend: site.baseurl | prepend: site.url }}</loc>
-      {% if page.date %}
-        <lastmod>{{ page.date | date_to_xmlschema }}</lastmod>
-      {% else %}
-        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
-      {% endif %}
-      <changefreq>monthly</changefreq>
-      <priority>0.8</priority>
+      <loc>{{ page.url | replace: 'index.html', '' | prepend: site.baseurl | prepend: site.url }}</loc>
+      {% assign lm = page.last_modified_at | default: page.date %}
+      {% if lm %}<lastmod>{{ lm | date_to_xmlschema }}</lastmod>{% endif %}
+      <priority>{% if page.url == '/' %}1.0{% else %}0.8{% endif %}</priority>
     </url>
     {% endunless %}
+    {% endif %}
   {% endfor %}
 
-  <!-- Blog posts -->
-  {% for post in site.posts %}
+  {% assign entries = site.posts | concat: site.projects | concat: site.notes | concat: site.info %}
+  {% for e in entries %}
     <url>
-      <loc>{{ post.url | prepend: site.baseurl | prepend: site.url }}</loc>
-      <lastmod>{{ post.date | date_to_xmlschema }}</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.7</priority>
-    </url>
-  {% endfor %}
-
-  <!-- Projects -->
-  {% for project in site.projects %}
-    <url>
-      <loc>{{ project.url | prepend: site.baseurl | prepend: site.url }}</loc>
-      {% if project.date %}
-        <lastmod>{{ project.date | date_to_xmlschema }}</lastmod>
-      {% else %}
-        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
-      {% endif %}
-      <changefreq>monthly</changefreq>
-      <priority>0.7</priority>
-    </url>
-  {% endfor %}
-
-  <!-- Notes -->
-  {% for note in site.notes %}
-    <url>
-      <loc>{{ note.url | prepend: site.baseurl | prepend: site.url }}</loc>
-      {% if note.date %}
-        <lastmod>{{ note.date | date_to_xmlschema }}</lastmod>
-      {% else %}
-        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
-      {% endif %}
-      <changefreq>monthly</changefreq>
-      <priority>0.6</priority>
-    </url>
-  {% endfor %}
-
-  <!-- Info pages -->
-  {% for info in site.info %}
-    <url>
-      <loc>{{ info.url | prepend: site.baseurl | prepend: site.url }}</loc>
-      {% if info.date %}
-        <lastmod>{{ info.date | date_to_xmlschema }}</lastmod>
-      {% else %}
-        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
-      {% endif %}
-      <changefreq>monthly</changefreq>
-      <priority>0.6</priority>
+      <loc>{{ e.url | prepend: site.baseurl | prepend: site.url }}</loc>
+      {% assign lm = e.last_modified_at | default: e.date %}
+      {% if lm %}<lastmod>{{ lm | date_to_xmlschema }}</lastmod>{% endif %}
+      <priority>{% if e.collection == 'posts' or e.collection == 'projects' %}0.7{% else %}0.6{% endif %}</priority>
     </url>
   {% endfor %}
 </urlset>

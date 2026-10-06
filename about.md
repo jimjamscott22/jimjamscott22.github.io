@@ -1,8 +1,9 @@
 ---
 layout: default
 title: About
+seo_title: "About Jamie Scott: Homelab & Security Student · Jamie Lab"
 permalink: /about/
-description: "Learn about Jamie, a cybersecurity enthusiast and homelab operator studying Information Science at SUNY Oswego."
+description: "Learn about Jamie Scott, a cybersecurity enthusiast and homelab operator studying Information Science at SUNY Oswego, building secure self-hosted systems and software."
 ---
 
 # About Jamie
@@ -53,9 +54,9 @@ I recently graduated with my BA in Information Science at University at SUNY Osw
   </div>
 
   <div class="about-visual">
-    <img src="{{ "/img/hackerdog.PNG" | relative_url }}" alt="Pic of dog" loading="lazy" decoding="async" />
+    <img src="{{ "/img/hackerdog.webp" | relative_url }}" alt="Dog in a hooded shirt and pixel sunglasses lounging on a couch with a mechanical keyboard and laptops showing green code" width="1195" height="1600" loading="lazy" decoding="async" />
     <p class="about-caption">The site owner's Hacker dog Dozer</p> 
-	<img src="{{ "/img/cyberme.JPG" | relative_url }}" alt="Pic of website owner" loading="lazy" decoding="async" />
+	<img src="{{ "/img/cyberme.JPG" | relative_url }}" alt="Stylized illustration of a hooded hacker with a glowing green circuit-pattern face working at a code-filled monitor" loading="lazy" decoding="async" />
     <p class="about-caption">The site owner</p>
   </div>
 </div>
