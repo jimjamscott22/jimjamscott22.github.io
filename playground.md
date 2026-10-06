@@ -75,7 +75,7 @@ Write and execute code directly in your browser. JavaScript runs in a sandboxed 
 
 <div class="playground-resources">
 <div class="resources-header">
-<h3>Coding Resources</h3>
+<h2>Coding Resources</h2>
 <p>Explore these curated learning platforms and documentation sites</p>
 </div>
 
@@ -83,7 +83,7 @@ Write and execute code directly in your browser. JavaScript runs in a sandboxed 
 <div class="resource-category">
 <div class="category-header">
 <span class="category-icon">📚</span>
-<h4>Official Docs</h4>
+<h3>Official Docs</h3>
 </div>
 <ul class="resource-list">
 <li>
@@ -110,7 +110,7 @@ Write and execute code directly in your browser. JavaScript runs in a sandboxed 
 <div class="resource-category">
 <div class="category-header">
 <span class="category-icon">🎓</span>
-<h4>Learning Platforms</h4>
+<h3>Learning Platforms</h3>
 </div>
 <ul class="resource-list">
 <li>
@@ -137,7 +137,7 @@ Write and execute code directly in your browser. JavaScript runs in a sandboxed 
 <div class="resource-category">
 <div class="category-header">
 <span class="category-icon">⚔️</span>
-<h4>Code Challenges</h4>
+<h3>Code Challenges</h3>
 </div>
 <ul class="resource-list">
 <li>

@@ -64,7 +64,7 @@ defaults:
 
 # Giscus Comments Configuration
 giscus:
-  enabled: true
+  enabled: false
   repo: "jimjamscott22/jimjamscott22.github.io"  # Your GitHub repo in format: username/repo
   repo_id: ""  # You'll need to get this from giscus.app
   category: "Comments"  # GitHub Discussion category name

@@ -18,7 +18,7 @@ tinkering at last became a dream!"
   <article class="card">
     <img src="{{ "/img/services.png" | relative_url }}" alt="web dash of running services" loading="lazy" decoding="async">
     <header class="card-header">
-      <h2>Dashboards</h2>
+      <h3>Dashboards</h3>
       <span class="badge status status-active">active</span>
     </header>
     <p>Centralized network dashboards provide real\-time status, traffic insights, and alerts for homelab devices and segments.</p>
@@ -33,7 +33,7 @@ tinkering at last became a dream!"
   <article class="card">
     <img src="{{ "/img/network_topology_var.png" | relative_url }}" alt="network diagram" loading="lazy" decoding="async">
     <header class="card-header">
-      <h2>Tailscale mesh</h2>
+      <h3>Tailscale mesh</h3>
       <span class="badge status status-active">active</span>
     </header>
     <p>Exit node, subnet router, and a few devices on the Tailnet for remote admin and quick access to files on my home network.</p>
@@ -52,7 +52,7 @@ tinkering at last became a dream!"
   <article class="card">
    <img src="{{ "/img/monitoring.JPG" | relative_url }}" alt="Monitoring Diagram" loading="lazy" decoding="async">
     <header class="card-header">
-      <h2>Observability stack</h2>
+      <h3>Observability stack</h3>
       <span class="badge status status-building">building</span>
     </header>
     <p>Prometheus + Grafana on a small VM; exporters on switches, APs, and Proxmox nodes.</p>
@@ -67,7 +67,7 @@ tinkering at last became a dream!"
   <article class="card">
     <img src="{{ "/img/fortinet.jpeg" | relative_url }}" alt="Fortinet diagram" loading="lazy" decoding="async">
     <header class="card-header">
-      <h2>VaultWarden-Services VM</h2>
+      <h3>VaultWarden-Services VM</h3>
       <span class="badge status status-building">building</span>
     </header>
     <p>Primary Docker host for VaultWarden (self-hosted password manager), with Unbound and a lightweight git/CI runner; all managed via IaC.</p>

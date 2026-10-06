@@ -31,6 +31,7 @@ Reference material and breakdowns on different subjects. Quick-access knowledge 
   <div id="info-count" class="search-count"></div>
 </div>
 
+<h2 class="sr-only">All info pages</h2>
 <div class="wiki-grid" id="info-grid">
   {% for entry in site.info %}
     <div class="info-card card"

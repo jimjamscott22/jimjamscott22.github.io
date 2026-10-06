@@ -665,7 +665,8 @@ th {
   text-transform: lowercase;
 }
 
-.card-header h2 {
+.card-header h2,
+.card-header h3 {
   margin: 0;
   font-size: 1rem;
   letter-spacing: 0.06em;

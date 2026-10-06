@@ -44,7 +44,7 @@ A rolling set of builds, tools, and lab experiments. Click a card to see how I b
           <img src="{{ project.image | relative_url }}" alt="{{ project.image_alt | default: project.title }}" loading="lazy" decoding="async" />
         {% endif %}
         <header class="card-header">
-          <h2><a href="{{ project.url | relative_url }}">{{ project.title }}</a></h2>
+          <h3><a href="{{ project.url | relative_url }}">{{ project.title }}</a></h3>
           {% if project.status %}<span class="badge status status-{{ project.status }}">{{ project.status }}</span>{% endif %}
         </header>
         {% if project.description %}<p>{{ project.description }}</p>{% endif %}
@@ -73,7 +73,7 @@ A rolling set of builds, tools, and lab experiments. Click a card to see how I b
           <img src="{{ project.image | relative_url }}" alt="{{ project.image_alt | default: project.title }}" loading="lazy" decoding="async" />
         {% endif %}
         <header class="card-header">
-          <h2><a href="{{ project.url | relative_url }}">{{ project.title }}</a></h2>
+          <h3><a href="{{ project.url | relative_url }}">{{ project.title }}</a></h3>
           {% if project.status %}<span class="badge status status-{{ project.status }}">{{ project.status }}</span>{% endif %}
         </header>
         {% if project.description %}<p>{{ project.description }}</p>{% endif %}

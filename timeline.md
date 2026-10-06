@@ -34,6 +34,7 @@ gantt
     {% endfor %}
 </div>
 
+<h2 class="sr-only">Posts and project milestones</h2>
 <div class="timeline-container">
   <div class="timeline-entries">
     {% comment %} Render posts {% endcomment %}

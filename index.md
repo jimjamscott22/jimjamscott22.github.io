@@ -1,10 +1,11 @@
 ---
 layout: default
 title: Home
-description: "JamieLab - Experiments, networks, homelab, and code. A personal cyber lab exploring security, networking, and software development."
+seo_title: "Jamie Scott · Homelab, Security & Software Projects"
+description: "Jamie Lab - Experiments, networks, homelab, and code. A personal cyber lab exploring security, networking, and software development."
 ---
 
-# JamieLab System Console
+# Jamie Lab System Console
 
 {% assign cache_bust = site.github.build_revision %}
 {% if cache_bust == nil or cache_bust == "" %}
@@ -20,7 +21,7 @@ description: "JamieLab - Experiments, networks, homelab, and code. A personal cy
 <div class="card-grid">
   <article class="card">
     <header class="card-header">
-      <h2><a href="{{ "/projects/chatarchive/" | relative_url }}">ChatArchive</a></h2>
+      <h3><a href="{{ "/projects/chatarchive/" | relative_url }}">ChatArchive</a></h3>
       <span class="badge status status-building">building</span>
     </header>
     <p>Pulls exported conversations from four AI tools into one searchable, self-hosted archive.</p>
@@ -32,7 +33,7 @@ description: "JamieLab - Experiments, networks, homelab, and code. A personal cy
 
   <article class="card">
     <header class="card-header">
-      <h2><a href="{{ "/projects/vaultwarden-byopm/" | relative_url }}">VaultWarden BYOPM</a></h2>
+      <h3><a href="{{ "/projects/vaultwarden-byopm/" | relative_url }}">VaultWarden BYOPM</a></h3>
       <span class="badge status status-building">building</span>
     </header>
     <p>Self-hosted password management, fully in-house — no third party holds the keys.</p>
@@ -43,7 +44,7 @@ description: "JamieLab - Experiments, networks, homelab, and code. A personal cy
 
   <article class="card">
     <header class="card-header">
-      <h2><a href="{{ "/projects/code-playground/" | relative_url }}">Code Playground</a></h2>
+      <h3><a href="{{ "/projects/code-playground/" | relative_url }}">Code Playground</a></h3>
       <span class="badge status status-active">active</span>
     </header>
     <p>Runs real JavaScript and Python in the browser — no install, no account, no server.</p>
@@ -59,7 +60,7 @@ description: "JamieLab - Experiments, networks, homelab, and code. A personal cy
 <div class="card-grid">
   <article class="card">
     <header class="card-header">
-      <h2><a href="{{ "/blog/2026/01/18/vaultwarden-backup-solution/" | relative_url }}">Self-Hosting Vaultwarden on a Raspberry Pi (With a Disaster-Recovery Fallback)</a></h2>
+      <h3><a href="{{ "/blog/2026/01/18/vaultwarden-backup-solution/" | relative_url }}">Self-Hosting Vaultwarden on a Raspberry Pi (With a Disaster-Recovery Fallback)</a></h3>
       <span class="badge tag">2026-01-18</span>
     </header>
     <p>Self-hosting a Bitwarden-compatible password manager on a Raspberry Pi 5, with a warm-standby second Pi as a disaster-recovery fallback.</p>
@@ -78,7 +79,7 @@ description: "JamieLab - Experiments, networks, homelab, and code. A personal cy
     decoding="async">
   <div class="profile-details">
     <p class="profile-callout">site operator :: jamie</p>
-    <h2>Signal Origin</h2>
+    <h3>Signal Origin</h3>
     <p>Hey, I’m Jamie—security tinkerer, homelab wrangler, and curator of this console. If you like neon terminals, packet traces, or odd experiments, you’re in the right place.</p>
   </div>
 </div>
