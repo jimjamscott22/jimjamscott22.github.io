@@ -1,12 +1,15 @@
 ---
 layout: default
 title: VaultWarden Services Compose Template
+description: "A reusable Docker Compose template for self-hosting Vaultwarden: compose structure, security hardening, network integration, backups, and maintenance tasks."
 date: 2025-12-28
 type: quick-note
 category: homelab
 tags: [docker, security, vaultwarden]
 permalink: /notes/vaultwarden-compose-template/
 ---
+
+# VaultWarden Services Compose Template
 
 **Date:** 2025-12-28  
 **Type:** Reference

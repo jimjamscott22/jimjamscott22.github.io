@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Git Commands Cheat Sheet
+description: "A Git commands cheat sheet: setup, branching, merging, rebasing, remotes, stashing, and undoing mistakes, organized as a quick reference with examples."
 date: 2026-02-15
 category: programming
 tags: [git, version-control, tools]

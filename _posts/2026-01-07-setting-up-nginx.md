@@ -7,7 +7,7 @@ description: "A quick guide on setting up a reverse proxy 'Nginx' up and running
 
 When getting a new Linux server or VM ready for remote access, setting up Nginx (reverse proxy) is one of the first tasks. Here’s a quick guide to get you started securely.
 
-# 🚀 Quick-Start Guide: Reverse Proxy Setup with Nginx  
+## 🚀 Quick-Start Guide: Reverse Proxy Setup with Nginx  
 
 ## **Overview**  
 This guide walks you through setting up **Nginx as a reverse proxy**, which forwards incoming HTTP/HTTPS requests to a local service (e.g., FastAPI running on `localhost:8000`). This is common for securing, scaling, or managing backend services.  

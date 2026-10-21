@@ -1,6 +1,7 @@
 ---
 layout: default
 title: pfSense Rule Tuning
+description: "A pfSense firewall runbook: tuning and ordering rules, performance tweaks, common issues, verification steps, and a rollback plan for the homelab."
 date: 2024-11-05
 type: runbook
 category: networking

@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Tailscale Subnet Routing
+description: "How to set up Tailscale subnet routing to reach a home LAN from anywhere: architecture, prerequisites, setup steps, verification, and security considerations."
 date: 2024-09-27
 type: how-to
 category: networking

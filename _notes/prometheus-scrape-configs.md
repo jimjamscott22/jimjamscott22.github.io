@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Prometheus Scrape Configs
+description: "A Prometheus scrape-config checklist for the homelab: a basic template, common exporters, service discovery, relabeling examples, and validation steps."
 date: 2024-08-14
 type: checklist
 category: homelab

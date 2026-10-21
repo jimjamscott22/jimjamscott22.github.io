@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Big-O Notation & Algorithm Complexity
+description: "Big-O cheat sheet with a growth-rate comparison and plain-English explanations of O(1), O(log n), O(n), O(n log n), O(n²), and slower, with code examples."
 date: 2026-02-15
 category: programming
 tags: [algorithms, complexity, big-o]

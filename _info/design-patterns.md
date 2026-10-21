@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Software Design Patterns
+description: "A software design patterns reference covering creational, structural, and behavioral patterns like Singleton, Factory, Builder, and Observer, with examples."
 date: 2026-02-15
 category: programming
 tags: [design-patterns, oop, software-engineering]

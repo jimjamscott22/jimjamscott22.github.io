@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Python Data Structures
+description: "Python data structures compared: list, tuple, set, dict, deque, namedtuple, and dataclass, with a quick-reference table, use cases, and complexity notes."
 date: 2026-02-15
 category: programming
 tags: [python, data-structures]

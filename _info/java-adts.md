@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Java Abstract Data Types
+description: "A guide to Java abstract data types and the Collections Framework: List, Set, Map, Queue, Deque, and Stack, with when to use each and example code."
 date: 2026-02-15
 category: programming
 tags: [java, data-structures, adt]

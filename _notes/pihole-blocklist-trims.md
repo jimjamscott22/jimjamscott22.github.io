@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Pi-hole Blocklist Trims
+description: "Quick notes on trimming Pi-hole blocklists: which lists I run, common whitelist additions, handy commands, and a maintenance schedule for fewer false positives."
 date: 2024-10-18
 type: quick-note
 category: homelab

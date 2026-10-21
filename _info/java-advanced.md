@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Java Advanced
+description: "Advanced Java reference: lambdas, the Streams API, Optional, records, sealed classes, pattern matching, generics, and concurrency, with code examples."
 date: 2026-05-22
 category: programming
 tags: [java, advanced, streams, concurrency, generics, records]

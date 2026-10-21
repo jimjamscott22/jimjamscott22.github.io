@@ -1,6 +1,7 @@
 ---
 layout: default
 title: OSI Model — The 7 Layers
+description: "The OSI model explained layer by layer, from Physical to Application, with protocols, devices, and data units for each layer plus a quick-reference table."
 date: 2026-02-15
 category: networking
 tags: [networking, osi, protocols]

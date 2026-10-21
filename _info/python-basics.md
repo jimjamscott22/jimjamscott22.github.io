@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Python Basics
+description: "Python basics reference: variables, types, operators, strings, collections, control flow, functions, comprehensions, and file I/O, with short examples."
 date: 2026-05-22
 category: programming
 tags: [python, basics, syntax, reference]

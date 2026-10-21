@@ -17,7 +17,7 @@ sudo apt update
 sudo apt install openssh-server
 ```
 
-# 2. Configure SSH
+### 2. Configure SSH
 Edit the SSH configuration file to enhance security:
 
 ```bash

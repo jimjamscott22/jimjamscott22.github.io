@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Sorting Algorithms
+description: "Sorting algorithms explained: bubble, selection, insertion, merge, quick, heap, and counting sort, with a comparison table, complexity, and code examples."
 date: 2026-02-15
 category: programming
 tags: [algorithms, sorting, data-structures]

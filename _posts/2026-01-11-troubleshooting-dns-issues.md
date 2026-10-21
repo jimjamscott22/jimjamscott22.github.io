@@ -6,8 +6,6 @@ tags: [dns, troubleshooting, networking]
 description: Common DNS troubleshooting steps and tools to diagnose connectivity problems.
 ---
 
-# Troubleshooting DNS Issues
-
 DNS problems can be frustrating and hard to track down. Here are some practical steps and tools to diagnose what's going wrong.
 
 ## Quick Diagnostic Commands

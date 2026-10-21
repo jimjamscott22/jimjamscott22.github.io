@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Python Advanced
+description: "Advanced Python reference: closures, decorators, generators, context managers, iterators, dunder methods, dataclasses, and modern type hints, with examples."
 date: 2026-05-22
 category: programming
 tags: [python, advanced, decorators, async, generators]

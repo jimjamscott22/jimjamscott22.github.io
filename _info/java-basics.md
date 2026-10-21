@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Java Basics
+description: "Java basics for beginners: syntax, primitive types, variables, strings, operators, control flow, arrays, and classes and objects, with short code examples."
 date: 2026-05-22
 category: programming
 tags: [java, basics, syntax, oop, reference]
