@@ -6,7 +6,7 @@ status: active
 last_updated: 2026-08-17
 tech_stack: [javascript, dom-security, xss-hardening]
 weight: 9
-featured: true
+featured: false
 description: "The site's interactive command-line overlay — and a real DOM XSS I introduced and then fixed, documented here as the security case study it actually is."
 repo: https://github.com/jimjamscott22/jimjamscott22.github.io/blob/main/assets/js/terminal.js
 ---

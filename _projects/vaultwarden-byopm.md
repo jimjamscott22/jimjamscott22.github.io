@@ -8,7 +8,7 @@ tech_stack: [docker, vaultwarden, unbound, gitea]
 milestone_date: 2025-12-01
 milestone_text: "Started self-hosted password manager migration"
 weight: 2
-featured: true
+featured: false
 description: "Self-hosted password manager with Docker, Unbound DNS, and automated backups—bringing your own password management home."
 image: /img/byopm_schematic.webp
 image_alt: "VaultWarden password manager schematic"

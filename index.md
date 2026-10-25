@@ -21,36 +21,37 @@ description: "Jamie Lab - Experiments, networks, homelab, and code. A personal c
 <div class="card-grid">
   <article class="card">
     <header class="card-header">
-      <h3><a href="{{ "/projects/chatarchive/" | relative_url }}">ChatArchive</a></h3>
+      <h3><a href="{{ "/projects/codevault/" | relative_url }}">CodeVault</a></h3>
       <span class="badge status status-building">building</span>
     </header>
-    <p>Pulls exported conversations from four AI tools into one searchable, self-hosted archive.</p>
+    <p>Keeps reusable code, commands, and configs in a local desktop vault with a companion CLI.</p>
     <div class="card-links">
-      <a class="card-link" href="{{ "/projects/chatarchive/" | relative_url }}">Case study →</a>
-      <a class="card-link" href="https://github.com/jimjamscott22/ChatArchive" target="_blank" rel="noopener noreferrer">Source →</a>
+      <a class="card-link" href="{{ "/projects/codevault/" | relative_url }}">Case study →</a>
+      <a class="card-link" href="https://github.com/jimjamscott22/Code-Vault" target="_blank" rel="noopener noreferrer">Source →</a>
     </div>
   </article>
 
   <article class="card">
     <header class="card-header">
-      <h3><a href="{{ "/projects/vaultwarden-byopm/" | relative_url }}">VaultWarden BYOPM</a></h3>
+      <h3><a href="{{ "/projects/waypoint/" | relative_url }}">Waypoint</a></h3>
       <span class="badge status status-building">building</span>
     </header>
-    <p>Self-hosted password management, fully in-house — no third party holds the keys.</p>
+    <p>Tracks job applications, discovers new matches, and turns follow-ups into a private dashboard.</p>
     <div class="card-links">
-      <a class="card-link" href="{{ "/projects/vaultwarden-byopm/" | relative_url }}">Case study →</a>
+      <a class="card-link" href="{{ "/projects/waypoint/" | relative_url }}">Case study →</a>
+      <a class="card-link" href="https://github.com/jimjamscott22/waypoint" target="_blank" rel="noopener noreferrer">Source →</a>
     </div>
   </article>
 
   <article class="card">
     <header class="card-header">
-      <h3><a href="{{ "/projects/code-playground/" | relative_url }}">Code Playground</a></h3>
-      <span class="badge status status-active">active</span>
+      <h3><a href="{{ "/projects/villagesim/" | relative_url }}">VillageSim</a></h3>
+      <span class="badge status status-building">building</span>
     </header>
-    <p>Runs real JavaScript and Python in the browser — no install, no account, no server.</p>
+    <p>Simulates autonomous village life with a Rust simulation and a React + Canvas renderer.</p>
     <div class="card-links">
-      <a class="card-link" href="{{ "/projects/code-playground/" | relative_url }}">Case study →</a>
-      <a class="card-link" href="{{ "/playground/" | relative_url }}">Live demo →</a>
+      <a class="card-link" href="{{ "/projects/villagesim/" | relative_url }}">Case study →</a>
+      <a class="card-link" href="https://github.com/jimjamscott22/Villiage-Sims" target="_blank" rel="noopener noreferrer">Source →</a>
     </div>
   </article>
 </div>
@@ -94,13 +95,4 @@ Network tools engaged.
     <div class="hero-caption">Where thoughts become bits [01010101] </div>
   </div>
 
-  <div class="hero-shot hero-shot--secondary">
-    <img src="{{ "/img/mini_me.JPG" | relative_url }}?v={{ cache_bust }}"
-         alt="Desk figurine of Jamie seated at workstation"
-         loading="lazy"
-         decoding="async">
-    <div class="hero-caption">
-      Physical avatar :: desk-side operator
-    </div>
-  </div>
 </div>

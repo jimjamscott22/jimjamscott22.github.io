@@ -6,7 +6,7 @@ status: active
 last_updated: 2026-08-30
 tech_stack: [javascript, python, pyodide, codemirror, webassembly]
 weight: 8
-featured: true
+featured: false
 description: "A browser-only multi-language runtime: a CodeMirror editor, sandboxed JavaScript execution, and real Python via Pyodide/WASM — no server, no accounts, shareable by URL."
 demo: /playground/
 repo: https://github.com/jimjamscott22/jimjamscott22.github.io/blob/main/assets/js/playground.js

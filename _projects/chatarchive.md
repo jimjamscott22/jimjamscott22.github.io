@@ -7,7 +7,7 @@ tech_stack: [python, fastapi, react, typescript, postgresql, supabase]
 milestone_date: 2025-11-01
 milestone_text: "Started ChatArchive conversation management app"
 weight: 1
-featured: true
+featured: false
 description: "A FastAPI and React app that imports conversations from four AI services into PostgreSQL so they can be searched, tagged, and organized in one place."
 image: /img/chatarchive_screenshot.png
 image_alt: "ChatArchive application screenshot showing chat interface"

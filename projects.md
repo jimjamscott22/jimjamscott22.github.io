@@ -3,7 +3,7 @@ layout: default
 title: Projects
 seo_title: "Homelab, Security & Software Projects · Jamie Lab"
 permalink: /projects/
-description: "A collection of builds, tools, and lab experiments including ThreatStream Lite, Fort Knox LAN, VaultWarden, and more homelab projects."
+description: "Explore CodeVault, Waypoint, and VillageSim alongside my developer tools, full-stack apps, and homelab projects."
 ---
 
 # Projects
@@ -40,7 +40,7 @@ A rolling set of builds, tools, and lab experiments. Click a card to see how I b
 <div class="card-grid">
   {% for project in all_projects %}
     {% if project.featured %}
-      <article class="card post-item" data-tags="{% if project.tech_stack %}{{ project.tech_stack | join: ',' | slugify: 'latin' }}{% endif %}">
+      <article class="card post-item" data-tags="{% for tech in project.tech_stack %}{{ tech | slugify }}{% unless forloop.last %},{% endunless %}{% endfor %}">
         {% if project.image %}
           <img src="{{ project.image | relative_url }}" alt="{{ project.image_alt | default: project.title }}" loading="lazy" decoding="async" />
         {% endif %}
@@ -69,7 +69,7 @@ A rolling set of builds, tools, and lab experiments. Click a card to see how I b
 <div class="card-grid">
   {% for project in all_projects %}
     {% unless project.featured %}
-      <article class="card post-item" data-tags="{% if project.tech_stack %}{{ project.tech_stack | join: ',' | slugify: 'latin' }}{% endif %}">
+      <article class="card post-item" data-tags="{% for tech in project.tech_stack %}{{ tech | slugify }}{% unless forloop.last %},{% endunless %}{% endfor %}">
         {% if project.image %}
           <img src="{{ project.image | relative_url }}" alt="{{ project.image_alt | default: project.title }}" loading="lazy" decoding="async" />
         {% endif %}

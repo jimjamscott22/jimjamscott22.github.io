@@ -6,7 +6,7 @@ status: active
 last_updated: 2026-01-01
 tech_stack: [html, css, linux, apache, raspberry-pi]
 weight: 0
-featured: true
+featured: false
 description: "My first deployed website, hosted on a SUNY Oswego Raspberry Pi server."
 image: /img/oswego_server_homepage.png
 image_alt: "Oswego Raspberry Pi server website homepage"
