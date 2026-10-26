@@ -27,3 +27,16 @@ Thumbs.db
 .cursor/hooks/state/continual-learning-index.json
 .cursor/hooks/state/continual-learning.json
 graphify-out/
+
+# Local AI tooling and installed Impeccable assets
+/.claude/settings.local.json
+/.codex/hooks.json
+/.cursor/hooks.json
+/.claude/skills/impeccable
+/.cursor/skills/impeccable
+/.github/skills/impeccable
+/.agents/skills/impeccable
+/.claude/agents
+/.cursor/agents/impeccable-*.md
+/.github/agents/impeccable-*.agent.md
+/.github/hooks/impeccable.json
