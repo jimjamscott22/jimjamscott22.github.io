@@ -5,12 +5,12 @@ _site/
 .bundle/
 vendor/
 assets/js/vendor/node_modules/
-Gemfile.lock
 
 # Local env vars
 .env
 .env.local
 .vercel
+/.aws/
 
 # Editor
 .vscode/
@@ -32,11 +32,13 @@ graphify-out/
 /.claude/settings.local.json
 /.codex/hooks.json
 /.cursor/hooks.json
+/.impeccable/config.local.json
+/.remember/
 /.claude/skills/impeccable
 /.cursor/skills/impeccable
 /.github/skills/impeccable
 /.agents/skills/impeccable
-/.claude/agents
+/.claude/agents/impeccable-*.md
 /.cursor/agents/impeccable-*.md
 /.github/agents/impeccable-*.agent.md
 /.github/hooks/impeccable.json
