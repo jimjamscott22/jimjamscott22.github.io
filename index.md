@@ -95,4 +95,9 @@ Network tools engaged.
     <div class="hero-caption">Where thoughts become bits [01010101] </div>
   </div>
 
+  <div class="hero-shot">
+    <img src="{{ "/img/homelab-network.webp" | relative_url }}?v={{ cache_bust }}" alt="Illustrated home server rack with neatly routed network cables, green status lights, and cyan packet trails" width="1536" height="1024" loading="lazy" decoding="async">
+    <div class="hero-caption">Connected by curiosity :: homelab illustration</div>
+  </div>
+
 </div>
