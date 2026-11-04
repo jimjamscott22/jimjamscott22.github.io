@@ -11,8 +11,9 @@ description: "Short informational posts, lab notes, and technical writeups cover
 Short informational posts, lab notes, and writeups. For a chronological view of all posts, see the [Archive](/archive/).
 
 <figure class="content-image content-image--small">
-  <img src="{{ "/img/cool-retro-term.png" | relative_url }}"
-       alt="Retro terminal screenshot"
+  <img src="{{ "/img/blog-notebook.webp" | relative_url }}"
+       alt="Glowing notebook and pen with technical sketches and an RSS symbol"
+       width="512" height="512"
        loading="lazy" decoding="async" />
 </figure>
 
