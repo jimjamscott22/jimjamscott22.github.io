@@ -16,6 +16,8 @@ description: "Jamie Lab - Experiments, networks, homelab, and code. A personal c
 
 <p class="identity-line">Jamie — BA in Information Science (SUNY Oswego). I build self-hosted security tooling and full-stack apps, and document how they work. Currently looking for an internship or entry-level role in security or software.</p>
 
+[GitHub](https://github.com/jimjamscott22) · [LinkedIn](https://www.linkedin.com/in/jimjamscozz22/) · [IT Support & Projects](https://jamie-scott.vercel.app/)
+
 ## Featured work
 
 <div class="card-grid">
