@@ -37,6 +37,4 @@ Empty-front-matter `.json` files for the search/site-data indexes instead of a J
 
 No `_includes/` directory — `post.html` and `project.html` each declare `layout: default` and repeat a little chrome-scaffolding rather than factoring shared bits into includes. For a two-layout site this trades a small amount of duplication for every layout being readable top-to-bottom in one file, which mattered more while the layouts were still changing shape often.
 
-## Lessons
-
-<!-- TODO: what you'd do differently -->
+<!-- TODO: add a "## Lessons" section here: what you'd do differently -->

@@ -16,10 +16,6 @@ image_alt: "Diagram of the Fort Knox LAN with its network segmented into VLANs"
 ## Overview
 Network hardening lab with segmented VLANs, pfSense rules, and repeatable IaC templates.
 
-## Decisions
+<!-- TODO: add a "## Decisions" section here: 2-3 real tradeoffs made building this, with the option rejected and why -->
 
-<!-- TODO: 2-3 real tradeoffs made building this, with the option rejected and why -->
-
-## Lessons
-
-<!-- TODO: what you'd do differently -->
+<!-- TODO: add a "## Lessons" section here: what you'd do differently -->

@@ -26,10 +26,6 @@ Lightweight intel aggregator pulling feeds into a local DB with quick search and
   <figcaption>Dashboard interface showing threat intelligence aggregation</figcaption>
 </figure>
 
-## Decisions
+<!-- TODO: add a "## Decisions" section here: 2-3 real tradeoffs made building this, with the option rejected and why -->
 
-<!-- TODO: 2-3 real tradeoffs made building this, with the option rejected and why -->
-
-## Lessons
-
-<!-- TODO: what you'd do differently -->
+<!-- TODO: add a "## Lessons" section here: what you'd do differently -->

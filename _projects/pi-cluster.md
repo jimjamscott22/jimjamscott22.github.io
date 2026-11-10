@@ -12,10 +12,6 @@ description: "Small ARM cluster for k3s experiments, lightweight services, and o
 ## Overview
 Small ARM cluster for k3s experiments, lightweight services, and observability demos.
 
-## Decisions
+<!-- TODO: add a "## Decisions" section here: 2-3 real tradeoffs made building this, with the option rejected and why -->
 
-<!-- TODO: 2-3 real tradeoffs made building this, with the option rejected and why -->
-
-## Lessons
-
-<!-- TODO: what you'd do differently -->
+<!-- TODO: add a "## Lessons" section here: what you'd do differently -->
