@@ -33,6 +33,4 @@ Four working utilities, no server round-trip for any of them — confirmed by gr
 
 Labeled the MD5 implementation as non-cryptographic in the code and left it in anyway — MD5 is still useful for checksums and demonstrating how a hash function is built, which is a legitimate reason to keep it, as long as nothing implies it's safe for passwords or signatures.
 
-## Lessons
-
-<!-- TODO: what you'd do differently -->
+<!-- TODO: add a "## Lessons" section here: what you'd do differently -->

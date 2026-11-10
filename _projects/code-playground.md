@@ -36,6 +36,4 @@ Pyodide loaded from a CDN on first use rather than bundled — it's tens of mega
 
 URL-encoded snippets instead of a share backend — the entire site is static GitHub Pages with nothing to write to, so persistence had to be either "no sharing" or "put the state in the URL." The latter also means shared links never expire or 404.
 
-## Lessons
-
-<!-- TODO: what you'd do differently -->
+<!-- TODO: add a "## Lessons" section here: what you'd do differently -->

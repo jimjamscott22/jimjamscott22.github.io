@@ -32,10 +32,6 @@ someone else's server that I don't fully control."
 - First time working with real Linux file permissions and a server I didn't
   own or configure from scratch
 
-## Decisions
+<!-- TODO: add a "## Decisions" section here: 2-3 real tradeoffs made building this, with the option rejected and why -->
 
-<!-- TODO: 2-3 real tradeoffs made building this, with the option rejected and why -->
-
-## Lessons
-
-<!-- TODO: what you'd do differently -->
+<!-- TODO: add a "## Lessons" section here: what you'd do differently -->

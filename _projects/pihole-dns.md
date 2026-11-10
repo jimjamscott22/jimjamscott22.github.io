@@ -39,10 +39,6 @@ DNS sinkhole tests, DoH/DoT trials, and dashboard tweaks for home clients and la
 ### Blocklists
 [StevenBlack hosts](https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts)
 
-## Decisions
+<!-- TODO: add a "## Decisions" section here: 2-3 real tradeoffs made building this, with the option rejected and why -->
 
-<!-- TODO: 2-3 real tradeoffs made building this, with the option rejected and why -->
-
-## Lessons
-
-<!-- TODO: what you'd do differently -->
+<!-- TODO: add a "## Lessons" section here: what you'd do differently -->

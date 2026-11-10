@@ -62,6 +62,4 @@ Escape-then-allowlist instead of a blocklist (stripping `<script>`, `onerror=`, 
 
 Fixed the render boundary instead of the ~20 command handlers — the handlers keep authoring `<span class="term-*">`-formatted strings exactly as before (no call-site changes, no risk of missing one), and the security property lives in one function instead of being an invariant every future command has to remember to uphold.
 
-## Lessons
-
-<!-- TODO: what you'd do differently -->
+<!-- TODO: add a "## Lessons" section here: what you'd do differently -->
