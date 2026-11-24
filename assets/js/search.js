@@ -75,7 +75,12 @@
     if (!searchIndexPromise) {
       searchIndexPromise = loadSearchIndex();
     }
+    const loader = window.TermLoader;
+    const pending = loader && searchCount && searchIndex.length === 0
+      ? loader.inline(searchCount, "indexing")
+      : null;
     await searchIndexPromise;
+    if (pending) pending.stop();
 
     const results = searchIndex.filter((item) => {
       const titleMatch = normalizeText(item.title).includes(normalizedQuery);

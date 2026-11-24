@@ -124,9 +124,11 @@
 
     // Show loading state
     submitBtn.disabled = true;
+    submitBtn.setAttribute('aria-busy', 'true');
     submitText.style.display = 'none';
     submitSpinner.style.display = 'inline';
     showStatus(formStatus, '', '');
+    const loading = window.TermLoader ? window.TermLoader.inline(submitSpinner, 'creating') : null;
 
     try {
       const response = await fetch(apiUrl, {
@@ -157,7 +159,9 @@
       console.error('Project creation error:', error);
       showStatus(formStatus, `✗ Failed to create project: ${error.message}`, 'error');
     } finally {
+      if (loading) loading.stop();
       submitBtn.disabled = false;
+      submitBtn.removeAttribute('aria-busy');
       submitText.style.display = 'inline';
       submitSpinner.style.display = 'none';
     }

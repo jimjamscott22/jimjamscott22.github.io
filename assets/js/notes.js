@@ -13,6 +13,8 @@
   const listEl = document.getElementById("notes-list");
   const emptyEl = document.getElementById("notes-empty");
   const countEl = document.getElementById("note-count");
+  const statusEl = document.getElementById("note-status");
+  const submitBtn = form ? form.querySelector(".note-submit") : null;
 
   const safeLocalStorage = (() => {
     try {
@@ -120,7 +122,7 @@
   const addNote = (title, body) => {
     const trimmedTitle = title.trim();
     const trimmedBody = body.trim();
-    if (!trimmedTitle || !trimmedBody) return;
+    if (!trimmedTitle || !trimmedBody) return false;
 
     const note = {
       id: `note-${Date.now()}-${Math.random().toString(16).slice(2, 8)}`,
@@ -132,6 +134,7 @@
     notes.unshift(note);
     saveNotes(notes);
     renderNotes();
+    return true;
   };
 
   const deleteNote = (id) => {
@@ -141,11 +144,56 @@
   };
 
   if (form) {
-    form.addEventListener("submit", (event) => {
+    let saving = false;
+
+    form.addEventListener("submit", async (event) => {
       event.preventDefault();
-      addNote(titleInput.value, bodyInput.value);
-      form.reset();
-      titleInput.focus();
+      if (saving) return;
+
+      const title = titleInput.value;
+      const body = bodyInput.value;
+      if (!title.trim() || !body.trim()) return;
+
+      const loader = window.TermLoader;
+      if (!loader || !statusEl) {
+        addNote(title, body);
+        form.reset();
+        titleInput.focus();
+        return;
+      }
+
+      // localStorage is synchronous, so hold the spinner briefly (minMs) so the
+      // write is visible as a terminal-style "writing -> OK" sequence.
+      saving = true;
+      let added = false;
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.setAttribute("aria-busy", "true");
+      }
+      try {
+        await loader.wrap(
+          statusEl,
+          () => {
+            added = addNote(title, body);
+            if (!added) throw new Error("nothing to save");
+            if (!safeLocalStorage) {
+              throw new Error("storage unavailable, note kept for this session only");
+            }
+          },
+          { label: "writing note", doneLabel: `saved "${title.trim().slice(0, 40)}"`, minMs: 450 }
+        );
+      } catch (err) {
+        // wrap() already printed [FAIL]. If storage was unavailable the note still
+        // exists in this session's list, so clear the form either way.
+      } finally {
+        if (added) form.reset();
+        saving = false;
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.removeAttribute("aria-busy");
+        }
+        titleInput.focus();
+      }
     });
   }
 
