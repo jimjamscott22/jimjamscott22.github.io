@@ -39,12 +39,15 @@
     }
   };
 
+  // Returns true only if the write actually reached storage.
   const saveNotes = (notes) => {
-    if (!safeLocalStorage) return;
+    if (!safeLocalStorage) return false;
     try {
       safeLocalStorage.setItem(STORAGE_KEY, JSON.stringify(notes));
+      return true;
     } catch (err) {
       console.warn("Failed to save notes:", err);
+      return false;
     }
   };
 
@@ -122,7 +125,7 @@
   const addNote = (title, body) => {
     const trimmedTitle = title.trim();
     const trimmedBody = body.trim();
-    if (!trimmedTitle || !trimmedBody) return false;
+    if (!trimmedTitle || !trimmedBody) return null;
 
     const note = {
       id: `note-${Date.now()}-${Math.random().toString(16).slice(2, 8)}`,
@@ -132,9 +135,10 @@
     };
 
     notes.unshift(note);
-    saveNotes(notes);
+    const persisted = saveNotes(notes);
     renderNotes();
-    return true;
+    // The note is always in this session's list; `persisted` says whether it survives a reload.
+    return { persisted };
   };
 
   const deleteNote = (id) => {
@@ -170,22 +174,29 @@
         submitBtn.disabled = true;
         submitBtn.setAttribute("aria-busy", "true");
       }
+      // Lock the fields for the duration so nothing typed after submit is lost by the
+      // reset below (readOnly, not disabled, so focus and caret stay put).
+      titleInput.readOnly = true;
+      bodyInput.readOnly = true;
       try {
         await loader.wrap(
           statusEl,
           () => {
-            added = addNote(title, body);
-            if (!added) throw new Error("nothing to save");
-            if (!safeLocalStorage) {
-              throw new Error("storage unavailable, note kept for this session only");
+            const result = addNote(title, body);
+            added = !!result;
+            if (!result) throw new Error("nothing to save");
+            if (!result.persisted) {
+              throw new Error("couldn't write to storage, note kept for this session only");
             }
           },
           { label: "writing note", doneLabel: `saved "${title.trim().slice(0, 40)}"`, minMs: 450 }
         );
       } catch (err) {
-        // wrap() already printed [FAIL]. If storage was unavailable the note still
+        // wrap() already printed [FAIL]. If storage rejected the write the note still
         // exists in this session's list, so clear the form either way.
       } finally {
+        titleInput.readOnly = false;
+        bodyInput.readOnly = false;
         if (added) form.reset();
         saving = false;
         if (submitBtn) {
