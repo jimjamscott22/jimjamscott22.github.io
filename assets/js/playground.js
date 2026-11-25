@@ -440,6 +440,9 @@ async function loadPyodide() {
 
   state.pyodideLoading = true;
   updateStatus('Loading Python runtime...', 'loading');
+  const stopSpin = window.TermLoader
+    ? window.TermLoader.ticker((f) => updateStatus(`> loading python runtime ${f}`, 'loading'))
+    : () => {};
 
   try {
     const script = document.createElement('script');
@@ -455,10 +458,12 @@ async function loadPyodide() {
       indexURL: `https://cdn.jsdelivr.net/pyodide/${PYODIDE_VERSION}/full/`
     });
 
+    stopSpin();
     state.pyodideReady = true;
     state.pyodideLoading = false;
     updateStatus('Python ready', 'ready');
   } catch (error) {
+    stopSpin();
     state.pyodideLoading = false;
     updateStatus('Failed to load Python', 'error');
     throw error;

@@ -13,6 +13,8 @@
   const listEl = document.getElementById("notes-list");
   const emptyEl = document.getElementById("notes-empty");
   const countEl = document.getElementById("note-count");
+  const statusEl = document.getElementById("note-status");
+  const submitBtn = form ? form.querySelector(".note-submit") : null;
 
   const safeLocalStorage = (() => {
     try {
@@ -37,12 +39,15 @@
     }
   };
 
+  // Returns true only if the write actually reached storage.
   const saveNotes = (notes) => {
-    if (!safeLocalStorage) return;
+    if (!safeLocalStorage) return false;
     try {
       safeLocalStorage.setItem(STORAGE_KEY, JSON.stringify(notes));
+      return true;
     } catch (err) {
       console.warn("Failed to save notes:", err);
+      return false;
     }
   };
 
@@ -120,7 +125,7 @@
   const addNote = (title, body) => {
     const trimmedTitle = title.trim();
     const trimmedBody = body.trim();
-    if (!trimmedTitle || !trimmedBody) return;
+    if (!trimmedTitle || !trimmedBody) return null;
 
     const note = {
       id: `note-${Date.now()}-${Math.random().toString(16).slice(2, 8)}`,
@@ -130,8 +135,10 @@
     };
 
     notes.unshift(note);
-    saveNotes(notes);
+    const persisted = saveNotes(notes);
     renderNotes();
+    // The note is always in this session's list; `persisted` says whether it survives a reload.
+    return { persisted };
   };
 
   const deleteNote = (id) => {
@@ -141,11 +148,63 @@
   };
 
   if (form) {
-    form.addEventListener("submit", (event) => {
+    let saving = false;
+
+    form.addEventListener("submit", async (event) => {
       event.preventDefault();
-      addNote(titleInput.value, bodyInput.value);
-      form.reset();
-      titleInput.focus();
+      if (saving) return;
+
+      const title = titleInput.value;
+      const body = bodyInput.value;
+      if (!title.trim() || !body.trim()) return;
+
+      const loader = window.TermLoader;
+      if (!loader || !statusEl) {
+        addNote(title, body);
+        form.reset();
+        titleInput.focus();
+        return;
+      }
+
+      // localStorage is synchronous, so hold the spinner briefly (minMs) so the
+      // write is visible as a terminal-style "writing -> OK" sequence.
+      saving = true;
+      let added = false;
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.setAttribute("aria-busy", "true");
+      }
+      // Lock the fields for the duration so nothing typed after submit is lost by the
+      // reset below (readOnly, not disabled, so focus and caret stay put).
+      titleInput.readOnly = true;
+      bodyInput.readOnly = true;
+      try {
+        await loader.wrap(
+          statusEl,
+          () => {
+            const result = addNote(title, body);
+            added = !!result;
+            if (!result) throw new Error("nothing to save");
+            if (!result.persisted) {
+              throw new Error("couldn't write to storage, note kept for this session only");
+            }
+          },
+          { label: "writing note", doneLabel: `saved "${title.trim().slice(0, 40)}"`, minMs: 450 }
+        );
+      } catch (err) {
+        // wrap() already printed [FAIL]. If storage rejected the write the note still
+        // exists in this session's list, so clear the form either way.
+      } finally {
+        titleInput.readOnly = false;
+        bodyInput.readOnly = false;
+        if (added) form.reset();
+        saving = false;
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.removeAttribute("aria-busy");
+        }
+        titleInput.focus();
+      }
     });
   }
 

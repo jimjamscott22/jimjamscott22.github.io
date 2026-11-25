@@ -697,10 +697,28 @@ Building secure systems and breaking them (ethically).
       const value = input.value;
       appendOutput(value, true);
       input.value = '';
+      let busyLine = null;
+      let stopBusy = () => {};
+      // Only show a spinner if the command is still running after a beat (fast commands stay clean).
+      const busyTimer = setTimeout(() => {
+        const out = document.getElementById('cli-terminal-output');
+        if (!out || !window.TermLoader) return;
+        busyLine = document.createElement('div');
+        busyLine.className = 'cli-terminal-line term-dim';
+        out.appendChild(busyLine);
+        stopBusy = window.TermLoader.ticker((f) => { busyLine.textContent = `> working... ${f}`; });
+        out.scrollTop = out.scrollHeight;
+      }, 150);
       try {
         const result = await executeCommand(value);
+        clearTimeout(busyTimer);
+        stopBusy();
+        if (busyLine) busyLine.remove();
         if (result) appendOutput(result);
       } catch (error) {
+        clearTimeout(busyTimer);
+        stopBusy();
+        if (busyLine) busyLine.remove();
         console.warn('Terminal command execution failed', error);
         appendOutput('<span class="term-error">Command failed. Please try again.</span>');
       } finally {

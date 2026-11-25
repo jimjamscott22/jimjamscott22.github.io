@@ -58,6 +58,7 @@ Five CSS themes in `assets/css/`: `cyber-lab`, `enhanced-matrix`, `light-termina
 ### JavaScript
 
 Most JS is static in `assets/js/` — no bundler. Exception: `playground.js` imports pre-bundled `playground-cm.bundle.js` (CodeMirror). Key files:
+- `loader.js` — Terminal-style loading states (`window.TermLoader`): page-transition bar on internal link clicks, inline `> label... |` spinners via `inline()`/`wrap()`, `ticker()` for custom elements. Respects `prefers-reduced-motion`; styles are at the end of `base.css`. Callers feature-check `window.TermLoader`.
 - `search.js` — Client-side content search
 - `theme-switcher.js` — Theme switching
 - `notes.js` — Notes with `localStorage` persistence

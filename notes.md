@@ -130,6 +130,7 @@ Low-friction visual thinking. If it survives iteration, it graduates to a projec
     <div class="note-actions">
       <button type="submit" class="note-submit">Save note</button>
       <span class="note-hint">Stored locally in your browser. No sync, no server.</span>
+      <span id="note-status" class="term-status" role="status" aria-live="polite"></span>
     </div>
   </form>
 
